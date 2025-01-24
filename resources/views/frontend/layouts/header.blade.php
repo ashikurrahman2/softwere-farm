@@ -84,7 +84,7 @@
                                     </li>
     
                                     <li class="nav-item">
-                                        <a href="about.html" class="nav-link">
+                                        <a href="{{ route('about') }}" class="nav-link">
                                             About
                                         </a>
                                     </li>
@@ -102,7 +102,7 @@
                                             </li>
     
                                             <li class="nav-item">
-                                                <a href="testimonials.html" class="nav-link">
+                                                <a href="{{ route('test') }}" class="nav-link">
                                                     Testimonials
                                                 </a>
                                             </li>
@@ -111,25 +111,6 @@
                                                 <a href="faq.html" class="nav-link">
                                                     FAQ
                                                 </a>
-                                            </li>
-    
-                                           <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    Case Study 
-                                                    <i class='bx bx-caret-down'></i>
-                                                </a>
-                                                <ul class="dropdown-menu">
-                                                    <li class="nav-item">
-                                                        <a href="case-study.html" class="nav-link">
-                                                            Case Study  
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a href="case-details.html" class="nav-link">
-                                                            Case Study Details 
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
     
                                             <li class="nav-item">
@@ -144,15 +125,11 @@
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a href="register.html" class="nav-link">
+                                                        <a href="{{ route('register') }}" class="nav-link">
                                                             Registration
                                                         </a>
                                                     </li>
-                                                    <li class="nav-item">
-                                                        <a href="forget-password.html" class="nav-link">
-                                                            Forget Password
-                                                        </a>
-                                                    </li>
+                                                
                                                 </ul>
                                             </li>
     
@@ -172,7 +149,7 @@
                                     </li>
     
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{ route('service') }}" class="nav-link">
                                             Services 
                                             
                                         </a>
@@ -181,7 +158,7 @@
     
     
                                     <li class="nav-item">
-                                        <a href="contact.html" class="nav-link">
+                                        <a href="{{ route('contact') }}" class="nav-link">
                                             Contact
                                         </a>
                                     </li>
@@ -201,7 +178,7 @@
     
                                     <div class="nav-side-item">
                                         <div class="get-btn">
-                                            <a href="contact.html" class="default-btn btn-bg-two border-radius-50">Get A Quote <i class='bx bx-chevron-right'></i></a>
+                                            <a href="{{ route('contact') }}" class="default-btn btn-bg-two border-radius-50">Get A Quote <i class='bx bx-chevron-right'></i></a>
                                         </div>	
                                     </div>
                                 </div>

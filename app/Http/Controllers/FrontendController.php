@@ -20,5 +20,21 @@ class FrontendController extends Controller
         return view('frontend.pages.team');
     }
 
- 
+    public function Service()
+    {
+        return view('frontend.pages.service');
+    }
+
+    public function About(){
+        return view('frontend.pages.about');
+    }
+
+    public function Communicate(){
+        return view('frontend.pages.contact');
+    }
+
+    public function Testi(){
+        return view('frontend.pages.testimonial');
+    }
+    
 }

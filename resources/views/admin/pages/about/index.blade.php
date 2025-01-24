@@ -39,6 +39,8 @@
                         <th>Image</th>
                         <th>Signature</th>
                         <th>Description</th>
+                        <th>Our Mission</th>
+                        <th>Experience</th>
                         <th>Action</th>
                     </tr>
                   </thead>
@@ -52,6 +54,8 @@
                         <th>Image</th>
                         <th>Signature</th>
                         <th>Description</th>
+                        <th>Our Mission</th>
+                        <th>Experience</th>
                         <th>Action</th>
                     </tr>
                   </tfoot>
@@ -102,8 +106,19 @@
                 </div>
             </div>
 
-                  
-           
+            <div class="col-md-12">
+              <div class="mb-3">
+                  <label class="form-label">Our Mission</label>
+                  <textarea class="form-control textarea" name="our_mission	" id="summernote" rows="4" >{{old('our_mission')}}</textarea> 
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="experience" class="col-form-label pt-0">Experience<sup class="text-size-20 top-1">*</sup></label>
+              <input type="number" class="form-control" id="experience" name="experience" required>
+              <small id="emailHelp" class="form-text text-muted">Company Title</small>
+          </div>
+
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary"> <span class="d-none"> loading ......</span> Submit</button>
                 </div>
@@ -143,6 +158,8 @@
                 { data: 'photo', name: 'photo' },
                 { data: 'signature', name: 'signature' },
                 { data: 'description', name: 'description' },
+                { data: 'our_mission', name: 'our_mission' },
+                { data: 'experience', name: 'experience' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
       });

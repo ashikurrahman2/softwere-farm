@@ -19,6 +19,8 @@ class About extends Model
         'photo',
         'signature',
         'description',
+        'experience',
+        'our_mission',
     ];
 
     // Function to upload and resize image
@@ -83,6 +85,8 @@ class About extends Model
         $about->photo       = $photoUrl;
         $about->signature   = $signatureUrl;
         $about->description = $request->description;
+        $about->our_mission	 = $request->our_mission;
+        $about->experience	 = $request->experience;
         $about->save();
     }
 

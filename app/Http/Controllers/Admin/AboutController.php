@@ -78,11 +78,14 @@ class AboutController extends Controller
             'photo'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'signature'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
+            'our_mission	' => 'required|string',
+            'experience' => 'required|integer',
         ]);
 
             //  Remove HTML tag
             $request->merge([
                 'description' => strip_tags($request->description),
+            
             ]);
         About::newAbout($request);
         $this->toastr->success('About created successfully!');
@@ -113,9 +116,11 @@ class AboutController extends Controller
     {
         $request->validate([
             'title'       => 'required|string|max:255',
-            'photo'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'signature'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
+            'our_mission	' => 'required|string',
+            'experience' => 'required|integer',
         ]);
 
         // Check if a new photo file is uploaded
@@ -158,6 +163,8 @@ if ($request->hasFile('signature')) {
         'photo' => $validated['photo'],
         'signature' => $validated['signature'],
         'description' => $validated['description'],
+        'our_mission' => $validated['our_mission'],
+        'experience' => $validated['experience'],
     ]);
 
     $this->toastr->Success('About updated successfully!');

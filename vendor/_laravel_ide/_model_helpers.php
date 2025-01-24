@@ -275,6 +275,8 @@ namespace App\Models {
      *
      * @property \Illuminate\Support\Carbon $updated_at
      * @property \Illuminate\Support\Carbon $created_at
+     * @property string|null $our_mission
+     * @property int|null $experience
      * @property string|null $description
      * @property string|null $signature
      * @property string|null $photo
@@ -285,6 +287,8 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder|About wherePhoto($value)
      * @method static \Illuminate\Database\Eloquent\Builder|About whereSignature($value)
      * @method static \Illuminate\Database\Eloquent\Builder|About whereDescription($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|About whereExperience($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|About whereOurMission($value)
      * @method static \Illuminate\Database\Eloquent\Builder|About whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|About whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|About newModelQuery()

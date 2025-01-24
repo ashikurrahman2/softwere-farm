@@ -47,6 +47,19 @@
       </div>
   </div>
 
+  <div class="col-md-12">
+    <div class="mb-3">
+        <label class="form-label">Our Mission</label>
+        <textarea class="form-control textarea" name="our_mission	" id="summernote" rows="4" >{{ $about->our_mission}}</textarea> 
+    </div>
+</div>
+
+<div class="form-group">
+  <label for="experience" class="col-form-label pt-0">Experience<sup class="text-size-20 top-1">*</sup></label>
+    <input type="number" class="form-control" id="experience" name="experience" value="{{ $about->experience }}" required>
+    <small id="emailHelp" class="form-text text-muted">Company Title</small>
+</div>
+
         
  
       <div class="modal-footer">
