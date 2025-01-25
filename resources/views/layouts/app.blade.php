@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>IT | @yield('title')</title>
+	<title>SkyCode Solutions | @yield('title')</title>
 
 	 <!-- Bootstrap CSS --> 
 	 <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/bootstrap.min.css">

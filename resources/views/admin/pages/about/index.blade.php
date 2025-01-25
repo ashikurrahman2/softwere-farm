@@ -109,7 +109,7 @@
             <div class="col-md-12">
               <div class="mb-3">
                   <label class="form-label">Our Mission</label>
-                  <textarea class="form-control textarea" name="our_mission	" id="summernote" rows="4" >{{old('our_mission')}}</textarea> 
+                  <textarea class="form-control textarea" name="our_mission" id="summernote1" rows="4" >{{old('our_mission')}}</textarea> 
               </div>
           </div>
 
@@ -185,6 +185,21 @@
             }
         });
     });
+
+     // Summernote script
+     $(document).ready(function() {
+    $('#summernote1').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents, $editable) {
+                // Strip HTML tags for plain text
+                let textOnly = $('<div>').html(contents).text();
+                $('#summernote1').val(textOnly);
+            }
+        }
+    });
+});
+
  
   </script>
   

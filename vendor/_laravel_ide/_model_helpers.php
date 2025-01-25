@@ -1295,14 +1295,22 @@ namespace App\Models {
      *
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
+     * @property string|null $service_provide
+     * @property string|null $service_benifit
+     * @property string|null $working_process
      * @property string|null $service_details
+     * @property string|null $service_subtitle
      * @property string|null $service_title
      * @property string|null $service_icon
      * @property int $id
      * @method static \Illuminate\Database\Eloquent\Builder|Service whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Service whereServiceIcon($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Service whereServiceTitle($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Service whereServiceSubtitle($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Service whereServiceDetails($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Service whereWorkingProcess($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Service whereServiceBenifit($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Service whereServiceProvide($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Service whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Service whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Service newModelQuery()

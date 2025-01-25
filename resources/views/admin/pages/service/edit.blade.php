@@ -6,6 +6,34 @@
         <input type="text" class="form-control" id="service_title" name="service_title" value="{{ $service->service_title }}" required>
         <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
     </div>
+
+    
+    <div class="form-group">
+      <label for="service_subtitle" class="col-form-label pt-0">Service Subtitle<sup class="text-size-20 top-1">*</sup></label>
+        <input type="text" class="form-control" id="service_subtitle" name="service_subtitle" value="{{ $service->service_subtitle }}" required>
+        <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+    </div>
+
+    <div class="col-md-12">
+      <div class="mb-3">
+          <label class="form-label">Work Process</label>
+          <textarea class="form-control textarea" name="working_process" id="summernote1" rows="4" >{{ $service->working_process }}</textarea> 
+      </div>
+  </div>
+
+
+  <div class="col-md-12">
+    <div class="mb-3">
+        <label class="form-label">Service Benifit</label>
+        <textarea class="form-control textarea" name="service_benifit" id="summernote2" rows="4" >{{ $service->service_benifit }}</textarea> 
+    </div>
+</div>
+
+<div class="form-group">
+  <label for="service_provide" class="col-form-label pt-0">Service Provide<sup class="text-size-20 top-1">*</sup></label>
+    <input type="text" class="form-control" id="service_provide" name="service_provide" value="{{ $service->service_provide }}" required>
+    <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+</div>
     <div class="col-md-12">
       <div class="mb-3">
           <label class="form-label">Service Details</label>

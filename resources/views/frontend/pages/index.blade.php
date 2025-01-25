@@ -87,7 +87,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="services-item">
                             <a href="service-details.html">
-                                <img src="assets/images/services/services-img1.jpg" alt="Images">
+                                <img src="{{ asset('/') }}frontend/assets/images/services/services-img1.jpg" alt="Images">
                             </a>
                             <div class="content">
                                 <i class="flaticon-consultant"></i>

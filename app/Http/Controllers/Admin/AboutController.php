@@ -78,13 +78,14 @@ class AboutController extends Controller
             'photo'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'signature'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
-            'our_mission	' => 'required|string',
+            'our_mission' => 'required|string',
             'experience' => 'required|integer',
         ]);
 
             //  Remove HTML tag
             $request->merge([
                 'description' => strip_tags($request->description),
+                'our_mission' => strip_tags($request->our_mission),
             
             ]);
         About::newAbout($request);
@@ -119,7 +120,7 @@ class AboutController extends Controller
             'photo'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'signature'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
-            'our_mission	' => 'required|string',
+            'our_mission' => 'required|string',
             'experience' => 'required|integer',
         ]);
 

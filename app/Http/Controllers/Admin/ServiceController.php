@@ -70,12 +70,18 @@ class ServiceController extends Controller
 
             'service_details' => 'required|string|max:255',
             'service_title' => 'required|string|max:255',
+            'service_subtitle' => 'required|string|max:255',
+            'working_process' => 'required|string|max:255',
+            'service_benifit' => 'required|string|max:255',
+            'service_provide' => 'required|string|max:255',
             'service_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
               //  Remove HTML tag
               $request->merge([
                 'service_details' => strip_tags($request->service_details),
+                'working_process' => strip_tags($request->working_process),
+                'service_benifit' => strip_tags($request->service_benifit),
             ]);
 
             Service::newServices($request);
@@ -108,6 +114,10 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'service_details' => 'required|string|max:255',
             'service_title' => 'required|string|max:255',
+            'service_subtitle' => 'required|string|max:255',
+            'working_process' => 'required|string|max:255',
+            'service_benifit' => 'required|string|max:255',
+            'service_provide' => 'required|string|max:255',
             'service_icon' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     
@@ -132,6 +142,10 @@ class ServiceController extends Controller
         $service->update([
             'service_details' => $validated['service_details'],
             'service_title' => $validated['service_title'],
+            'service_subtitle' => $validated['service_subtitle'],
+            'working_process' => $validated['working_process'],
+            'service_benifit' => $validated['service_benifit'],
+            'service_provide' => $validated['service_provide'],
         ]);
     
         // Success message

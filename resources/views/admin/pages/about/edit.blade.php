@@ -1,4 +1,4 @@
-<form action="{{route('about.update', $$about->id)}}" method="post" id="add-form" enctype="multipart/form-data">
+<form action="{{route('about.update', $about->id)}}" method="post" id="add-form" enctype="multipart/form-data">
     @csrf
     @method('PUT')
       <div class="form-group">
@@ -50,7 +50,7 @@
   <div class="col-md-12">
     <div class="mb-3">
         <label class="form-label">Our Mission</label>
-        <textarea class="form-control textarea" name="our_mission	" id="summernote" rows="4" >{{ $about->our_mission}}</textarea> 
+        <textarea class="form-control textarea" name="our_mission	" id="summernote1" rows="4" >{{ $about->our_mission}}</textarea> 
     </div>
 </div>
 

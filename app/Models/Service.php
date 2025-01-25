@@ -18,6 +18,10 @@ class Service extends Model
         'service_icon',
         'service_title',
         'service_details',
+        'service_subtitle',
+        'working_process',
+        'service_benifit',
+        'service_provide',
     ];
 
             // Function to upload and resize image
@@ -73,6 +77,10 @@ private static function getImageUrl($request)
    {
        $service->service_icon           = $imageUrl;
        $service->service_title          = $request->service_title;
+       $service->service_subtitle          = $request->service_subtitle;
+       $service->working_process          = $request->working_process;
+       $service->service_benifit          = $request->service_benifit;
+       $service->service_provide          = $request->service_provide;
        $service->service_details        = $request->service_details;
        $service->save();
    }
