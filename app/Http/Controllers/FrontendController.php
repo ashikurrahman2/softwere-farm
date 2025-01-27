@@ -37,5 +37,9 @@ class FrontendController extends Controller
     public function Testi(){
         return view('frontend.pages.testimonial');
     }
+
+    public function Case(){
+        return view('frontend.pages.case_details');
+    }
     
 }

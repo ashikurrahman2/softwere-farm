@@ -22,6 +22,7 @@ class About extends Model
         'choseesupport_description',
         'chose_title',
         'description',
+        'chose_description',
         'experience',
         'our_mission',
     ];
@@ -94,6 +95,7 @@ public static function updateAbout($request, $id)
         $about->photo       = $photoUrl;
         $about->signature   = $signatureUrl;
         $about->description = $request->description;
+        $about->chose_description = $request->chose_description;
         $about->our_mission	 = $request->our_mission;
         $about->experience	 = $request->experience;
         $about->save();

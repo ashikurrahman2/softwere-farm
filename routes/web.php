@@ -14,6 +14,7 @@ Route::get('/services', [FrontendController:: class, 'Service'])->name('service'
 Route::get('/Teams', [FrontendController:: class, 'Team'])->name('teams');
 Route::get('/testimonial', [FrontendController:: class, 'Testi'])->name('test');
 Route::get('/contacts', [FrontendController:: class, 'Communicate'])->name('contact');
+Route::get('/case-study', [FrontendController:: class, 'Case'])->name('cdetails');
 
 
 // Dashboard route

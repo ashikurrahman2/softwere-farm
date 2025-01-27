@@ -81,6 +81,7 @@ class AboutController extends Controller
             'photo'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'signature'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
+            'chose_description' => 'required|string',
             'our_mission' => 'required|string',
             'experience' => 'required|integer',
         ]);
@@ -91,6 +92,7 @@ class AboutController extends Controller
                 'our_mission' => strip_tags($request->our_mission),
                 'choseesupport_description' => strip_tags($request->choseesupport_description),
                 'choseexperience_description' => strip_tags($request->choseexperience_description),
+                'chose_description' => strip_tags($request->chose_description),
             
             ]);
         About::newAbout($request);
@@ -127,20 +129,16 @@ public function update(Request $request, About $about)
         'photo'                        => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
         'signature'                    => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         'description'                  => 'required|string',
+        'chose_description'            => 'required|string',
         'our_mission'                  => 'required|string',
         'experience'                   => 'required|integer',
     ]);
 
     // Call updateAbout method and pass the ID
     About::updateAbout($request, $about->id);
-
     $this->toastr->success('About Updated successfully!');
     return back();
 }
-
-
-
-
 
     /**
      * Remove the specified resource from storage.

@@ -41,6 +41,7 @@
                         <th>Description</th>
                         <th>Our Mission</th>
                         <th>Choose Title</th>
+                        <th>Choose Description</th>
                         <th>Choose Support Description</th>
                         <th>Choose Experience Description</th>
                         <th>Experience</th>
@@ -59,6 +60,7 @@
                         <th>Description</th>
                         <th>Our Mission</th>
                         <th>Choose Title</th>
+                        <th>Choose Description</th>
                         <th>Choose Support Description</th>
                         <th>Choose Experience Description</th>
                         <th>Experience</th>
@@ -127,6 +129,13 @@
 
           <div class="col-md-12">
             <div class="mb-3">
+                <label class="form-label">Choose Description</label>
+                <textarea class="form-control textarea" name="chose_description" id="summernote4" rows="4" >{{old('chose_description')}}</textarea> 
+            </div>
+        </div>
+
+          <div class="col-md-12">
+            <div class="mb-3">
                 <label class="form-label">Choose Support Description</label>
                 <textarea class="form-control textarea" name="choseesupport_description" id="summernote2" rows="4" >{{old('choseesupport_description')}}</textarea> 
             </div>
@@ -186,6 +195,7 @@
                 { data: 'description', name: 'description' },
                 { data: 'our_mission', name: 'our_mission' },
                 { data: 'chose_title', name: 'chose_title' },
+                { data: 'chose_description', name: 'chose_description' },
                 { data: 'choseesupport_description', name: 'choseesupport_description' },
                 { data: 'choseexperience_description', name: 'choseexperience_description' },
                 { data: 'experience', name: 'experience' },
@@ -253,6 +263,21 @@
                 // Strip HTML tags for plain text
                 let textOnly = $('<div>').html(contents).text();
                 $('#summernote3').val(textOnly);
+            }
+        }
+    });
+});
+
+
+     // Summernote script
+     $(document).ready(function() {
+    $('#summernote4').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents, $editable) {
+                // Strip HTML tags for plain text
+                let textOnly = $('<div>').html(contents).text();
+                $('#summernote4').val(textOnly);
             }
         }
     });

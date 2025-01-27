@@ -62,6 +62,13 @@
 
 <div class="col-md-12">
   <div class="mb-3">
+      <label class="form-label">Choose Description</label>
+      <textarea class="form-control textarea" name="chose_description" id="summernote2" rows="4" >{{ $about->chose_description }}</textarea> 
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
       <label class="form-label">Choose Support Description</label>
       <textarea class="form-control textarea" name="choseesupport_description" id="summernote2" rows="4" >{{ $about->choseesupport_description }}</textarea> 
   </div>

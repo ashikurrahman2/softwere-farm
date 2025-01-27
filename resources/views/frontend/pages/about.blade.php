@@ -86,10 +86,8 @@
                         <div class="choose-content mr-20">
                             <div class="section-title">
                                 <span class="sp-color1">Why Choose Us</span>
-                                <h2>We Provide Truly Prominent It Solutions.</h2>
-                                <p>
-                                    Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum auctor a ornare odio. 
-                                </p>
+                                <h2>{{ $about->chose_title }}</h2>
+                                <p>{{ $about->chose_description }}</p>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 col-6">
@@ -98,7 +96,7 @@
                                             <i class="flaticon-practice"></i>
                                             <h3>Experience</h3>
                                         </div>
-                                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</p>
+                                        <p>{{ $about->choseexperience_description }}</p>
                                     </div>
                                 </div>
     
@@ -108,7 +106,7 @@
                                             <i class="flaticon-help"></i>
                                             <h3>Quick Support</h3>
                                         </div>
-                                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet</p>
+                                        <p>{{ $about->choseesupport_description }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +135,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="security-card">
                             <i class="flaticon-cyber-security"></i>
-                            <h3><a href="case-details.html">Business Security</a></h3>
+                            <h3><a href="{{ route('cdetails') }}">Business Security</a></h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam blandit scelerisque ullamcorper proin scelerisque tortor odio.</p>
                         </div>
                     </div>

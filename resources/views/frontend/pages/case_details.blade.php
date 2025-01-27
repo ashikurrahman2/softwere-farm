@@ -11,7 +11,7 @@
                     <h3>Case Study Details</h3>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li>
                             <i class='bx bx-chevrons-right'></i>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="inner-shape">
-                <img src="assets/images/shape/inner-shape.png" alt="Images">
+                <img src="{{ asset('/') }}frontend/assets/images/shape/inner-shape.png" alt="Images">
             </div>
         </div>
         <!-- Inner Banner End -->
@@ -33,7 +33,7 @@
                     <div class="col-lg-8">
                         <div class="case-article">
                             <div class="case-article-img">
-                               <img src="assets/images/case-study/case-details.jpg" alt="Images">
+                               <img src="{{ asset('/') }}frontend/assets/images/case-study/case-details.jpg" alt="Images">
                             </div>
                             <div class="case-article-content">
                                 <h2>Web Development</h2>
@@ -46,7 +46,7 @@
                                     li, porttitor eu, consequat vitae, eleifend ac, enim.
                                 </p>
 
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <ul class="case-article-list case-article-rs case-article-ls">
                                             <li><i class='bx bxs-check-circle'></i>Cost of Supplies and Equipment</li>
@@ -62,21 +62,10 @@
                                             <li><i class='bx bxs-check-circle'></i>Good Quality Products Services</li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. cu 
-                                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies ne, 
-                                    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet n, 
-                                    vu eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis 
-                                    pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aen  
-                                    li, porttitor eu, consequat vitae, eleifend ac, enim.
-                                </p>
                             </div>
 
-                            <div class="case-play-btn">
-                                <a href="https://www.youtube.com/watch?v=tUP5S4YdEJo" class="case-play popup-btn"><i class='bx bx-play'></i></a>
-                            </div>
 
                             <div class="case-article-another">
                                 <h2>What Benefit You Will Get</h2>
@@ -91,7 +80,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-6">
                                         <div class="case-article-another-img">
-                                            <img src="assets/images/case-study/case-study1.jpg" alt="Images">
+                                            <img src="{{ asset('/') }}frontend/assets/images/case-study/case-study1.jpg" alt="Images">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-6">
@@ -100,12 +89,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p>
+                                {{-- <p>
                                     Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed
                                     odio sit amet.Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
                                     Duis sed odio sit amet.Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh
                                     id elit. Duis sed odio sit amet. li, porttitor eu, consequat vitae, eleifend ac, enim.
-                                </p>
+                                </p> --}}
                             </div>
 
                             <div class="case-work-process">
@@ -122,41 +111,11 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
-                        <div class="side-bar-area">
-                            <div class="side-bar-widget">
-                                <h3 class="title">Recent Project</h3>
-                                <div class="side-bar-categories">
-                                    <ul>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="case-details.html" target="_blank">Web Development</a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="case-details.html" target="_blank">Social Media App</a>  
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="case-details.html" target="_blank">UI/UX Research</a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="case-details.html" target="_blank">Business Reform</a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="case-details.html" target="_blank">Consulting </a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="case-details.html" target="_blank">Data Analysis</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                  
+                      
+                    
 
-                            <div class="side-bar-widget">
+                            {{-- <div class="side-bar-widget">
                                 <h3 class="title">Tag Cloud</h3>
                                 <ul class="side-bar-widget-tag">
                                     <li><a href="case-details.html" target="_blank">Android</a></li>
@@ -234,8 +193,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                        </div>
+                            </div> --}}
+                       
                     </div>
                 </div>
             </div>
