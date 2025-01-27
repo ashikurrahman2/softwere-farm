@@ -28,9 +28,10 @@
     <div class="about-area ptb-100">
         <div class="container">
             <div class="row justify-content-center align-items-center">
+                @foreach($abouts as $about)
                 <div class="col-lg-6">
                     <div class="about-play">
-                        <img src="{{ asset('/') }}frontend/assets/images/about/about-img1.jpg" alt="About Images">
+                        <img src="{{ asset($about->photo) }}" alt="About Images">
                         <div class="about-play-content">
                             <span>Watch Our Intro Video</span>
                             <h2>Perfect Solution for IT Services!</h2>
@@ -44,11 +45,9 @@
                 <div class="col-lg-6">
                     <div class="about-content ml-25">
                         <div class="section-title">
-                            <span class="sp-color2">15 Years of Experience</span>
-                            <h2>Right Partner for Software Innovation</h2>
-                            <p>
-                                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet.
-                            </p>
+                            <span class="sp-color2">{{ $about->experience }} Years of Experience</span>
+                            <h2>{{ $about->title }}</h2>
+                            <p>{{ $about->description }}</p>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
@@ -67,9 +66,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <p class="about-content-text">Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit.</p>
+                        <p class="about-content-text">{{ $about->our_mission }}</p>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -176,7 +176,7 @@
                                     <span class="sp-color1">Our Working Process</span>
                                     <h2>How Our Services Will Help You to Grow Your Business</h2>
                                 </div>
-                                <a href="contact.html" class="default-btn btn-bg-two border-radius-50 text-center">Get A Quote</a>
+                                <a href="{{ route('contact') }}" class="default-btn btn-bg-two border-radius-50 text-center">Get A Quote</a>
                             </div>
                         </div>
     

@@ -37,9 +37,12 @@
                       <th>SL</th>
                         <th>Title</th>
                         <th>Image</th>
-                        <th>Signature</th>
+                        <th>Choose Us Image</th>
                         <th>Description</th>
                         <th>Our Mission</th>
+                        <th>Choose Title</th>
+                        <th>Choose Support Description</th>
+                        <th>Choose Experience Description</th>
                         <th>Experience</th>
                         <th>Action</th>
                     </tr>
@@ -52,9 +55,12 @@
                         <th>SL</th>
                         <th>Title</th>
                         <th>Image</th>
-                        <th>Signature</th>
+                        <th>Choose Us Image</th>
                         <th>Description</th>
                         <th>Our Mission</th>
+                        <th>Choose Title</th>
+                        <th>Choose Support Description</th>
+                        <th>Choose Experience Description</th>
                         <th>Experience</th>
                         <th>Action</th>
                     </tr>
@@ -93,7 +99,7 @@
               </div>
 
               <div class="col-md-12">
-                <label for="signature" class="col-form-label pt-0">Signature<sup class="text-size-20 top-1">*</sup></label>
+                <label for="signature" class="col-form-label pt-0">Choose Us Image<sup class="text-size-20 top-1">*</sup></label>
                 <input type="file" class="dropify" data-height="200" name="signature"  required />
                 <small id="imageHelp" class="form-text text-muted">Maximum signature photo size 2 MB</small>
             </div>
@@ -112,6 +118,26 @@
                   <textarea class="form-control textarea" name="our_mission" id="summernote1" rows="4" >{{old('our_mission')}}</textarea> 
               </div>
           </div>
+
+          <div class="form-group">
+            <label for="chose_title" class="col-form-label pt-0">Choose Title<sup class="text-size-20 top-1">*</sup></label>
+              <input type="text" class="form-control" id="chose_title" name="chose_title" required>
+              <small id="emailHelp" class="form-text text-muted">Company Title</small>
+          </div>
+
+          <div class="col-md-12">
+            <div class="mb-3">
+                <label class="form-label">Choose Support Description</label>
+                <textarea class="form-control textarea" name="choseesupport_description" id="summernote2" rows="4" >{{old('choseesupport_description')}}</textarea> 
+            </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="mb-3">
+              <label class="form-label">Choose Experience Description</label>
+              <textarea class="form-control textarea" name="choseexperience_description" id="summernote3" rows="4" >{{old('choseexperience_description')}}</textarea> 
+          </div>
+      </div>
 
           <div class="form-group">
             <label for="experience" class="col-form-label pt-0">Experience<sup class="text-size-20 top-1">*</sup></label>
@@ -159,6 +185,9 @@
                 { data: 'signature', name: 'signature' },
                 { data: 'description', name: 'description' },
                 { data: 'our_mission', name: 'our_mission' },
+                { data: 'chose_title', name: 'chose_title' },
+                { data: 'choseesupport_description', name: 'choseesupport_description' },
+                { data: 'choseexperience_description', name: 'choseexperience_description' },
                 { data: 'experience', name: 'experience' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
@@ -195,6 +224,35 @@
                 // Strip HTML tags for plain text
                 let textOnly = $('<div>').html(contents).text();
                 $('#summernote1').val(textOnly);
+            }
+        }
+    });
+});
+
+     // Summernote script
+     $(document).ready(function() {
+    $('#summernote2').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents, $editable) {
+                // Strip HTML tags for plain text
+                let textOnly = $('<div>').html(contents).text();
+                $('#summernote2').val(textOnly);
+            }
+        }
+    });
+});
+
+
+     // Summernote script
+     $(document).ready(function() {
+    $('#summernote3').summernote({
+        height: 200,
+        callbacks: {
+            onChange: function(contents, $editable) {
+                // Strip HTML tags for plain text
+                let textOnly = $('<div>').html(contents).text();
+                $('#summernote3').val(textOnly);
             }
         }
     });

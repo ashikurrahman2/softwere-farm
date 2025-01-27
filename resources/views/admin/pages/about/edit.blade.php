@@ -19,7 +19,7 @@
 
       <div class="col-md-12">
         <label for="photo" class="col-form-label pt-0">Image<sup class="text-size-20 top-1">*</sup></label>
-        <input type="file" class="dropify" data-height="200" name="photo" value="{{ $about->photo }}"  required />
+        <input type="file" class="dropify" data-height="200" name="photo" value="{{ $about->photo }}" />
         <small id="imageHelp" class="form-text text-muted">This is your about image</small>
     </div>
 
@@ -34,8 +34,8 @@
     </div>
 
     <div class="col-md-12">
-      <label for="signature" class="col-form-label pt-0">Signature<sup class="text-size-20 top-1">*</sup></label>
-      <input type="file" class="dropify" data-height="200" name="signature" value="{{ $about->signature }}"  required />
+      <label for="signature" class="col-form-label pt-0">Choose Us Image<sup class="text-size-20 top-1">*</sup></label>
+      <input type="file" class="dropify" data-height="200" name="signature" value="{{ $about->signature }}" />
       <small id="imageHelp" class="form-text text-muted">This is your Property signature</small>
   </div>
 
@@ -50,8 +50,28 @@
   <div class="col-md-12">
     <div class="mb-3">
         <label class="form-label">Our Mission</label>
-        <textarea class="form-control textarea" name="our_mission	" id="summernote1" rows="4" >{{ $about->our_mission}}</textarea> 
+        <textarea class="form-control textarea" name="our_mission" id="summernote1" rows="4" >{{ $about->our_mission}}</textarea> 
     </div>
+</div>
+
+<div class="form-group">
+  <label for="chose_title" class="col-form-label pt-0">Choose Title<sup class="text-size-20 top-1">*</sup></label>
+    <input type="text" class="form-control" id="chose_title" name="chose_title" value="{{ $about->chose_title }}" required>
+    <small id="emailHelp" class="form-text text-muted">Company Title</small>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+      <label class="form-label">Choose Support Description</label>
+      <textarea class="form-control textarea" name="choseesupport_description" id="summernote2" rows="4" >{{ $about->choseesupport_description }}</textarea> 
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="mb-3">
+      <label class="form-label">Choose Experience Description</label>
+      <textarea class="form-control textarea" name="choseexperience_description" id="summernote3" rows="4" >{{ $about->choseexperience_description }}</textarea> 
+  </div>
 </div>
 
 <div class="form-group">

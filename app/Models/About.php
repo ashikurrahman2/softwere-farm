@@ -18,6 +18,9 @@ class About extends Model
         'title',
         'photo',
         'signature',
+        'choseexperience_description',
+        'choseesupport_description',
+        'chose_title',
         'description',
         'experience',
         'our_mission',
@@ -52,36 +55,42 @@ class About extends Model
         self::saveBasicInfo($about, $request, $photoUrl, $signatureUrl);
     }
 
-    // Update an existing About entry
-    public static function updateAbout($request, $id)
-    {
-        $about = self::findOrFail($id);
+ // Update an existing About entry
+public static function updateAbout($request, $id)
+{
+    $about = self::findOrFail($id);
 
-        if ($request->file('photo')) {
-            if (file_exists($about->photo)) {
-                unlink($about->photo);
-            }
-            $photoUrl = self::getImageUrl($request->file('photo'), "upload/about-photos/");
-        } else {
-            $photoUrl = $about->photo;
+    // Handle photo
+    if ($request->file('photo')) {
+        if (file_exists(public_path($about->photo))) {
+            unlink(public_path($about->photo));
         }
-
-        if ($request->file('signature')) {
-            if (file_exists($about->signature)) {
-                unlink($about->signature);
-            }
-            $signatureUrl = self::getImageUrl($request->file('signature'), "upload/about-signatures/");
-        } else {
-            $signatureUrl = $about->signature;
-        }
-
-        self::saveBasicInfo($about, $request, $photoUrl, $signatureUrl);
+        $photoUrl = self::getImageUrl($request->file('photo'), "upload/about-photos/");
+    } else {
+        $photoUrl = $about->photo;
     }
+
+    // Handle signature
+    if ($request->file('signature')) {
+        if (file_exists(public_path($about->signature))) {
+            unlink(public_path($about->signature));
+        }
+        $signatureUrl = self::getImageUrl($request->file('signature'), "upload/about-signatures/");
+    } else {
+        $signatureUrl = $about->signature;
+    }
+
+    // Save basic information
+    self::saveBasicInfo($about, $request, $photoUrl, $signatureUrl);
+}
 
     // Save or update basic info in the database
     private static function saveBasicInfo($about, $request, $photoUrl, $signatureUrl)
     {
         $about->title       = $request->title;
+        $about->choseexperience_description       = $request->choseexperience_description;
+        $about->choseesupport_description       = $request->choseesupport_description;
+        $about->chose_title       = $request->chose_title;
         $about->photo       = $photoUrl;
         $about->signature   = $signatureUrl;
         $about->description = $request->description;

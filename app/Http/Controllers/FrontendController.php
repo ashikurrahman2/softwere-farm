@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\About;
+use App\Models\About;
 // use App\Models\Banner;
 // use App\Models\Service;
 use Illuminate\Http\Request;
@@ -11,8 +11,8 @@ class FrontendController extends Controller
 {
     public function index()
     {
-      
-        return view('frontend.pages.index');   
+        $abouts= About::all();
+        return view('frontend.pages.index', compact('abouts'));   
     }
 
     public function Team()
@@ -26,7 +26,8 @@ class FrontendController extends Controller
     }
 
     public function About(){
-        return view('frontend.pages.about');
+        $abouts= About::all();
+        return view('frontend.pages.about', compact('abouts'));
     }
 
     public function Communicate(){

@@ -280,10 +280,16 @@ namespace App\Models {
      * @property string|null $description
      * @property string|null $signature
      * @property string|null $photo
+     * @property string|null $chose_title
+     * @property string|null $choseesupport_description
+     * @property string|null $choseexperience_description
      * @property string|null $title
      * @property int $id
      * @method static \Illuminate\Database\Eloquent\Builder|About whereId($value)
      * @method static \Illuminate\Database\Eloquent\Builder|About whereTitle($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|About whereChoseexperienceDescription($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|About whereChoseesupportDescription($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|About whereChoseTitle($value)
      * @method static \Illuminate\Database\Eloquent\Builder|About wherePhoto($value)
      * @method static \Illuminate\Database\Eloquent\Builder|About whereSignature($value)
      * @method static \Illuminate\Database\Eloquent\Builder|About whereDescription($value)

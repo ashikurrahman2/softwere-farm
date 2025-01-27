@@ -75,6 +75,9 @@ class AboutController extends Controller
     {
         $request->validate([
             'title'       => 'required|string|max:255',
+            'chose_title'       => 'required|string|max:255',
+            'choseesupport_description'       => 'required|string|max:255',
+            'choseexperience_description'       => 'required|string|max:255',
             'photo'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'signature'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
@@ -86,6 +89,8 @@ class AboutController extends Controller
             $request->merge([
                 'description' => strip_tags($request->description),
                 'our_mission' => strip_tags($request->our_mission),
+                'choseesupport_description' => strip_tags($request->choseesupport_description),
+                'choseexperience_description' => strip_tags($request->choseexperience_description),
             
             ]);
         About::newAbout($request);
@@ -109,71 +114,33 @@ class AboutController extends Controller
         $about = About::findOrFail($id);
         return view('admin.pages.about.edit', compact('about'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, About $about)
-    {
-        $request->validate([
-            'title'       => 'required|string|max:255',
-            'photo'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
-            'signature'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => 'required|string',
-            'our_mission' => 'required|string',
-            'experience' => 'required|integer',
-        ]);
-
-        // Check if a new photo file is uploaded
-if ($request->hasFile('photo')) {
-    // Delete the old photo if exists
-    if ($about->photo && file_exists(public_path($about->photo))) {
-        unlink(public_path($about->photo));
-    }
-
-    // Upload the new photo
-    $photo = $request->file('photo');
-    $photoName = time() . '_photo.' . $photo->getClientOriginalExtension();
-    $photoPath = 'uploads/about/photos/';
-    $photo->move(public_path($photoPath), $photoName);
-
-    // Update the photo path
-    $about->photo = $photoPath . $photoName;
-}
-
-// Check if a new signature file is uploaded
-if ($request->hasFile('signature')) {
-    // Delete the old signature if exists
-    if ($about->signature && file_exists(public_path($about->signature))) {
-        unlink(public_path($about->signature));
-    }
-
-    // Upload the new signature
-    $signature = $request->file('signature');
-    $signatureName = time() . '_signature.' . $signature->getClientOriginalExtension();
-    $signaturePath = 'uploads/about/signatures/';
-    $signature->move(public_path($signaturePath), $signatureName);
-
-    // Update the signature path
-    $about->signature = $signaturePath . $signatureName;
-}
-
-      // Update the rest of the fields
-      $property->update([
-        'title' => $validated['title'],
-        'photo' => $validated['photo'],
-        'signature' => $validated['signature'],
-        'description' => $validated['description'],
-        'our_mission' => $validated['our_mission'],
-        'experience' => $validated['experience'],
+  /**
+ * Update the specified resource in storage.
+ */
+public function update(Request $request, About $about)
+{
+    $request->validate([
+        'title'                        => 'required|string|max:255',
+        'chose_title'                  => 'required|string|max:255',
+        'choseesupport_description'    => 'required|string|max:255',
+        'choseexperience_description'  => 'required|string|max:255',
+        'photo'                        => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+        'signature'                    => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'description'                  => 'required|string',
+        'our_mission'                  => 'required|string',
+        'experience'                   => 'required|integer',
     ]);
 
-    $this->toastr->Success('About updated successfully!');
+    // Call updateAbout method and pass the ID
+    About::updateAbout($request, $about->id);
 
-    // Redirect back to the index page
+    $this->toastr->success('About Updated successfully!');
     return back();
+}
 
-    }
+
+
+
 
     /**
      * Remove the specified resource from storage.
