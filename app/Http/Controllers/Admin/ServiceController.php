@@ -80,6 +80,7 @@ class ServiceController extends Controller
               //  Remove HTML tag
               $request->merge([
                 'service_details' => strip_tags($request->service_details),
+                'service_subtitle' => strip_tags($request->service_subtitle),
                 'working_process' => strip_tags($request->working_process),
                 'service_benifit' => strip_tags($request->service_benifit),
             ]);

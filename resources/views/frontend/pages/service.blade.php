@@ -30,101 +30,61 @@
     <div class="container">
         <div class="section-title text-center">
             <span class="sp-color2">Our Services</span>
-            <h2>We Provide a Wide Variety of It Services</h2>
+            <h2>We Provide a Wide Variety of IT Services</h2>
             <p class="margin-auto">
-                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec 
+                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec
             </p>
         </div>
         <div class="row pt-45">
-            <div class="col-lg-3 col-sm-6">
-                <div class="services-card services-style-bg">
-                    <i class="flaticon-consultant"></i>
-                    <h3><a href="{{ route('servicedetail') }}">IT Consulting</a></h3>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                    <a href="service-details.html" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
+            @foreach($services as $service)
+                <div class="col-lg-3 col-sm-6">
+                    <div class="services-card services-style-bg">
+                        {{-- <i class="{{ $service->icon }}"></i> <!-- আইকন ডাইনামিকভাবে লোড হবে --> --}}
+                        <h3><a href="{{ route('servicedetail', $service->id) }}">{{ $service->service_title }}</a></h3>
+                        <p>{{ \Illuminate\Support\Str::words($service->service_details, 100, '...') }}</p>
+                        <a href="{{ route('servicedetail', $service->id) }}" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
+                    </div>
                 </div>
-            </div>
+            @endforeach
 
-            <div class="col-lg-3 col-sm-6">
-                <div class="services-card services-style-bg">
-                    <i class="flaticon-consulting"></i>
-                    <h3><a href="service-details.html">Cloud Computing</a></h3>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                    <a href="service-details.html" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="services-card services-style-bg">
-                    <i class="flaticon-web-development"></i>
-                    <h3><a href="service-details.html">Web Development</a></h3>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el. </p>
-                    <a href="service-details.html" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="services-card services-style-bg">
-                    <i class="flaticon-stats"></i>
-                    <h3><a href="service-details.html">Business Reform</a></h3>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                    <a href="service-details.html" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="services-card services-style-bg">
-                    <i class="flaticon-structure"></i>
-                    <h3><a href="service-details.html">Infrastructure</a></h3>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                    <a href="service-details.html" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="services-card services-style-bg">
-                    <i class="flaticon-data-analytics"></i>
-                    <h3><a href="service-details.html">Data Analysis</a></h3>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                    <a href="service-details.html" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="services-card services-style-bg">
-                    <i class="flaticon-computer"></i>
-                    <h3><a href="service-details.html">Manage IT Service</a></h3>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                    <a href="service-details.html" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6">
-                <div class="services-card services-style-bg">
-                    <i class="flaticon-cyber-security"></i>
-                    <h3><a href="service-details.html">Business Security</a></h3>
-                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
-                    <a href="service-details.html" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
-                </div>
-            </div>
-
-            <div class="col-lg-12 col-md-12 text-center">
-                <div class="pagination-area">
-                    <a href="services-2.html" class="prev page-numbers">
+           {{-- Pagination --}}
+           <div class="col-lg-12 col-md-12 text-center">
+            <div class="pagination-area">
+                <!-- Previous Page Link -->
+                @if ($services->onFirstPage())
+                    <span class="prev page-numbers disabled">
+                        <i class='bx bx-left-arrow-alt'></i>
+                    </span>
+                @else
+                    <a href="{{ $services->previousPageUrl() }}" class="prev page-numbers">
                         <i class='bx bx-left-arrow-alt'></i>
                     </a>
-
-                    <span class="page-numbers current" aria-current="page">1</span>
-                    <a href="services-2.html" class="page-numbers">2</a>
-                    <a href="services-2.html" class="page-numbers">3</a>
-                    
-                    <a href="services-2.html" class="next page-numbers">
+                @endif
+        
+                <!-- Page Numbers -->
+                @foreach ($services->getUrlRange(1, $services->lastPage()) as $page => $url)
+                    @if ($page == $services->currentPage())
+                        <span class="page-numbers current" aria-current="page">{{ $page }}</span>
+                    @else
+                        <a href="{{ $url }}" class="page-numbers">{{ $page }}</a>
+                    @endif
+                @endforeach
+        
+                <!-- Next Page Link -->
+                @if ($services->hasMorePages())
+                    <a href="{{ $services->nextPageUrl() }}" class="next page-numbers">
                         <i class='bx bx-right-arrow-alt'></i>
                     </a>
-                </div>
+                @else
+                    <span class="next page-numbers disabled">
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </span>
+                @endif
             </div>
+           </div>
         </div>
     </div>
 </section>
+
 <!-- Services Style Area End -->
 @endsection

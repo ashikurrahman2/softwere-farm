@@ -11,7 +11,7 @@
                     <h3>Service Details</h3>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li>
                             <i class='bx bx-chevrons-right'></i>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="inner-shape">
-                <img src="assets/images/shape/inner-shape.png" alt="Images">
+                <img src="{{ asset('/') }}frontend/assets/images/shape/inner-shape.png" alt="Images">
             </div>
         </div>
         <!-- Inner Banner End -->
@@ -32,18 +32,14 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="service-article">
+                            @foreach ($services as $service)
                             <div class="service-article-img">
-                               <img src="{{ asset('/') }}frontend/assets/images/services/service-details.jpg" alt="Images">
+                               <img src="{{ asset($service->service_icon) }}" alt="Images">
                             </div>
                             <div class="service-article-content">
-                                <h2>Cloud Computing</h2>
+                                <h2>{{ $service->service_title }}</h2>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. cu 
-                                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies ne, 
-                                    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet n, 
-                                    vu eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis 
-                                    pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aen  
-                                    li, porttitor eu, consequat vitae, eleifend ac, enim.
+                                  {{ $service->service_details }}
                                 </p>
 
                                 <div class="row">
@@ -64,25 +60,12 @@
                                     </div>
                                 </div>
 
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. cu 
-                                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies ne, 
-                                    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet n, 
-                                    vu eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis 
-                                    pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aen  
-                                    li, porttitor eu, consequat vitae, eleifend ac, enim.
-                                </p>
                             </div>
 
                             <div class="service-article-another">
                                 <h2>What Benefit You Will Get</h2>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. cu 
-                                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies ne, 
-                                    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet n, 
-                                    vu eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis 
-                                    pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aen  
-                                    li, porttitor eu, consequat vitae, eleifend ac, enim.
+                                   {{ $service->service_benifit }}
                                 </p>
                           
                             </div>
@@ -90,15 +73,11 @@
                             <div class="service-work-process">
                                 <h2>Our Working Proccess</h2>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. cu 
-                                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies ne, 
-                                    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet n, 
-                                    vu eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis 
-                                    pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aen  
-                                    li, porttitor eu, consequat vitae, eleifend ac, enim.
+                                 {{ $service->working_process }}
                                 </p>
                             </div>
                         </div>
+                        @endforeach
                     </div>
 
                   

@@ -8,11 +8,12 @@
     </div>
 
     
-    <div class="form-group">
-      <label for="service_subtitle" class="col-form-label pt-0">Service Subtitle<sup class="text-size-20 top-1">*</sup></label>
-        <input type="text" class="form-control" id="service_subtitle" name="service_subtitle" value="{{ $service->service_subtitle }}" required>
-        <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
-    </div>
+    <div class="col-md-12">
+      <div class="mb-3">
+          <label class="form-label">Service Subtitle</label>
+          <textarea class="form-control textarea" name="service_subtitle" id="summernote3" rows="4" >{{ $service->service_subtitle }}</textarea> 
+      </div>
+  </div>
 
     <div class="col-md-12">
       <div class="mb-3">

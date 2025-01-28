@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Banner;
 use App\Models\Team;
 use App\Models\FAQ;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -13,8 +14,9 @@ class FrontendController extends Controller
     public function index()
     {
         $abouts= About::all();
+        $services= Service::all();
         $banners= Banner::all();
-        return view('frontend.pages.index', compact('abouts', 'banners'));   
+        return view('frontend.pages.index', compact('abouts', 'banners','services'));   
     }
 
     public function Team()
@@ -26,12 +28,16 @@ class FrontendController extends Controller
 
     public function Service()
     {
-        return view('frontend.pages.service');
+        
+        $services = Service::paginate(10);
+
+        return view('frontend.pages.service', compact('services'));
     }
 
     public function ServiceD()
     {
-        return view('frontend.pages.service_details');
+        $services= Service::all();
+        return view('frontend.pages.service_details', compact('services'));
     }
 
     public function About(){

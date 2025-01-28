@@ -88,11 +88,14 @@
                     <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
                 </div>
 
-                <div class="form-group">
-                  <label for="service_subtitle" class="col-form-label pt-0">Service Subtitle<sup class="text-size-20 top-1">*</sup></label>
-                    <input type="text" class="form-control" id="service_subtitle" name="service_subtitle" required>
-                    <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
-                </div>
+
+                <div class="col-md-12">
+                  <div class="mb-3">
+                      <label class="form-label">Service Subtitle</label>
+                      <textarea class="form-control textarea" name="service_subtitle" id="summernote3" rows="4" >{{old('service_subtitle')}}</textarea> 
+                  </div>
+              </div>
+              
 
                 <div class="col-md-12">
                   <div class="mb-3">
@@ -218,6 +221,21 @@
                     // Strip HTML tags for plain text
                     let textOnly = $('<div>').html(contents).text();
                     $('#summernote2').val(textOnly);
+                }
+            }
+        });
+    });
+
+
+          // Summernote script
+  $(document).ready(function() {
+        $('#summernote3').summernote({
+            height: 200,
+            callbacks: {
+                onChange: function(contents, $editable) {
+                    // Strip HTML tags for plain text
+                    let textOnly = $('<div>').html(contents).text();
+                    $('#summernote3').val(textOnly);
                 }
             }
         });
