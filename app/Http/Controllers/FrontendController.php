@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Banner;
+use App\Models\Team;
 use App\Models\FAQ;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,9 @@ class FrontendController extends Controller
 
     public function Team()
     {
-        return view('frontend.pages.team');
+        // Fetch team members with pagination (10 per page)
+        $teams = Team::paginate(10);
+        return view('frontend.pages.team', compact('teams'));
     }
 
     public function Service()
@@ -40,9 +43,6 @@ class FrontendController extends Controller
         return view('frontend.pages.contact');
     }
 
-    public function Testi(){
-        return view('frontend.pages.testimonial');
-    }
 
     public function Case(){
         return view('frontend.pages.case_details');

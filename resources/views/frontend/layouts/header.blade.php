@@ -102,12 +102,6 @@
                                             </li>
     
                                             <li class="nav-item">
-                                                <a href="{{ route('test') }}" class="nav-link">
-                                                    Testimonials
-                                                </a>
-                                            </li>
-    
-                                            <li class="nav-item">
                                                 <a href="{{ route('frequnt') }}" class="nav-link">
                                                     FAQ
                                                 </a>

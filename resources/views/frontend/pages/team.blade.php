@@ -10,7 +10,7 @@
             <h3>Team</h3>
             <ul>
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
                     <i class='bx bx-chevrons-right'></i>
@@ -32,216 +32,77 @@
             <span class="sp-color2">Our Team</span>
             <h2>Our Team Members</h2>
         </div>
-        <div class="row pt-45">
-            <div class="col-lg-4 col-md-6">
-                <div class="team-card">
-                    <img src="{{ asset('/') }}frontend/assets/images/team/team-img1.jpg" alt="Team Images">
-                    <ul class="social-link">
-                        <li>
-                            <a href="https://www.facebook.com/" target="_blank">
-                                <i class='bx bxl-facebook'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/?lang=en" target="_blank">
-                                <i class='bx bxl-twitter'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/" target="_blank">
-                                <i class='bx bxl-linkedin-square'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" target="_blank">
-                                <i class='bx bxl-instagram'></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="content">
-                        <h3>Adam Smith</h3>
-                        <span>President & CEO</span>
+        <div class="container">
+            <div class="row pt-45">
+                @foreach($teams as $team)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="team-card">
+                            <!-- Team Member's Image -->
+                            <img src="{{ asset($team->member_image) }}" alt="{{ $team->member_name }}">
+        
+                            <!-- Social Links -->
+                            <ul class="social-link">
+                                @if($team->social_face)
+                                    <li>
+                                        <a href="{{ $team->social_face }}" target="_blank">
+                                            <i class='bx bxl-facebook'></i>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if($team->social_linked)
+                                    <li>
+                                        <a href="{{ $team->social_linked }}" target="_blank">
+                                            <i class='bx bxl-linkedin-square'></i>
+                                        </a>
+                                    </li>
+                                @endif
+                            </ul>
+        
+                            <!-- Team Member's Content -->
+                            <div class="content">
+                                <h3>{{ $team->member_name }}</h3>
+                                <span>{{ $team->member_designation }}</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-{{-- 
-            <div class="col-lg-4 col-md-6">
-                <div class="team-card">
-                    <img src="{{ asset('/') }}frontend/assets/images/team/team-img2.jpg" alt="Team Images">
-                    <ul class="social-link">
-                        <li>
-                            <a href="https://www.facebook.com/" target="_blank">
-                                <i class='bx bxl-facebook'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/?lang=en" target="_blank">
-                                <i class='bx bxl-twitter'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/" target="_blank">
-                                <i class='bx bxl-linkedin-square'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" target="_blank">
-                                <i class='bx bxl-instagram'></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="content">
-                        <h3>Max Angles</h3>
-                        <span>Manager</span>
-                    </div>
-                </div>
-            </div> --}}
-{{-- 
-            <div class="col-lg-4 col-md-6">
-                <div class="team-card">
-                    <img src="assets/images/team/team-img3.jpg" alt="Team Images">
-                    <ul class="social-link">
-                        <li>
-                            <a href="https://www.facebook.com/" target="_blank">
-                                <i class='bx bxl-facebook'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/?lang=en" target="_blank">
-                                <i class='bx bxl-twitter'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/" target="_blank">
-                                <i class='bx bxl-linkedin-square'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" target="_blank">
-                                <i class='bx bxl-instagram'></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="content">
-                        <h3>Park Anderson</h3>
-                        <span>Sales Executive</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="team-card">
-                    <img src="assets/images/team/team-img4.jpg" alt="Team Images">
-                    <ul class="social-link">
-                        <li>
-                            <a href="https://www.facebook.com/" target="_blank">
-                                <i class='bx bxl-facebook'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/?lang=en" target="_blank">
-                                <i class='bx bxl-twitter'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/" target="_blank">
-                                <i class='bx bxl-linkedin-square'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" target="_blank">
-                                <i class='bx bxl-instagram'></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="content">
-                        <h3>Tom Shumate</h3>
-                        <span>Founder</span>
-                    </div>
-                </div>
-            </div> --}}
-
-            {{-- <div class="col-lg-4 col-md-6">
-                <div class="team-card">
-                    <img src="assets/images/team/team-img5.jpg" alt="Team Images">
-                    <ul class="social-link">
-                        <li>
-                            <a href="https://www.facebook.com/" target="_blank">
-                                <i class='bx bxl-facebook'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/?lang=en" target="_blank">
-                                <i class='bx bxl-twitter'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/" target="_blank">
-                                <i class='bx bxl-linkedin-square'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" target="_blank">
-                                <i class='bx bxl-instagram'></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="content">
-                        <h3>Michael Evens</h3>
-                        <span>Team Leader</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="team-card">
-                    <img src="assets/images/team/team-img6.jpg" alt="Team Images">
-                    <ul class="social-link">
-                        <li>
-                            <a href="https://www.facebook.com/" target="_blank">
-                                <i class='bx bxl-facebook'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/?lang=en" target="_blank">
-                                <i class='bx bxl-twitter'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/" target="_blank">
-                                <i class='bx bxl-linkedin-square'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/" target="_blank">
-                                <i class='bx bxl-instagram'></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="content">
-                        <h3>Carrie Horton</h3>
-                        <span>Sales Manager</span>
-                    </div>
-                </div>
-            </div> --}}
-
-            <div class="col-lg-12 col-md-12 text-center">
-                <div class="pagination-area">
-                    <a href="team.html" class="prev page-numbers">
-                        <i class='bx bx-left-arrow-alt'></i>
-                    </a>
-
-                    <span class="page-numbers current" aria-current="page">1</span>
-                    <a href="team.html" class="page-numbers">2</a>
-                    <a href="team.html" class="page-numbers">3</a>
-                    
-                    <a href="team.html" class="next page-numbers">
-                        <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
-</div>
+        {{-- Pagination --}}
+         <div class="col-lg-12 col-md-12 text-center">
+            <div class="pagination-area">
+                <!-- Previous Page Link -->
+                @if ($teams->onFirstPage())
+                    <span class="prev page-numbers disabled">
+                        <i class='bx bx-left-arrow-alt'></i>
+                    </span>
+                @else
+                    <a href="{{ $teams->previousPageUrl() }}" class="prev page-numbers">
+                        <i class='bx bx-left-arrow-alt'></i>
+                    </a>
+                @endif
+        
+                <!-- Page Numbers -->
+                @foreach ($teams->getUrlRange(1, $teams->lastPage()) as $page => $url)
+                    @if ($page == $teams->currentPage())
+                        <span class="page-numbers current" aria-current="page">{{ $page }}</span>
+                    @else
+                        <a href="{{ $url }}" class="page-numbers">{{ $page }}</a>
+                    @endif
+                @endforeach
+        
+                <!-- Next Page Link -->
+                @if ($teams->hasMorePages())
+                    <a href="{{ $teams->nextPageUrl() }}" class="next page-numbers">
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                @else
+                    <span class="next page-numbers disabled">
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </span>
+                @endif
+            </div>
+        </div>
+        
 <!-- Team Area End -->
 @endsection
