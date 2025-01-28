@@ -108,30 +108,11 @@
                                             </li>
     
                                             <li class="nav-item">
-                                                <a href="faq.html" class="nav-link">
+                                                <a href="{{ route('frequnt') }}" class="nav-link">
                                                     FAQ
                                                 </a>
                                             </li>
     
-                                            <li class="nav-item">
-                                                <a href="#" class="nav-link">
-                                                    User
-                                                    <i class='bx bx-caret-down'></i>
-                                                </a>
-                                                <ul class="dropdown-menu">
-                                                    <li class="nav-item">
-                                                        <a href="{{ route('login') }}" class="nav-link">
-                                                            Log In
-                                                        </a>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <a href="{{ route('register') }}" class="nav-link">
-                                                            Registration
-                                                        </a>
-                                                    </li>
-                                                
-                                                </ul>
-                                            </li>
     
                                             <li class="nav-item">
                                                 <a href="terms-condition.html" class="nav-link">

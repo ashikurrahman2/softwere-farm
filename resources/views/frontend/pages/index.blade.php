@@ -8,17 +8,18 @@
   <div class="banner-area">
     <div class="container-fluid">
         <div class="container-max">
+            @foreach($banners as $banner)
             <div class="banner-item-content banner-item-ptb">
-                <h1>We Provide Best IT Services for Your Need</h1>
+                <h1>{{ $banner->banner_author }}</h1>
                 <p>
-                    Aenean Sollicitudin, Lorem quis Bibendum auctor, nisi elit consequat ipsum, 
-                    nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet 
+                   {{ $banner->banner_description }} 
                 </p>
                 <div class="banner-btn">
-                    <a href="about.html" class="default-btn btn-bg-two border-radius-50">Learn More <i class='bx bx-chevron-right'></i></a>
-                    <a href="contact.html" class="default-btn btn-bg-one border-radius-50 ml-20">Get A Quote <i class='bx bx-chevron-right'></i></a>
+                    <a href="{{ route('about') }}" class="default-btn btn-bg-two border-radius-50">Learn More <i class='bx bx-chevron-right'></i></a>
+                    <a href="{{ route('contact') }}" class="default-btn btn-bg-one border-radius-50 ml-20">Get A Quote <i class='bx bx-chevron-right'></i></a>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>

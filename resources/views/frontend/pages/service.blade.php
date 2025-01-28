@@ -39,7 +39,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="services-card services-style-bg">
                     <i class="flaticon-consultant"></i>
-                    <h3><a href="service-details.html">IT Consulting</a></h3>
+                    <h3><a href="{{ route('servicedetail') }}">IT Consulting</a></h3>
                     <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendauctor nisi el.</p>
                     <a href="service-details.html" class="learn-btn">Learn More <i class='bx bx-chevron-right'></i></a>
                 </div>

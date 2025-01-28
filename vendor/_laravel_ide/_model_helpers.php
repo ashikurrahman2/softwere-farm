@@ -797,6 +797,18 @@ namespace App\Models {
     /**
      * App\Models\Banner
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property string|null $banner_author
+     * @property string|null $banner_description
+     * @property string|null $banner_image
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder|Banner whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Banner whereBannerImage($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Banner whereBannerDescription($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Banner whereBannerAuthor($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Banner whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Banner newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder|Banner newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder|Banner query()

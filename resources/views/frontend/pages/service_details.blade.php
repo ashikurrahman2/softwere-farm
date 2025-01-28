@@ -33,7 +33,7 @@
                     <div class="col-lg-8">
                         <div class="service-article">
                             <div class="service-article-img">
-                               <img src="assets/images/services/service-details.jpg" alt="Images">
+                               <img src="{{ asset('/') }}frontend/assets/images/services/service-details.jpg" alt="Images">
                             </div>
                             <div class="service-article-content">
                                 <h2>Cloud Computing</h2>
@@ -84,24 +84,7 @@
                                     pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aen  
                                     li, porttitor eu, consequat vitae, eleifend ac, enim.
                                 </p>
-                                <div class="row">
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="service-article-another-img">
-                                            <img src="assets/images/services/service-details-img1.jpg" alt="Images">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6">
-                                        <div class="service-article-another-img">
-                                            <img src="assets/images/services/service-details-img2.jpg" alt="Images">
-                                        </div>
-                                    </div>
-                                </div>
-                                <p>
-                                    Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed
-                                    odio sit amet.Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit.
-                                    Duis sed odio sit amet.Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh
-                                    id elit. Duis sed odio sit amet. li, porttitor eu, consequat vitae, eleifend ac, enim.
-                                </p>
+                          
                             </div>
 
                             <div class="service-work-process">
@@ -118,121 +101,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
-                        <div class="side-bar-area">
-                            <div class="side-bar-widget">
-                                <h3 class="title">Our Services</h3>
-                                <div class="side-bar-categories">
-                                    <ul>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">IT Services</a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Cloud Computing</a>  
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Web Development</a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Business Reform</a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Infrastructure</a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Data Analysis</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="side-bar-widget">
-                                <h3 class="title">Tag Cloud</h3>
-                                <ul class="side-bar-widget-tag">
-                                    <li><a href="service-details.html" target="_blank">Android</a></li>
-                                    <li><a href="service-details.html" target="_blank">Creative</a></li>
-                                    <li><a href="service-details.html" target="_blank">App</a></li>
-                                    <li><a href="service-details.html" target="_blank">IOS</a></li>
-                                    <li><a href="service-details.html" target="_blank">Business</a></li>
-                                    <li><a href="service-details.html" target="_blank">Consulting</a></li>
-                                </ul>
-                            </div>
-
-                            <div class="side-bar-widget">
-                                <h3 class="title">Gallery</h3>
-                                <ul class="blog-gallery">
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <img src="assets/images/blog/blog-small-img1.jpg" alt="image">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <img src="assets/images/blog/blog-small-img2.jpg" alt="image">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <img src="assets/images/blog/blog-small-img3.jpg" alt="image">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <img src="assets/images/blog/blog-small-img4.jpg" alt="image">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <img src="assets/images/blog/blog-small-img5.jpg" alt="image">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/" target="_blank">
-                                            <img src="assets/images/blog/blog-small-img6.jpg" alt="image">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="side-bar-widget">
-                                <h3 class="title">Archive</h3>
-                                <div class="side-bar-categories">
-                                    <ul>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Design<span>[70]</span></a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Business<span>[24]</span></a>  
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Development<span>[08]</span></a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Technology <span>[17]</span></a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Startup <span>[20]</span></a>
-                                        </li>
-                                        <li>
-                                            <div class="line-circle"></div>
-                                            <a href="service-details.html" target="_blank">Marketing Growth <span>[13]</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CaseStudy;
 use Flasher\Toastr\Prime\ToastrInterface;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class CaseController extends Controller
 {
@@ -48,7 +49,7 @@ class CaseController extends Controller
                                   <button class="btn btn-danger btn-sm delete" data-id="' . $row->id . '">
                                       <i class="fa fa-trash"></i>
                                   </button>
-                                  <form id="delete-form-' . $row->id . '" action="' . route('about.destroy', $row->id) . '" method="POST" style="display: none;">
+                                  <form id="delete-form-' . $row->id . '" action="' . route('case.destroy', $row->id) . '" method="POST" style="display: none;">
                                       ' . csrf_field() . '
                                       ' . method_field('DELETE') . '
                                   </form>';
@@ -57,7 +58,7 @@ class CaseController extends Controller
                 ->rawColumns(['project_image', 'benifit_image', 'action'])
                 ->make(true);
         }
-        return view('admin.pages.about.index');
+        return view('admin.pages.case.index');
     }
     
 
@@ -75,14 +76,14 @@ class CaseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'case_title'             => 'required|string|max:255',
-            'case_description'       => 'required|string|max:255',
-            'project_title'          => 'required|string|max:255',
-            'project_description'    => 'required|string|max:255',
-            'project_image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
-            'benifit_image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'benifit_description'    => 'required|string',
-            'process_description'    => 'required|string',
+            'case_title' => 'required|string|max:255',
+            'case_description' => 'required|string',
+            'project_title' => 'required|string|max:255',
+            'project_description' => 'required|string',
+            'project_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'benifit_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'benifit_description' => 'required|string',
+            'process_description' => 'required|string',
         ]);
 
             //  Remove HTML tag
@@ -111,7 +112,7 @@ class CaseController extends Controller
     public function edit($id)
     {
         $case = CaseStudy::findOrFail($id);
-        return view('admin.pages.about.edit', compact('case'));
+        return view('admin.pages.case.edit', compact('case'));
     }
   /**
  * Update the specified resource in storage.

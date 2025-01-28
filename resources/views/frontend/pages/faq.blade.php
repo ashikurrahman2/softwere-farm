@@ -26,143 +26,71 @@
         </div>
         <!-- Inner Banner End -->
 
-        <!-- FAQ Area -->
-        <div class="faq-area pt-100 pb-70">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2>Frequently Asked Questions</h2>
-                    <p class="margin-auto">We are the agency who always gives you a priority on the free of question and you can easily make a question on the bunch.</p>
-                </div>
-                <div class="row pt-45">
-                    <div class="col-lg-6">
-                        <div class="faq-content">
-                            <div class="faq-accordion">
-                                <ul class="accordion">
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class='bx bx-minus'></i>
-                                            What is a Managed Security Services?
-                                        </a>
-        
-                                        <div class="accordion-content">
-                                            <p> 
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at diam leo. Mauris a ante placerat,
-                                                dignissim orci eget, viverra ante. Mauris ornare pellentesque augue. 
-                                            </p>
-                                        </div>
-                                    </li>
-        
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class='bx bx-plus'></i>
-                                            What is a Data Analysis?
-                                        </a>
-        
-                                        <div class="accordion-content">
-                                            <p> 
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at diam leo. Mauris a ante placerat,
-                                                dignissim orci eget, viverra ante. Mauris ornare pellentesque augue. 
-                                            </p>
-                                        </div>
-                                    </li>
-        
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class='bx bx-plus'></i>
-                                            How Can Make Secure My Website?
-                                        </a>
-        
-                                        <div class="accordion-content">
-                                            <p> 
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at diam leo. Mauris a ante placerat,
-                                                dignissim orci eget, viverra ante. Mauris ornare pellentesque augue. 
-                                            </p>
-                                        </div>
-                                    </li>
-        
-                                    <li class="accordion-item">
-                                        <a class="accordion-title active" href="javascript:void(0)">
-                                            <i class='bx bx-plus'></i>
-                                            What is a Infrastructure?
-                                        </a>
-        
-                                        <div class="accordion-content show">
-                                            <p> 
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at diam leo. Mauris a ante placerat,
-                                                dignissim orci eget, viverra ante. Mauris ornare pellentesque augue. 
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="faq-content">
-                            <div class="faq-accordion">
-                                <ul class="accordion">
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class='bx bx-plus'></i>
-                                            How Can We Help Your Business?
-                                        </a>
-        
-                                        <div class="accordion-content">
-                                            <p> 
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at diam leo. Mauris a ante placerat,
-                                                dignissim orci eget, viverra ante. Mauris ornare pellentesque augue. 
-                                            </p>
-                                        </div>
-                                    </li>
-        
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class='bx bx-plus'></i>
-                                            Why It Staff Management?
-                                        </a>
-        
-                                        <div class="accordion-content">
-                                            <p> 
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at diam leo. Mauris a ante placerat,
-                                                dignissim orci eget, viverra ante. Mauris ornare pellentesque augue. 
-                                            </p>
-                                        </div>
-                                    </li>
-        
-                                    <li class="accordion-item">
-                                        <a class="accordion-title" href="javascript:void(0)">
-                                            <i class='bx bx-plus'></i>
-                                            How Working Process Is Simplified?
-                                        </a>
-        
-                                        <div class="accordion-content">
-                                            <p> 
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at diam leo. Mauris a ante placerat,
-                                                dignissim orci eget, viverra ante. Mauris ornare pellentesque augue. 
-                                            </p>
-                                        </div>
-                                    </li>
-        
-                                    <li class="accordion-item">
-                                        <a class="accordion-title active" href="javascript:void(0)">
-                                            <i class='bx bx-plus'></i>
-                                            Product Engineering & Services?
-                                        </a>
-        
-                                        <div class="accordion-content show">
-                                            <p> 
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at diam leo. Mauris a ante placerat,
-                                                dignissim orci eget, viverra ante. Mauris ornare pellentesque augue. 
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+<!-- FAQ Area -->
+<div class="faq-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Frequently Asked Questions</h2>
+            <p class="margin-auto">We are the agency who always gives you a priority on the free of question and you can easily make a question on the bunch.</p>
+        </div>
+        <div class="row pt-45">
+            <div class="col-lg-6">
+                <div class="faq-content">
+                    <div class="faq-accordion">
+                        <ul class="accordion">
+                            @foreach($faqs as $faq)
+                                <li class="accordion-item">
+                                    <a class="accordion-title" href="javascript:void(0)" onclick="toggleAccordion(this)">
+                                        <i class="bx {{ $faq->is_active ? 'bx-minus' : 'bx-plus' }}"></i>
+                                        {{ $faq->question }}
+                                    </a>
+                                    <div class="accordion-content {{ $faq->is_active ? 'show' : '' }}">
+                                        <p> 
+                                            {{ $faq->answer }}
+                                        </p>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- FAQ Area End -->
+    </div>
+</div>
+
+{{-- FAQ Toggle style --}}
+            <style>
+                .accordion-content {
+                display: none;
+                transition: all 0.3s ease;
+            }
+
+            .accordion-content.show {
+                display: block;
+            }
+
+            </style>
+
+{{-- FAQ Toggle script --}}
+    <script>
+        function toggleAccordion(element) {
+            let accordionItem = element.closest('.accordion-item'); 
+            let accordionContent = accordionItem.querySelector('.accordion-content');  
+            let icon = accordionItem.querySelector('i');  
+
+            accordionContent.classList.toggle('show');
+            
+            if (accordionContent.classList.contains('show')) {
+                icon.classList.remove('bx-plus');
+                icon.classList.add('bx-minus');
+            } else {
+                icon.classList.remove('bx-minus');
+                icon.classList.add('bx-plus');
+            }
+        }
+
+        </script>
+<!-- FAQ Area End -->
+
 @endsection
