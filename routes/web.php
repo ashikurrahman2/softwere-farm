@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController:: class, 'index'])->name('index');
 Route::get('/about', [FrontendController:: class, 'About'])->name('about');
 Route::get('/services', [FrontendController:: class, 'Service'])->name('service');
-Route::get('/service-details', [FrontendController:: class, 'ServiceD'])->name('servicedetail');
+Route::get('/service-details/{id}', [FrontendController:: class, 'ServiceD'])->name('servicedetail');
 Route::get('/Teams', [FrontendController:: class, 'Team'])->name('teams');
 Route::get('/contacts', [FrontendController:: class, 'Communicate'])->name('contact');
 Route::get('/case-study', [FrontendController:: class, 'Case'])->name('cdetails');

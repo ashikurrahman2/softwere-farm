@@ -3,16 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\CaseStudy;
+use App\Models\Cases;
 use Flasher\Toastr\Prime\ToastrInterface;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
 class CaseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     protected $toastr;
 
     public function __construct(ToastrInterface $toastr)
@@ -25,21 +22,21 @@ class CaseController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $case = CaseStudy::all();
+            $case = Cases::all();
             return DataTables::of($case)
                 ->addIndexColumn()
                 ->addColumn('project_image', function ($row) {
                     if ($row->project_image) {
-                        return '<img src="' . asset($row->project_image) . '" alt="Photo" class="img-fluid center-image" style="max-width: 40px; display: block; margin: 0 auto;">';
+                        return '<img src="' . asset($row->project_image) . '" alt="project_image" class="img-fluid center-image" style="max-width: 40px; display: block; margin: 0 auto;">';
                     } else {
-                        return 'No photo uploaded';
+                        return 'No project_image uploaded';
                     }
                 })
                 ->addColumn('benifit_image', function ($row) {
                     if ($row->benifit_image) {
-                        return '<img src="' . asset($row->benifit_image) . '" alt="Signature" class="img-fluid center-image" style="max-width: 40px; display: block; margin: 0 auto;">';
+                        return '<img src="' . asset($row->benifit_image) . '" alt="benifit_image" class="img-fluid center-image" style="max-width: 40px; display: block; margin: 0 auto;">';
                     } else {
-                        return 'No signature uploaded';
+                        return 'No benifit_image uploaded';
                     }
                 })
                 ->addColumn('action', function ($row) {
@@ -60,7 +57,6 @@ class CaseController extends Controller
         }
         return view('admin.pages.case.index');
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -76,32 +72,34 @@ class CaseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+
             'case_title' => 'required|string|max:255',
-            'case_description' => 'required|string',
             'project_title' => 'required|string|max:255',
-            'project_description' => 'required|string',
-            'project_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
-            'benifit_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'benifit_description' => 'required|string',
-            'process_description' => 'required|string',
+            'case_description' => 'required|string|max:255',
+            'project_description' => 'required|string|max:255',
+            'benifit_description' => 'required|string|max:255',
+            'process_description' => 'required|string|max:255',
+            'project_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'benifit_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-            //  Remove HTML tag
-            $request->merge([
-                'case_description'      => strip_tags($request->case_description),
-                'project_description'   => strip_tags($request->project_description),
-                'benifit_description'   => strip_tags($request->benifit_description),
-                'process_description'   => strip_tags($request->process_description), 
+              //  Remove HTML tag
+              $request->merge([
+                'process_description' => strip_tags($request->process_description),
+                'benifit_description' => strip_tags($request->benifit_description),
+                'project_description' => strip_tags($request->project_description),
+                'case_description'    => strip_tags($request->case_description),
             ]);
-        CaseStudy::newCase($request);
-        $this->toastr->success('Case created successfully!');
-        return back();
+
+            Cases::newCase($request);
+            $this->toastr->success('Case info created successfully!');
+            return back();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(CaseStudy $case)
+    public function show(Cases $case)
     {
         //
     }
@@ -111,39 +109,41 @@ class CaseController extends Controller
      */
     public function edit($id)
     {
-        $case = CaseStudy::findOrFail($id);
+        $case = Cases::findOrFail($id);
         return view('admin.pages.case.edit', compact('case'));
     }
-  /**
- * Update the specified resource in storage.
- */
-public function update(Request $request, CaseStudy $case)
-{
-    $request->validate([
-        'case_title'             => 'required|string|max:255',
-        'case_description'       => 'required|string|max:255',
-        'project_title'          => 'required|string|max:255',
-        'project_description'    => 'required|string|max:255',
-        'project_image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
-        'benifit_image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'benifit_description'    => 'required|string',
-        'process_description'    => 'required|string',
-    ]);
 
-    // Call updateAbout method and pass the ID
-    CaseStudy::updateCase($request, $case->id);
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Cases $case)
+    {
+        $request->validate([
+
+            'case_title' => 'required|string|max:255',
+            'project_title' => 'required|string|max:255',
+            'case_description' => 'required|string|max:255',
+            'project_description' => 'required|string|max:255',
+            'benifit_description' => 'required|string|max:255',
+            'process_description' => 'required|string|max:255',
+            'project_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'benifit_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        // Call updateAbout method and pass the ID
+    Cases::updateCase($request, $case->id);
     $this->toastr->success('Case Updated successfully!');
     return back();
-}
+    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy($id)
     {
-        $case = CaseStudy::findOrFail($id);
+        $case = Cases::findOrFail($id);
         $case->delete();
-        $this->toastr->success('Case Deleted successfully!');
+        $this->toastr->success('Case info Deleted successfully!');
         return back();
     }
 }

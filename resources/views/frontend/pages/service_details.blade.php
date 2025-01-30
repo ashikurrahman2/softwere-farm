@@ -32,7 +32,6 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="service-article">
-                            @foreach ($services as $service)
                             <div class="service-article-img">
                                <img src="{{ asset($service->service_icon) }}" alt="Images">
                             </div>
@@ -77,7 +76,6 @@
                                 </p>
                             </div>
                         </div>
-                        @endforeach
                     </div>
 
                   

@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
-class CaseStudy extends Model
+class Cases extends Model
 {
     use HasFactory;
 
     private static $image, $imageName, $directory, $imageUrl;
 
-    
     // Fillable fields to allow mass assignment
     protected $fillable = [
         'case_title',
@@ -87,7 +86,7 @@ public static function updateCase($request, $id)
     // Save or update basic info in the database
     private static function saveBasicInfo($case, $request, $photoUrl, $signatureUrl)
     {
-        $case->case_title       = $request->case_title;
+        $case->case_title          = $request->case_title;
         $case->case_description       = $request->case_description;
         $case->project_title       = $request->project_title;
         $case->project_description       = $request->project_description;

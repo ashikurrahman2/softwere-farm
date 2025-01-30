@@ -34,10 +34,10 @@ class FrontendController extends Controller
         return view('frontend.pages.service', compact('services'));
     }
 
-    public function ServiceD()
+    public function ServiceD($id)
     {
-        $services= Service::all();
-        return view('frontend.pages.service_details', compact('services'));
+        $service = Service::findOrFail($id);
+        return view('frontend.pages.service_details', compact('service'));
     }
 
     public function About(){
