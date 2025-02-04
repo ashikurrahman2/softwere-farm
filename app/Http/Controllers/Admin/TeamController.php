@@ -71,7 +71,19 @@ class TeamController extends Controller
             'member_designation' => 'required|string|max:255',
             'social_face' => 'required|string|max:255',
             'social_linked' => 'required|string|max:255',
+            'member_email' => 'required|string|max:255',
+            'member_phone' => 'required|string|max:255',
+            'member_experience' => 'required|integer|max:255',
+            'member_address' => 'required|string|max:255',
+            'biography' => 'required|string|max:255',
+            'member_skills' => 'required|array',
             'member_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        //  Remove HTML tag
+        $request->merge([
+            'biography' => strip_tags($request->biography),
+          
         ]);
 
 
@@ -107,6 +119,12 @@ class TeamController extends Controller
             'member_designation' => 'required|string|max:255',
             'social_face' => 'required|string|max:255',
             'social_linked' => 'required|string|max:255',
+            'member_email' => 'required|string|max:255',
+            'member_phone' => 'required|string|max:255',
+            'member_experience' => 'required|integer|max:255',
+            'member_address' => 'required|string|max:255',
+            'biography' => 'required|string|max:255',
+            'member_skills' => 'required|array',
             'member_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     
@@ -133,6 +151,12 @@ class TeamController extends Controller
             'member_designation' => $validated['member_designation'],
             'social_face' => $validated['social_face'],
             'social_linked' => $validated['social_linked'],
+            'member_email' => $validated['member_email'],
+            'member_phone' => $validated['member_phone'],
+            'member_experience' => $validated['member_experience'],
+            'member_address' => $validated['member_address'],
+            'biography' => $validated['biography'],
+            'member_skills' => implode(', ', $validated['member_skills']),
         ]);
     
         // Success message

@@ -2053,6 +2053,12 @@ namespace App\Models {
      *
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
+     * @property array|null $member_skills
+     * @property string|null $biography
+     * @property string|null $member_address
+     * @property int|null $member_experience
+     * @property string|null $member_phone
+     * @property string|null $member_email
      * @property string|null $social_linked
      * @property string|null $social_face
      * @property string|null $member_image
@@ -2065,6 +2071,12 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder|Team whereMemberImage($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Team whereSocialFace($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Team whereSocialLinked($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Team whereMemberEmail($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Team whereMemberPhone($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Team whereMemberExperience($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Team whereMemberAddress($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Team whereBiography($value)
+     * @method static \Illuminate\Database\Eloquent\Builder|Team whereMemberSkills($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Team whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Team whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Team newModelQuery()

@@ -20,7 +20,18 @@ class Team extends Model
         'member_image',
         'social_face',
         'social_linked',
+        'member_email',
+        'member_phone',
+        'member_experience',
+        'member_address',
+        'biography',
+        'member_skills',
     ];
+
+    protected $casts = [
+        'member_skills' => 'array', // Laravel নিজেই এটি অ্যারে হিসেবে সংরক্ষণ করবে
+    ];
+    
 
             // Function to upload and resize image
 private static function getImageUrl($request)
@@ -34,7 +45,7 @@ private static function getImageUrl($request)
         // Resize the image using Intervention Image
         $imageManager = new ImageManager(new Driver());
         $image = $imageManager->read(self::$directory . self::$imageName);
-        $image->resize(1200, 600); // Resize to required dimensions
+        $image->resize(600, 600); // Resize to required dimensions
         $image->save(self::$directory . self::$imageName);
 
         self::$imageUrl = self::$directory . self::$imageName;
@@ -74,10 +85,17 @@ private static function getImageUrl($request)
    private static function saveBasicInfo($team, $request, $imageUrl)
    {
        $team->member_image             = $imageUrl;
-       $team->member_name       = $request->member_name;
-       $team->member_designation            = $request->member_designation;
-       $team->social_face            = $request->social_face;
+       $team->member_name              = $request->member_name;
+       $team->member_designation       = $request->member_designation;
+       $team->social_face              = $request->social_face;
        $team->social_linked            = $request->social_linked;
+       $team->member_email             = $request->member_email;
+       $team->member_phone             = $request->member_phone;
+       $team->member_experience        = $request->member_experience;
+       $team->member_address           = $request->member_address;
+       $team->biography                = $request->biography;
+    // Multiple skills store as comma-separated values
+       $team->member_skills = implode(',', $request->member_skills);
        $team->save();
    }
 

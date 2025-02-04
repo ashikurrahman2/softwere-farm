@@ -38,8 +38,9 @@
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="team-card">
                             <!-- Team Member's Image -->
+                            <a href="{{ route('teamdetail', $team->id) }}">
                             <img src="{{ asset($team->member_image) }}" alt="{{ $team->member_name }}">
-        
+                            </a>
                             <!-- Social Links -->
                             <ul class="social-link">
                                 @if($team->social_face)
@@ -60,8 +61,11 @@
         
                             <!-- Team Member's Content -->
                             <div class="content">
+                                <a href="{{ route('teamdetail', $team->id) }}">
                                 <h3>{{ $team->member_name }}</h3>
+                               
                                 <span>{{ $team->member_designation }}</span>
+                            </a>
                             </div>
                         </div>
                     </div>

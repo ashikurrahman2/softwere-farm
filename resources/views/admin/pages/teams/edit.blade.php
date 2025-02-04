@@ -43,6 +43,59 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="member_email" class="col-form-label pt-0">Member Email<sup class="text-size-20 top-1">*</sup></label>
+          <input type="email" class="form-control" id="member_email" name="member_email" value="{{ $team->member_email }}" required>
+          <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+      </div>
+
+      <div class="form-group">
+        <label for="member_phone" class="col-form-label pt-0">Member Phone<sup class="text-size-20 top-1">*</sup></label>
+          <input type="text" class="form-control" id="member_phone" name="member_phone" value="{{ $team->member_phone }}" required>
+          <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+      </div>
+
+      <div class="form-group">
+        <label for="member_experience" class="col-form-label pt-0">Member Experience<sup class="text-size-20 top-1">*</sup></label>
+          <input type="number" class="form-control" id="member_experience" name="member_experience" value="{{ $team->member_experience }}" required>
+          <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+      </div>
+
+      <div class="form-group">
+        <label for="member_address" class="col-form-label pt-0">Member Address<sup class="text-size-20 top-1">*</sup></label>
+          <input type="text" class="form-control" id="member_address" name="member_address" value="{{ $team->member_address }}" required>
+          <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+      </div>
+
+      <div class="col-md-12">
+        <div class="mb-3">
+            <label class="form-label">Biography</label>
+            <textarea class="form-control textarea" name="biography" id="summernote" rows="4" >{{$team->biography}}</textarea> 
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-form-label pt-0">Member Skills<sup class="text-size-20 top-1">*</sup></label>
+        <div class="row">
+            @php
+                $skills = ["PHP", "Laravel", "React", "Node Js", "Express Js", "Vue.js", "JavaScript", "Flutter", "MongoDB"];
+                $selected_skills = old('member_skills', explode(',', $team->member_skills ?? ''));
+            @endphp
+            
+            @foreach($skills as $skill)
+                <div class="col-md-4">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="skill_{{ $skill }}" name="member_skills[]" value="{{ $skill }}" 
+                            {{ in_array($skill, $selected_skills) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="skill_{{ $skill }}">{{ $skill }}</label>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <small class="form-text text-muted">Select multiple skills by checking the boxes.</small>
+    </div>
+    
+
     <!-- Submit Button -->
     <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Update</button>

@@ -26,6 +26,12 @@ class FrontendController extends Controller
         return view('frontend.pages.team', compact('teams'));
     }
 
+    public function TeamD($id)
+    {
+        $team = Team::findOrFail($id);
+        return view('frontend.pages.team_details', compact('team'));
+    }
+
     public function Service()
     {
         

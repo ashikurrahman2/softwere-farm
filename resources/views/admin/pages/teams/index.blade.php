@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Banner')
+@section('title','Teams')
 @section('admin_content')
 <div class="pc-container">
     <div class="pc-content">
@@ -27,7 +27,7 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header table-card-header">
-              <h5>All Banner list here</h5>
+              <h5>All Teams list here</h5>
             </div>
             <div class="card-body">
               <div class="dt-responsive table-responsive">
@@ -40,6 +40,12 @@
                         <th>Member Facebook</th>
                         <th>Member Linkedin</th>
                         <th>Member Image</th>
+                        <th>Member Email</th>
+                        <th>Member Phone</th>
+                        <th>Member Experience</th>
+                        <th>Member Address</th>
+                        <th>Biography</th>
+                        <th>Member Skills</th>
                         <th>Action</th>
                     </tr>
                   </thead>
@@ -54,6 +60,12 @@
                         <th>Member Facebook</th>
                         <th>Member Linkedin</th>
                         <th>Member Image</th>
+                        <th>Member Email</th>
+                        <th>Member Phone</th>
+                        <th>Member Experience</th>
+                        <th>Member Address</th>
+                        <th>Biography</th>
+                        <th>Member Skills</th>
                         <th>Action</th>
                       </tr>
                   </tfoot>
@@ -176,6 +188,64 @@
                   <input type="file" class="dropify" data-height="200" name="member_image" required />
                   <small id="imageHelp" class="form-text text-muted">This is your Banner image</small>
               </div>
+
+              <div class="form-group">
+                <label for="member_email" class="col-form-label pt-0">Member Email<sup class="text-size-20 top-1">*</sup></label>
+                  <input type="email" class="form-control" id="member_email" name="member_email" required>
+                  <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+              </div>
+
+
+              <div class="form-group">
+                <label for="member_phone" class="col-form-label pt-0">Member Phone<sup class="text-size-20 top-1">*</sup></label>
+                  <input type="text" class="form-control" id="member_phone" name="member_phone" required>
+                  <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+              </div>
+
+
+              <div class="form-group">
+                <label for="member_experience" class="col-form-label pt-0">Member Experience<sup class="text-size-20 top-1">*</sup></label>
+                  <input type="number" class="form-control" id="member_experience" name="member_experience" required>
+                  <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+              </div>
+
+              <div class="form-group">
+                <label for="member_address" class="col-form-label pt-0">Member Address<sup class="text-size-20 top-1">*</sup></label>
+                  <input type="text" class="form-control" id="member_address" name="member_address" required>
+                  <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+              </div>
+
+
+              <div class="col-md-12">
+                <div class="mb-3">
+                    <label class="form-label">Biography</label>
+                    <textarea class="form-control textarea" name="biography" id="summernote" rows="4" >{{old('biography')}}</textarea> 
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-form-label pt-0">Member Skills<sup class="text-size-20 top-1">*</sup></label>
+              <div class="row">
+                  @php
+                      $skills = ["PHP", "Laravel", "React", "Node Js", "Express Js", "Vue.js", "JavaScript", "Flutter", "MongoDB"];
+                      $selected_skills = old('member_skills', $team->member_skills ?? []);
+                  @endphp
+                  
+                  @foreach($skills as $skill)
+                      <div class="col-md-4">
+                          <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="skill_{{ $skill }}" name="member_skills[]" value="{{ $skill }}" 
+                                  {{ in_array($skill, $selected_skills) ? 'checked' : '' }}>
+                              <label class="form-check-label" for="skill_{{ $skill }}">{{ $skill }}</label>
+                          </div>
+                      </div>
+                  @endforeach
+              </div>
+              <small class="form-text text-muted">Select multiple skills by checking the boxes.</small>
+          </div>
+          
+          
+          
              
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary"> <span class="d-none"> loading ......</span> Submit</button>
@@ -215,6 +285,12 @@
                 { data: 'social_face', name: 'social_face' },
                 { data: 'social_linked', name: 'social_linked' },
                 { data: 'member_image', name: 'member_image' },
+                { data: 'member_email', name: 'member_email' },
+                { data: 'member_phone', name: 'member_phone' },
+                { data: 'member_experience', name: 'member_experience' },
+                { data: 'member_address', name: 'member_address' },
+                { data: 'biography', name: 'biography' },
+                { data: 'member_skills', name: 'member_skills' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
       });
@@ -224,6 +300,21 @@
         let id = $(this).data('id');
         $.get("team/" + id + "/edit", function(data) {
             $('.modal-body').html(data);
+        });
+    });
+
+
+    // Summernote script
+  $(document).ready(function() {
+        $('#summernote').summernote({
+            height: 200,
+            callbacks: {
+                onChange: function(contents, $editable) {
+                    // Strip HTML tags for plain text
+                    let textOnly = $('<div>').html(contents).text();
+                    $('#summernote').val(textOnly);
+                }
+            }
         });
     });
 
