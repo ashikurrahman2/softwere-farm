@@ -34,7 +34,7 @@
         <div class="navbar-content">
             <ul class="pc-navbar">
                 <li class="pc-item pc-caption"><label>Navigation</label></li>
-                <li class="pc-item pc-hasmenu"><a href="#!" class="pc-link">
+                <li class="pc-item pc-hasmenu"><a href="{{ route('admin.dashboard') }}" class="pc-link">
                         <span class="pc-micon"><i class="ph-duotone ph-gauge"></i> </span>
                         <span class="pc-mtext">Dashboard</span>
                         <span class="pc-arrow"></span></a>
@@ -106,7 +106,7 @@
                 </li>
 
                  
-                <li class="pc-item pc-hasmenu">
+                {{-- <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                             <span class="pc-micon"><i class="ti ti-settings"></i></span>
                             <span class="pc-mtext">Product</span>
@@ -119,7 +119,7 @@
                         </li>
                   
                     </ul>
-                </li>
+                </li> --}}
 
                 <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
@@ -161,6 +161,22 @@
                     <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link"
                             href="{{route('terms.index')}}">Terms List</a>
+                        </li>
+                  
+                    </ul>
+                </li>
+
+
+                <li class="pc-item pc-hasmenu">
+                    <a href="#!" class="pc-link">
+                            <span class="pc-micon"><i class="ti ti-settings"></i></span>
+                            <span class="pc-mtext">Privacy Policy</span>
+                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                    </a>
+
+                    <ul class="pc-submenu">
+                        <li class="pc-item"><a class="pc-link"
+                            href="{{route('policy.index')}}">Policy List</a>
                         </li>
                   
                     </ul>

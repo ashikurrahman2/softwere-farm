@@ -135,7 +135,6 @@ class TermsController extends Controller
         // Update the rest of the fields
         $terms->description = $validated['description'];
         $terms->title = $validated['title'];
-    
         // Save the updated data (ONLY UPDATES, NO NEW ENTRY)
         $terms->save();
         // Success message
@@ -143,7 +142,6 @@ class TermsController extends Controller
         return back();
     }
       
-
     /**
      * Remove the specified resource from storage.
      */

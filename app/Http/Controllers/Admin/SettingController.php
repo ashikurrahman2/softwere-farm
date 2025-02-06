@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\setting;
-use Flasher\Prime\FlasherInterface;
-// use Flasher\Toastr\Prime\ToastrInterface;
+use Flasher\Toastr\Prime\ToastrInterface;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    protected $flasher;
+ 
+    protected $toastr;
 
-    public function __construct(FlasherInterface $flasher)
+    public function __construct(ToastrInterface $toastr)
     {
-        $this->flasher = $flasher;
+        $this->toastr = $toastr;
     }
 
     public function index()
@@ -23,13 +23,12 @@ class SettingController extends Controller
         return view('admin.setting.website', compact('website'));
     }
 
-    public function update(Request $request, Setting $website,FlasherInterface $flasher)
+    public function update(Request $request, Setting $website)
     {
-        // Use dd() to dump and die to see the request data
-        // dd($request->all());
+     
         Setting::updateSetting($request, $website);
 
-        $this->flasher->addSuccess('Setting updated successfully!');
+        $this->toastr->success('Setting updated successfully!');
         return back();
     }
 }

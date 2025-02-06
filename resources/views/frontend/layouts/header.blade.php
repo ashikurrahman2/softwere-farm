@@ -115,7 +115,7 @@
                                             </li>
     
                                             <li class="nav-item">
-                                                <a href="privacy-policy.html" class="nav-link">
+                                                <a href="{{ route('policies') }}" class="nav-link">
                                                     Privacy Policy
                                                 </a>
                                             </li>

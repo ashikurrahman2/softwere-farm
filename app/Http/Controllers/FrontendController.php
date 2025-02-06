@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Banner;
 use App\Models\Team;
+use App\Models\Term;
 use App\Models\FAQ;
 use App\Models\Service;
+use App\Models\Policy;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -66,7 +68,13 @@ class FrontendController extends Controller
     }
 
     public function Terms(){
-        return view('frontend.pages.tearms_condition');
+        $terms=Term::all();
+        return view('frontend.pages.tearms_condition', compact('terms'));
+    }
+
+    public function Policy(){
+        $policies=Policy::all();
+        return view('frontend.pages.privacy_policy', compact('policies'));
     }
     
 }
