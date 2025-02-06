@@ -115,7 +115,7 @@
                                         <div class="agree-label">
                                             <input type="checkbox" id="chb1">
                                             <label for="chb1">
-                                                Accept <a href="terms-condition.html">Terms & Conditions</a> And <a href="privacy-policy.html">Privacy Policy.</a>
+                                                Accept <a href="{{ route('terms') }}">Terms & Conditions</a> And <a href="privacy-policy.html">Privacy Policy.</a>
                                             </label>
                                         </div>
                                     </div>

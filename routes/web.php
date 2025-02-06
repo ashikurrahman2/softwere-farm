@@ -17,6 +17,7 @@ Route::get('/Teams-details/{id}', [FrontendController:: class, 'TeamD'])->name('
 Route::get('/contacts', [FrontendController:: class, 'Communicate'])->name('contact');
 Route::get('/case-study', [FrontendController:: class, 'Case'])->name('cdetails');
 Route::get('/faq', [FrontendController:: class, 'FAQ'])->name('frequnt');
+Route::get('/terms-condition', [FrontendController:: class, 'Terms'])->name('terms');
 
 
 // Dashboard route

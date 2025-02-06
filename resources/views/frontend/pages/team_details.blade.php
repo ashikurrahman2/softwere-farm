@@ -49,9 +49,9 @@
 
                         <h4>Skills</h4>
                         <ul class="skills-list">
-                            {{-- @foreach($team->skills as $skill)
-                                <li>{{ $skill }}</li>
-                            @endforeach --}}
+                            @foreach(explode(',', $team->member_skills) as $skill)
+                             <li>{{ trim($skill) }}</li>
+                         @endforeach
                         </ul>
 
                         <h4>Social Links</h4>

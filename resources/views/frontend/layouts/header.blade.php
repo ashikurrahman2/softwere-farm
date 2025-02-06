@@ -109,7 +109,7 @@
     
     
                                             <li class="nav-item">
-                                                <a href="terms-condition.html" class="nav-link">
+                                                <a href="{{ route('terms') }}" class="nav-link">
                                                     Terms & Conditions
                                                 </a>
                                             </li>

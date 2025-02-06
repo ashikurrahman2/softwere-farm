@@ -34,11 +34,11 @@
                     <div class="about-play">
                         <img src="{{ asset($about->photo) }}" alt="About Images">
                         <div class="about-play-content">
-                            <span>Watch Our Intro Video</span>
+                            {{-- <span>Watch Our Intro Video</span> --}}
                             <h2>Perfect Solution for IT Services!</h2>
-                            <div class="play-on-area">
+                            {{-- <div class="play-on-area">
                                 <a href="https://www.youtube.com/watch?v=tUP5S4YdEJo" class="play-on popup-btn"><i class='bx bx-play'></i></a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

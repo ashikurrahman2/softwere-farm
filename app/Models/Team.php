@@ -45,7 +45,7 @@ private static function getImageUrl($request)
         // Resize the image using Intervention Image
         $imageManager = new ImageManager(new Driver());
         $image = $imageManager->read(self::$directory . self::$imageName);
-        $image->resize(600, 600); // Resize to required dimensions
+        $image->resize(500, 500); // Resize to required dimensions
         $image->save(self::$directory . self::$imageName);
 
         self::$imageUrl = self::$directory . self::$imageName;

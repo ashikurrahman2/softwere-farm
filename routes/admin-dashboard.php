@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\Admin\CaseController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\TermsController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -41,6 +42,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('faq',FAQController::class);
     Route::resource('case',CaseController::class);
     Route::resource('team',TeamController::class);
+    Route::resource('terms',TermsController::class);
    
 });
 

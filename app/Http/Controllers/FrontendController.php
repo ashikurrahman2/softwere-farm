@@ -64,5 +64,9 @@ class FrontendController extends Controller
         $faqs= FAQ::all();
         return view('frontend.pages.faq', compact('faqs'));
     }
+
+    public function Terms(){
+        return view('frontend.pages.tearms_condition');
+    }
     
 }
