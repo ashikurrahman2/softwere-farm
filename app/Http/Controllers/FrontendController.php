@@ -76,5 +76,15 @@ class FrontendController extends Controller
         $policies=Policy::all();
         return view('frontend.pages.privacy_policy', compact('policies'));
     }
+
+    public function Career(){
+       
+        return view('frontend.pages.career');
+    }
+
+    public function CareerD(){
+       
+        return view('frontend.pages.job_details');
+    }
     
 }

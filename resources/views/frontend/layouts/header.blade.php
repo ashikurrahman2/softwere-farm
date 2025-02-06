@@ -130,7 +130,11 @@
                                         </a>
                                     
                                     </li>
-    
+                                    <li class="nav-item">
+                                        <a href="{{ route('career') }}" class="nav-link">
+                                            Career
+                                        </a>
+                                    </li>
     
                                     <li class="nav-item">
                                         <a href="{{ route('contact') }}" class="nav-link">

@@ -19,6 +19,8 @@ Route::get('/case-study', [FrontendController:: class, 'Case'])->name('cdetails'
 Route::get('/faq', [FrontendController:: class, 'FAQ'])->name('frequnt');
 Route::get('/terms-condition', [FrontendController:: class, 'Terms'])->name('terms');
 Route::get('/privacy-policy', [FrontendController:: class, 'Policy'])->name('policies');
+Route::get('/career', [FrontendController:: class, 'Career'])->name('career');
+Route::get('/career-details', [FrontendController:: class, 'CareerD'])->name('careerd');
 
 
 // Dashboard route
