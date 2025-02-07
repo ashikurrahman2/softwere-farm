@@ -73,32 +73,19 @@ body {
 <div class="container mt-5">
     <h2 class="text-center mb-4">Open job Position</h2>
 
+    @foreach ($positions as $position)
     <div class="job-card">
         <div class="job-info">
-            <div class="job-title">Senior Software Engineer L1</div>
+            <div class="job-title">{{ $position->job_title }}</div>
             <div class="job-location">
-                <i class="bi bi-geo-alt"></i> Dhaka, Bangladesh
+                <i class="bi bi-geo-alt"></i> {{ $position->job_location }}, Bangladesh
             </div>
             <div class="job-experience">
-                <i class="bi bi-lightning-charge"></i> 3+ Years Exp.
+                <i class="bi bi-lightning-charge"></i> {{ $position->job_experience }} Years Exp.
             </div>
         </div>
-        <a href="{{ route('careerd') }}" class="apply-btn">Apply Now</a>
+        <a href="{{ route('careerd', ['id' => $position->id]) }}" class="apply-btn">Apply Now</a>
     </div>
-
-    <div class="job-card">
-        <div class="job-info">
-            <div class="job-title">SEO Specialist</div>
-            <div class="job-location">
-                <i class="bi bi-geo-alt"></i> Dhaka, Bangladesh
-            </div>
-            <div class="job-experience">
-                <i class="bi bi-lightning-charge"></i> 2+ Years Exp.
-            </div>
-        </div>
-        <a href="apply.html" class="apply-btn">Apply Now</a>
-
-    </div>
-
+    @endforeach
 </div>
 @endsection

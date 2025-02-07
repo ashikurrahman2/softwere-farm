@@ -42,7 +42,7 @@ class JobpositionController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.pages.policy.index');
+        return view('admin.pages.position.index');
     }
 
     /**
@@ -83,7 +83,7 @@ class JobpositionController extends Controller
     public function edit($id)
     {
         $position = Jobposition::findOrFail($id);
-        return view('admin.pages.faq.edit', compact('position'));
+        return view('admin.pages.position.edit', compact('position'));
     }
 
     /**
@@ -98,7 +98,7 @@ class JobpositionController extends Controller
         ]);
     
         // Update the FAQ record using validated data
-        $policy->update([
+        $position->update([
             'job_title'         => $request->job_title,
             'job_location'   => $request->job_location,
             'job_experience'   => $request->job_experience,

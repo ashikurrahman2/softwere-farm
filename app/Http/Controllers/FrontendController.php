@@ -9,6 +9,7 @@ use App\Models\Term;
 use App\Models\FAQ;
 use App\Models\Service;
 use App\Models\Policy;
+use App\Models\Jobposition;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -78,8 +79,8 @@ class FrontendController extends Controller
     }
 
     public function Career(){
-       
-        return view('frontend.pages.career');
+         $positions=Jobposition::all();
+        return view('frontend.pages.career', compact('positions'));
     }
 
     public function CareerD(){
