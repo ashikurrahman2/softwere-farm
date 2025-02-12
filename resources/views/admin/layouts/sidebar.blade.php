@@ -117,6 +117,10 @@
                         <li class="pc-item"><a class="pc-link"
                             href="{{route('position.index')}}">Job position List</a>
                         </li>
+
+                        <li class="pc-item"><a class="pc-link"
+                            href="{{route('details.index')}}">Job Details</a>
+                        </li>
                   
                     </ul>
                 </li>

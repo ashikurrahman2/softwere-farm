@@ -1551,10 +1551,8 @@ namespace App\Models {
      *
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
-     * @property string|null $location
-     * @property string|null $position
      * @property string|null $job_salary
-     * @property string|null $job_deadline
+     * @property date|null $job_deadline
      * @property string|null $offered
      * @property string|null $job_requirements
      * @property string|null $job_responsibilities
@@ -1567,8 +1565,6 @@ namespace App\Models {
      * @method static \Illuminate\Database\Eloquent\Builder|Jobdetails whereOffered($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Jobdetails whereJobDeadline($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Jobdetails whereJobSalary($value)
-     * @method static \Illuminate\Database\Eloquent\Builder|Jobdetails wherePosition($value)
-     * @method static \Illuminate\Database\Eloquent\Builder|Jobdetails whereLocation($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Jobdetails whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Jobdetails whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder|Jobdetails newModelQuery()
