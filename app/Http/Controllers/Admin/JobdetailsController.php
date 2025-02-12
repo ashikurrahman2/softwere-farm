@@ -67,9 +67,10 @@ class JobdetailsController extends Controller
         ]);
             //  Remove HTML tag
             $request->merge([
-                'job_overview' => strip_tags($request->job_overview),
+                'job_overview'         => strip_tags($request->job_overview),
                 'job_responsibilities' => strip_tags($request->job_responsibilities),
-                'job_requirements' => strip_tags($request->job_requirements),
+                'job_requirements'     => strip_tags($request->job_requirements),
+                'offered'              => strip_tags($request->offered),
             ]);
 
             Jobdetails::newDetails($request);

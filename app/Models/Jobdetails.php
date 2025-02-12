@@ -9,6 +9,7 @@ class Jobdetails extends Model
 {
     use HasFactory;
 
+    // Fillable fields to allow mass assignment
     protected $fillable = [
         'job_overview',
         'job_responsibilities',

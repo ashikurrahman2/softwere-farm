@@ -101,11 +101,12 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="offered" class="col-form-label pt-0">Job Offer<sup class="text-size-20 top-1">*</sup></label>
-                      <input type="text" class="form-control" id="offered" name="offered" required>
-                      <small id="emailHelp" class="form-text text-muted">Company Title</small>
+                <div class="col-md-12">
+                  <div class="mb-3">
+                      <label class="form-label">Job Offer</label>
+                      <textarea class="form-control textarea" name="offered" id="summernote3" rows="4" >{{old('offered')}}</textarea> 
                   </div>
+              </div>
 
                   <div class="form-group">
                     <label for="job_deadline" class="col-form-label pt-0">Job Deadline<sup class="text-size-20 top-1">*</sup></label>
@@ -135,7 +136,7 @@
   <div class="modal-dialog modal-lg">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="editModalLabel">Edit FAQ</h5>
+              <h5 class="modal-title" id="editModalLabel">Edit Job Details</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -209,6 +210,20 @@
                     // Strip HTML tags for plain text
                     let textOnly = $('<div>').html(contents).text();
                     $('#summernote2').val(textOnly);
+                }
+            }
+        });
+    });
+
+       // Summernote script
+  $(document).ready(function() {
+        $('#summernote3').summernote({
+            height: 200,
+            callbacks: {
+                onChange: function(contents, $editable) {
+                    // Strip HTML tags for plain text
+                    let textOnly = $('<div>').html(contents).text();
+                    $('#summernote3').val(textOnly);
                 }
             }
         });

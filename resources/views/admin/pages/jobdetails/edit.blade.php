@@ -23,9 +23,11 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="offered" class="col-form-label pt-0">Job Offer<sup class="text-size-20 top-1">*</sup></label>
-        <input type="text" class="form-control" id="offered" name="offered" value="{{ old('offered', $job->offered) }}" required>
+    <div class="col-md-12">
+        <div class="mb-3">
+            <label class="form-label">Job Offer</label>
+            <textarea class="form-control textarea" name="offered" id="summernote3" rows="4">{{ old('offered', $job->offered) }}</textarea>
+        </div>
     </div>
 
     <div class="form-group">
