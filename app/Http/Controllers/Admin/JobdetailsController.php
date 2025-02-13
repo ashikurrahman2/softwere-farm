@@ -70,7 +70,7 @@ class JobdetailsController extends Controller
                 'job_overview'         => strip_tags($request->job_overview),
                 'job_responsibilities' => strip_tags($request->job_responsibilities),
                 'job_requirements'     => strip_tags($request->job_requirements),
-                'offered'              => strip_tags($request->offered),
+                'offered' => strip_tags($request->offered),
             ]);
 
             Jobdetails::newDetails($request);

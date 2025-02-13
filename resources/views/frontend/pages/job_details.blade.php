@@ -3,45 +3,49 @@
 @section('title', 'Job Description')
 
 @section('front_content')
+  <!-- Inner Banner -->
+  <div class="inner-banner">
+    <div class="container">
+        <div class="inner-title text-center">
+            <h3>Career</h3>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <i class='bx bx-chevrons-right'></i>
+                </li>
+                <li>Job Details</li>
+            </ul>
+        </div>
+    </div>
+    <div class="inner-shape">
+        <img src="{{ asset('/') }}frontend/assets/images/shape/inner-shape.png" alt="Images">
+    </div>
+</div>
+<!-- Inner Banner End -->
 <div class="container mt-5">
     <h2 class="fw-bold">Overview</h2>
     <p class="text-muted">
-        Vivasoft, a leading software outsourcing company, is seeking a talented Senior Software Engineer L1 to join our dynamic team. 
-        The candidate will possess advanced knowledge of Java programming, extensive experience with Java frameworks, and a strong understanding of web technologies. 
-        You will work closely with our clients to understand their needs and translate those into software solutions. 
-        Additionally, you will mentor and guide junior developers on the team, ensuring that all code is of high quality.
+      {{ $job->job_overview }}
     </p>
 
     <h3 class="fw-bold mt-4">Responsibilities:</h3>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Lead the design, development, and maintenance of scalable, reliable, and robust Java applications.</li>
-        <li class="list-group-item">Utilize your mastery of Java internals (JVM, GC, performance tuning) to optimize code.</li>
-        <li class="list-group-item">Develop and maintain web applications using Java frameworks such as Spring (Boot, MVC, Security) and Hibernate.</li>
-        <li class="list-group-item">Collaborate with cross-functional teams to design and implement RESTful and SOAP web services.</li>
-        <li class="list-group-item">Manage database design and optimization for both relational (PostgreSQL, MySQL) and NoSQL databases (Cassandra).</li>
-        <li class="list-group-item">Implement DevOps practices, including CI/CD pipelines, containerization, and Kubernetes orchestration.</li>
+        <li class="list-group-item">{{ $job->job_responsibilities }}</li>
     </ul>
 </div>
 
 <div class="container mt-5">
     <h3 class="fw-bold">Requirements:</h3>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">3–5 years of professional Java development experience.</li>
-        <li class="list-group-item">Proficiency in Java programming, including Java SE and Java EE, with a strong understanding of Java internals, Collection, and performance tuning.</li>
-        <li class="list-group-item">Extensive experience with popular Java frameworks and libraries like Spring (Boot, MVC, Security), Hibernate, and project needs.</li>
-        <li class="list-group-item">Proficiency in database design and management, with experience in both relational (PostgreSQL, MySQL) and NoSQL (Cassandra) databases (depending on project requirements).</li>
-        <li class="list-group-item">Hands-on experience with RESTful and SOAP web services development, including an understanding of security best practices (OAuth, JWT, etc.).</li>
-        <li class="list-group-item">Proficient in DevOps methodologies, including CI/CD pipelines and containerization technologies.</li>
-        <li class="list-group-item">Expertise in testing methodologies and frameworks (JUnit, TestNG, Mockito) for unit, integration, and system testing.</li>
-        <li class="list-group-item">Strong understanding of secure coding practices and the ability to implement security measures in applications.</li>
-        <li class="list-group-item">Ability to design scalable, reliable, and efficient software architectures, understanding design patterns and event-driven architecture.</li>
+        <li class="list-group-item">{{ $job->job_requirements }}</li>
     </ul>
    
     <h3 class="fw-bold mt-4">What we offer:</h3>
     
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Good working environment.</li>
-        <li class="list-group-item">Weekly holiday: 2 Days</li>
+        <li class="list-group-item">{{ $job->offered }}</li>
     </ul>
 </div>
 
@@ -52,10 +56,10 @@
         </div>
         <div class="card-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Location:</strong> [Location]</li>
-                <li class="list-group-item"><strong>Deadline:</strong> 08-31-2024</li>
-                <li class="list-group-item"><strong>Position:</strong> Senior Software Engineer L1</li>
-                <li class="list-group-item"><strong>Salary:</strong> 90k-120k</li>
+                <li class="list-group-item"><strong>Location:</strong> {{ $position->job_location }}</li>
+                <li class="list-group-item"><strong>Deadline:</strong> {{ $job->job_deadline }}</li>
+                <li class="list-group-item"><strong>Position:</strong>{{ $position->job_title }}</li>
+                <li class="list-group-item"><strong>Salary:</strong> {{ $job->job_salary }}</li>
             </ul>
         </div>
         
@@ -63,8 +67,65 @@
       
     </div>
       <!-- Apply Now Button -->
-      <a href="#" class="apply-btn">Apply Now</a>
-      {{-- <button class="btn apply-btn mt-4">Apply Now</button> --}}
+      {{-- <a href="#" class="apply-btn">Apply Now</a> --}}
+
+      <!-- Apply Now Button -->
+<button type="button" class="apply-btn" data-bs-toggle="modal" data-bs-target="#jobApplicationModal">
+    Apply Now
+</button>
+
+<!-- Job Application Modal -->
+<div class="modal fade" id="jobApplicationModal" tabindex="-1" aria-labelledby="jobApplicationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title text-light" id="jobApplicationModalLabel">Job Application</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="resume" class="form-label">Upload Resume (PDF, DOC)</label>
+                        <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cover_letter" class="form-label">Cover Letter</label>
+                        <textarea class="form-control" id="cover_letter" name="cover_letter" rows="4" required></textarea>
+                    </div>
+
+                         <!-- Terms and Conditions Checkbox -->
+                         <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="termsCheckbox">
+                            <label class="form-check-label" for="termsCheckbox">
+                                I agree to the <a href="{{ route('terms') }}">Terms and Conditions</a>
+                            </label>
+                        </div>
+                           <!-- Error Message (Initially Hidden) -->
+                    <div id="termsError" class="text-danger" style="display: none;">
+                        ❌ আপনাকে অবশ্যই শর্তগুলোর সাথে সম্মত হতে হবে।
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <style>
@@ -82,7 +143,19 @@
     /* box-shadow: 0px 4px 10px rgba(178, 253, 5, 0.2); */
 }
 
-
-
 </style>
+
+<script>
+    document.getElementById('submitBtn').addEventListener('click', function(event) {
+        let termsCheckbox = document.getElementById('termsCheckbox');
+        let termsError = document.getElementById('termsError');
+        
+        if (!termsCheckbox.checked) {
+            event.preventDefault(); // Form submission বন্ধ করে দিচ্ছে
+            termsError.style.display = 'block'; // Error message দেখাচ্ছে
+        } else {
+            termsError.style.display = 'none'; // Error message লুকিয়ে রাখছে
+        }
+    });
+</script>
 @endsection

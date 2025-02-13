@@ -16,7 +16,7 @@
                     <li>
                         <i class='bx bx-chevrons-right'></i>
                     </li>
-                    <li>Career Details</li>
+                    <li>Career Position</li>
                 </ul>
             </div>
         </div>
@@ -84,8 +84,48 @@ body {
                 <i class="bi bi-lightning-charge"></i> {{ $position->job_experience }} Years Exp.
             </div>
         </div>
-        <a href="{{ route('careerd', ['id' => $position->id]) }}" class="apply-btn">Apply Now</a>
+            {{-- Countdown Timer --}}
+            <div class="countdown-timer" 
+            data-deadline="{{ $position->deadline_timestamp }}"></div>
+        <a href="{{ route('careerd',$position->id) }}" class="apply-btn">Apply Now</a>
     </div>
     @endforeach
+{{-- Countdown Timer Script --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.countdown-timer').forEach(timer => {
+            let deadline = timer.getAttribute('data-deadline');
+
+            if (!deadline || deadline === "0") {
+                timer.innerHTML = "<span style='color: red;'>No Deadline</span>";
+                return;
+            }
+
+            deadline = parseInt(deadline) * 1000;
+
+            function updateCountdown() {
+                let now = new Date().getTime();
+                let distance = deadline - now;
+
+                if (distance < 0) {
+                    timer.innerHTML = "<span style='color: red; font-weight: bold;'>00:00:00</span>";
+                    return;
+                }
+
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                timer.innerHTML = `<span style="color: green; font-weight: bold;">
+                    ${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s
+                </span>`;
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+    });
+</script>
 </div>
 @endsection

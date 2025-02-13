@@ -10,7 +10,9 @@ use App\Models\FAQ;
 use App\Models\Service;
 use App\Models\Policy;
 use App\Models\Jobposition;
+use App\Models\Jobdetails;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class FrontendController extends Controller
 {
@@ -77,15 +79,28 @@ class FrontendController extends Controller
         $policies=Policy::all();
         return view('frontend.pages.privacy_policy', compact('policies'));
     }
-
-    public function Career(){
-         $positions=Jobposition::all();
+    
+    public function Career() {
+        // Job positions ডেটা নিয়ে আসা
+        $positions = Jobposition::all();
+    
+        foreach ($positions as $position) {
+            // যদি job_deadline ফিল্ড `NULL` হয়, তাহলে ডিফল্ট ৭ দিনের সময় সেট করুন
+            $position->deadline_timestamp = $position->job_deadline 
+                ? strtotime($position->job_deadline)
+                : strtotime('+7 days');
+        }
+    
         return view('frontend.pages.career', compact('positions'));
     }
-
-    public function CareerD(){
-       
-        return view('frontend.pages.job_details');
+    
+    
+    public function CareerD($id){
+        $job = Jobdetails::findOrFail($id);
+        $position=Jobposition::findOrFail($id); // সঠিক findOrFail() ব্যবহার করা হয়েছে
+        return view('frontend.pages.job_details', compact('job','position'));
     }
+    
+    
     
 }

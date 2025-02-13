@@ -215,7 +215,7 @@
         });
     });
 
-       // Summernote script
+     // Summernote script
   $(document).ready(function() {
         $('#summernote3').summernote({
             height: 200,
@@ -228,6 +228,8 @@
             }
         });
     });
+
+
 
   </script>
   
