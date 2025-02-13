@@ -11,11 +11,21 @@ use App\Models\Service;
 use App\Models\Policy;
 use App\Models\Jobposition;
 use App\Models\Jobdetails;
+use App\Models\Jobaplication;
+use Flasher\Toastr\Prime\ToastrInterface;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 class FrontendController extends Controller
 {
+
+    protected $toastr;
+
+    public function __construct(ToastrInterface $toastr)
+    {
+        $this->toastr = $toastr;
+    }
+
     public function index()
     {
         $abouts= About::all();
@@ -101,6 +111,21 @@ class FrontendController extends Controller
         return view('frontend.pages.job_details', compact('job','position'));
     }
     
+
+    public function AplicationForm(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|max:255',
+            'phone' => 'required|string|max:500',
+            'cover_letter' => 'required|string|max:255',
+           'resume' => 'required|mimes:pdf,doc,docx|max:2048',
+        ]);
+      
+        Jobaplication::newAplication($request);
+        $this->toastr->success('Your application has been successful. Our Bangladeshi representive will contact within 24 hours.!');
+        return back();
+    }
     
     
 }

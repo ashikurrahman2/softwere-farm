@@ -121,6 +121,10 @@
                         <li class="pc-item"><a class="pc-link"
                             href="{{route('details.index')}}">Job Details</a>
                         </li>
+
+                        <li class="pc-item"><a class="pc-link"
+                            href="{{route('aplication.index')}}">Public CV</a>
+                        </li>
                   
                     </ul>
                 </li>

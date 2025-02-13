@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\TermsController;
 use App\Http\Controllers\Admin\PolicyController;
 use App\Http\Controllers\Admin\JobpositionController;
 use App\Http\Controllers\Admin\JobdetailsController;
+use App\Http\Controllers\Admin\JobaplicationController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -49,6 +50,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('policy',PolicyController::class);
     Route::resource('position',JobpositionController::class);
     Route::resource('details',JobdetailsController::class);
+    Route::resource('aplication',JobaplicationController::class);
+    Route::patch('job-applications/{id}/approve', [JobaplicationController::class, 'approve'])->name('job.approve');
+    Route::patch('job-applications/{id}/reject', [JobaplicationController::class, 'reject'])->name('job.reject');
    
 });
 

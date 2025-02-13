@@ -21,6 +21,9 @@ Route::get('/terms-condition', [FrontendController:: class, 'Terms'])->name('ter
 Route::get('/privacy-policy', [FrontendController:: class, 'Policy'])->name('policies');
 Route::get('/career', [FrontendController:: class, 'Career'])->name('career');
 Route::get('/career-details/{id}', [FrontendController::class, 'CareerD'])->name('careerd');
+Route::get('/job-form', [FrontendController::class, 'AplicationForm'])->name('apply');
+Route::post('/job-form', [FrontendController::class, 'AplicationForm'])->name('apply');
+
 
 
 
