@@ -6,40 +6,17 @@ use App\Models\Jobaplication;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Flasher\Toastr\Prime\ToastrInterface;
 // use Illuminate\Support\Facades\Response;
 // use Illuminate\Support\Facades\Storage;
 
 class JobaplicationController extends Controller
 {
-
-    // Approve loan application
-// public function approve($id)
-// {
-//     $application = Jobaplication::findOrFail($id);
-
-//     if ($application->status !== 'pending') {
-//         return redirect()->route('aplication.index')->with('error', 'This job application cannot be approved.');
-//     }
-
-//     $application->update(['status' => 'approved']);
-
-//     return redirect()->route('aplication.index')->with('success', 'Job application approved successfully.');
-// }
-
-// Reject loan application
-// public function reject($id)
-// {
-//     $application = Jobaplication::findOrFail($id);
-
-//     if ($application->status !== 'pending') {
-//         return redirect()->route('aplication.index')->with('error', 'This loan application cannot be rejected.');
-//     }
-
-//     $application->update(['status' => 'rejected']);
-
-//     return redirect()->route('aplication.index')->with('success', 'Loan application rejected successfully.');
-// }
-
+    public function __construct(ToastrInterface $toastr)
+    {
+        $this->toastr = $toastr;
+    }
+    // Joined application
 public function approve($id)
 {
     $application = Jobaplication::findOrFail($id);
@@ -49,12 +26,12 @@ public function approve($id)
     }
 
     $application->update(['status' => 'approved']);
-
-    session()->flash('success', 'Job application approved successfully.');
+    
+    $this->toastr->success('Job application approved successfully.');
 
     return redirect()->route('aplication.index');
 }
-
+// Reject loan application
 public function reject($id)
 {
     $application = Jobaplication::findOrFail($id);
@@ -65,7 +42,7 @@ public function reject($id)
 
     $application->update(['status' => 'rejected']);
 
-    session()->flash('success', 'Job application rejected successfully.');
+   $this->toastr->success('Job application Rejected successfully.');
 
     return redirect()->route('aplication.index');
 }
