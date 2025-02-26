@@ -52,64 +52,41 @@
                                    <!-- Image with click event -->
 
                                    <td>
-                                    @if($application->resume)
-                                        <a href="{{ asset($application->resume) }}" download class="btn btn-sm btn-success">
+                                    @if ($application->resume)
+                                        <a href="{{ route('resume.download', $application->id) }}" class="btn btn-sm btn-success">
                                             Download Resume
                                         </a>
                                     @else
                                         <span>No Resume</span>
                                     @endif
-                                </td>
+                                </td>                                   
+                                {{-- Joined and Reject Section --}}
+                                <td>
+                                  @if($application->status == 'pending')
+                                    <form action="{{ route('job.approve', $application->id) }}" method="POST" style="display:inline;">
+                                     @csrf
+                                     @method('PATCH')
+                                    <button class="btn btn-success btn-sm" type="submit">Approve</button>
+                                </form>
                                 
+                                <form action="{{ route('job.reject', $application->id) }}" method="POST" style="display:inline;">
+                                 @csrf
+                                 @method('PATCH')
+                                <button class="btn btn-danger btn-sm" type="submit">Reject</button>
+                            </form>
+                              @elseif($application->status == 'approved')
+                                <span class="badge bg-success" style="font-size: 1.5rem; padding: 5px 5px;">Joined</span>
 
-                                
-
-                                 
-
-                                            <!-- Signature Image in Table -->
-
-
-
-
-                                   
-                                         
-                                         
-
-                                      
-
-                                            <td>
-                                                <!-- Approve and Reject buttons -->
-                                                @if($application->status == 'pending')
-                                                    <form action="{{ route('job.approve', $application->id) }}" method="POST" style="display:inline;">
-                                                        @csrf
-                                                        @method('PATCH')
-                                                        <button class="btn btn-success btn-sm" type="submit">Approve</button>
-                                                    </form>
-                                                    <form action="{{ route('job.reject', $application->id) }}" method="POST" style="display:inline;">
-                                                        @csrf
-                                                        @method('PATCH')
-                                                        <button class="btn btn-danger btn-sm" type="submit">Reject</button>
-                                                    </form>
-                                                {{-- @else
-                                                    <span class="text-muted">Actions Disabled</span> --}}
-                                                @endif
-
-                                                    <!-- Delete button -->
-                                                    {{-- <form action="{{ route('admin.loan.destroy', $application->id) }}" method="POST" style="display:inline;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-danger btn-sm" type="submit">
-                                                            <i class="fas fa-trash-alt"></i> Delete
-                                                        </button>
-                                                    </form> --}}
-                                                    
-                                                    
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                 @elseif($application->status == 'rejected')
+                                <span class="badge bg-danger" style="font-size: 1.5rem; padding: 5px 5px;">Rejected</span>
+                                 @endif
+                            </td>
+                                            
+                         </tr>
+                     @endforeach
+                </tbody>
+            </table>
+        </div>
                             <!-- Pagination links -->
                             {{-- <div class="d-flex justify-content-center mt-3">
                                 {{ $applications->links('pagination::bootstrap-4') }}

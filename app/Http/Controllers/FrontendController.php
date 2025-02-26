@@ -91,11 +91,11 @@ class FrontendController extends Controller
     }
     
     public function Career() {
-        // Job positions ডেটা নিয়ে আসা
+        // Job positions fetch data 
         $positions = Jobposition::all();
     
         foreach ($positions as $position) {
-            // যদি job_deadline ফিল্ড `NULL` হয়, তাহলে ডিফল্ট ৭ দিনের সময় সেট করুন
+            // if job_deadline field `NULL` then 7 days data show
             $position->deadline_timestamp = $position->job_deadline 
                 ? strtotime($position->job_deadline)
                 : strtotime('+7 days');
@@ -123,7 +123,7 @@ class FrontendController extends Controller
         ]);
       
         Jobaplication::newAplication($request);
-        $this->toastr->success('Your application has been successful. Our Bangladeshi representive will contact within 24 hours.!');
+        $this->toastr->success('Job aplication submitted.');
         return back();
     }
     

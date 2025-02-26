@@ -95,37 +95,46 @@ body {
     document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.countdown-timer').forEach(timer => {
             let deadline = timer.getAttribute('data-deadline');
-
+            let applyBtn = timer.nextElementSibling; // "Apply Now" বাটন ধরার জন্য
+    
             if (!deadline || deadline === "0") {
                 timer.innerHTML = "<span style='color: red;'>No Deadline</span>";
                 return;
             }
-
+    
             deadline = parseInt(deadline) * 1000;
-
+    
             function updateCountdown() {
                 let now = new Date().getTime();
                 let distance = deadline - now;
-
+    
                 if (distance < 0) {
                     timer.innerHTML = "<span style='color: red; font-weight: bold;'>00:00:00</span>";
+    
+                    if (applyBtn) {
+                        applyBtn.style.backgroundColor = "gray"; // ব্যাকগ্রাউন্ড গ্রে করা
+                        applyBtn.style.pointerEvents = "none"; // ক্লিক ডিজেবল করা
+                        applyBtn.style.opacity = "0.6"; // হালকা দেখানোর জন্য
+                        applyBtn.innerText = "Expired"; // টেক্সট পরিবর্তন করা
+                    }
                     return;
                 }
-
+    
                 let days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+    
                 timer.innerHTML = `<span style="color: green; font-weight: bold;">
                     ${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s
                 </span>`;
             }
-
+    
             updateCountdown();
             setInterval(updateCountdown, 1000);
         });
     });
-</script>
+    </script>
+    
 </div>
 @endsection

@@ -53,6 +53,8 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('aplication',JobaplicationController::class);
     Route::patch('job-applications/{id}/approve', [JobaplicationController::class, 'approve'])->name('job.approve');
     Route::patch('job-applications/{id}/reject', [JobaplicationController::class, 'reject'])->name('job.reject');
+    Route::get('/resume/download/{id}', [JobaplicationController::class, 'downloadResume'])->name('resume.download');
+
    
 });
 

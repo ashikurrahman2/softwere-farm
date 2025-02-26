@@ -538,7 +538,7 @@ namespace App\Models {
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property string|null $remember_token
-     * @property hashed $password
+     * @property string $password
      * @property \Illuminate\Support\Carbon|null $email_verified_at
      * @property string $email
      * @property string $name
@@ -1551,7 +1551,7 @@ namespace App\Models {
      *
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
-     * @property enum('pending','approved','rejected') $status
+     * @property mixed $status
      * @property string|null $cover_letter
      * @property string|null $resume
      * @property string|null $phone
@@ -1806,7 +1806,7 @@ namespace App\Models {
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property string|null $job_salary
-     * @property date|null $job_deadline
+     * @property string|null $job_deadline
      * @property string|null $offered
      * @property string|null $job_requirements
      * @property string|null $job_responsibilities
@@ -3568,7 +3568,7 @@ namespace App\Models {
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property string|null $remember_token
-     * @property hashed $password
+     * @property string $password
      * @property \Illuminate\Support\Carbon|null $email_verified_at
      * @property string $email
      * @property string|null $user_image
