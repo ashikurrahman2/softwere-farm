@@ -18,6 +18,7 @@ class Banner extends Model
     protected $fillable = [
         'banner_image',
         'banner_description',
+        'banner_designation',
         'banner_author',
     ];
 
@@ -51,7 +52,7 @@ private static function getImageUrl($request)
             self::saveBasicInfo($banner, $request, self::$imageUrl);
         }
 
-                  // Update an existing About entry
+    // Update an existing About entry
     public static function updateBanner($request, $id)
     {
     // Fetch the team record using the ID
@@ -74,6 +75,7 @@ private static function getImageUrl($request)
    {
        $banner->banner_image             = $imageUrl;
        $banner->banner_description       = $request->banner_description;
+       $banner->banner_designation       = $request->banner_designation;
        $banner->banner_author            = $request->banner_author;
        $banner->save();
    }

@@ -1,5 +1,5 @@
 @php
-    $setting = App\Models\setting::first();
+    $setting = App\Models\Setting::first();
 @endphp
 <nav class="pc-sidebar">
     <div class="navbar-wrapper">
@@ -44,13 +44,13 @@
                 <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                             <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">SkyCode History</span>
+                            <span class="pc-mtext">Rokib history</span>
                             <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
                     </a>
 
                     <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link"
-                            href="{{route('about.index')}}">About us</a>
+                            href="{{route('about.index')}}">About</a>
                         </li>
                   
                     </ul>

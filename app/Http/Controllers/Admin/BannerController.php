@@ -71,6 +71,7 @@ class BannerController extends Controller
 
             'banner_author' => 'required|string|max:255',
             'banner_description' => 'required|string|max:255',
+            'banner_designation' => 'required|string|max:255',
             'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -109,14 +110,15 @@ class BannerController extends Controller
         $validated = $request->validate([
             'banner_description' => 'required|string|max:255',
             'banner_author' => 'required|string|max:255',
+            'banner_designation' => 'required|string|max:255',
             'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     
         // Check if a new image file is uploaded
         if ($request->hasFile('banner_image')) {
             // Delete the old image if exists
-            if ($service->banner_image && file_exists(public_path($service->banner_image))) {
-                unlink(public_path($service->banner_image));
+            if ($banner->banner_image && file_exists(public_path($banner->banner_image))) {
+                unlink(public_path($banner->banner_image));
             }
     
             // Upload the new image

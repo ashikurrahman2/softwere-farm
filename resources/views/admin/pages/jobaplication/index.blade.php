@@ -34,6 +34,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
+                                            <th>Designation</th>
                                             <th>Cover Later</th>
                                             <th>Ressume</th>
                                        
@@ -47,6 +48,7 @@
                                             <td>{{ $application->name }}</td>
                                             <td>{{ $application->email }}</td>
                                             <td>{{ $application->phone }}</td>
+                                            <td>{{ $application->job_title }}</td>
                                             <td>{{ $application->cover_letter }}</td>
 
                                    <!-- Image with click event -->

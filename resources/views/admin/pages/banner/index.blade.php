@@ -37,6 +37,7 @@
                         <th>SL</th>
                         <th>Banner Author</th>
                         <th>Banner Description</th>
+                        <th>Banner Designation</th>
                         <th>Banner Image</th>
                         <th>Action</th>
                     </tr>
@@ -49,6 +50,7 @@
                         <th>SL</th>
                         <th>Banner Author</th>
                         <th>Banner Description</th>
+                         <th>Banner Designation</th>
                         <th>Banner Image</th>
                         <th>Action</th>
                       </tr>
@@ -87,6 +89,11 @@
                     </div>
                 </div>
 
+                   <div class="form-group">
+                  <label for="banner_designation" class="col-form-label pt-0">Banner Designation<sup class="text-size-20 top-1">*</sup></label>
+                    <input type="text" class="form-control" id="banner_designation" name="banner_designation" required>
+                    <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+                </div>
 
                 <div class="col-md-12">
                   <label for="banner_image" class="col-form-label pt-0">Banner Image<sup class="text-size-20 top-1">*</sup></label>
@@ -129,6 +136,7 @@
                 { data: 'DT_RowIndex', name: 'DT_RowIndex' },
                 { data: 'banner_author', name: 'banner_author' },
                 { data: 'banner_description', name: 'banner_description' },
+                { data: 'banner_designation', name: 'banner_designation' },
                 { data: 'banner_image', name: 'banner_image' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]

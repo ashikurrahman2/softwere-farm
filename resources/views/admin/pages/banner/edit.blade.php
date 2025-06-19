@@ -16,6 +16,12 @@
         </div>
     </div>
 
+          <div class="form-group">
+                  <label for="banner_designation" class="col-form-label pt-0">Banner Designation<sup class="text-size-20 top-1">*</sup></label>
+                    <input type="text" class="form-control" id="banner_designation" name="banner_designation" value="{{ $banner->banner_designation }}" required>
+                    <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+                </div>
+
     
     <div class="form-group">
         <label for="banner_image" class="col-form-label pt-0">Current photo Logo</label>

@@ -14,6 +14,7 @@ class Jobaplication extends Model
         'name',
         'email',
         'phone',
+        'job_title',
         'resume',
         'cover_letter',
         'status',
@@ -58,6 +59,7 @@ class Jobaplication extends Model
         $aplication->name = $request->name;
         $aplication->email = $request->email;
         $aplication->phone = $request->phone;
+        $aplication->job_title = $request->job_title;
         $aplication->cover_letter = $request->cover_letter;
         $aplication->resume = $pdfUrl;
         $aplication->save();

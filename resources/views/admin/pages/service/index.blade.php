@@ -37,11 +37,10 @@
                       <th>SL</th>
                       <th>Service Title</th>
                       <th>Service Subtitle</th>
-                      <th>Work Process</th>
-                      <th>Service Benifit</th>
-                      <th>Service Provide</th>
                       <th>Service Details</th>
                       <th>Service Icon</th>
+                      <th>Service Image</th>
+                      <th>Service Category</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -53,11 +52,10 @@
                       <th>SL</th>
                       <th>Service Title</th>
                       <th>Service Subtitle</th>
-                      <th>Work Process</th>
-                      <th>Service Benifit</th>
-                      <th>Service Provide</th>
                       <th>Service Details</th>
                       <th>Service Icon</th>
+                      <th>Service Image</th>
+                      <th>Service Category</th>
                       <th>Action</th>
                     </tr>
                   </tfoot>
@@ -97,27 +95,6 @@
               </div>
               
 
-                <div class="col-md-12">
-                  <div class="mb-3">
-                      <label class="form-label">Work Process</label>
-                      <textarea class="form-control textarea" name="working_process" id="summernote1" rows="4" >{{old('working_process')}}</textarea> 
-                  </div>
-              </div>
-
-
-              <div class="col-md-12">
-                <div class="mb-3">
-                    <label class="form-label">Service Benifit</label>
-                    <textarea class="form-control textarea" name="service_benifit" id="summernote2" rows="4" >{{old('service_benifit')}}</textarea> 
-                </div>
-            </div>
-
-            <div class="form-group">
-              <label for="service_provide" class="col-form-label pt-0">Service Provide<sup class="text-size-20 top-1">*</sup></label>
-                <input type="text" class="form-control" id="service_provide" name="service_provide" required>
-                <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
-            </div>
-
                   <div class="col-md-12">
                     <div class="mb-3">
                         <label class="form-label">Service Details</label>
@@ -130,6 +107,18 @@
                   <input type="file" class="dropify" data-height="200" name="service_icon"  required />
                   <small id="imageHelp" class="form-text text-muted">This is your Rent image</small>
               </div>
+
+                <div class="col-md-12">
+                  <label for="service_image" class="col-form-label pt-0">Service Image<sup class="text-size-20 top-1">*</sup></label>
+                  <input type="file" class="dropify" data-height="200" name="service_image"  required />
+                  <small id="imageHelp" class="form-text text-muted">This is your Rent image</small>
+              </div>
+
+                <div class="form-group">
+                  <label for="service_category" class="col-form-label pt-0">Service Category<sup class="text-size-20 top-1">*</sup></label>
+                    <input type="text" class="form-control" id="service_category" name="service_category" required>
+                    <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
+                </div>
              
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary"> <span class="d-none"> loading ......</span> Submit</button>
@@ -166,11 +155,10 @@
                 { data: 'DT_RowIndex', name: 'DT_RowIndex' },
                 { data: 'service_title', name: 'service_title' },
                 { data: 'service_subtitle', name: 'service_subtitle' },
-                { data: 'working_process', name: 'working_process' },
-                { data: 'service_benifit', name: 'service_benifit' },
-                { data: 'service_provide', name: 'service_provide' },
                 { data: 'service_details', name: 'service_details' },
                 { data: 'service_icon', name: 'service_icon' },
+                { data: 'service_image', name: 'service_image' },
+                { data: 'service_category', name: 'service_category' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
       });
@@ -196,36 +184,6 @@
             }
         });
     });
-
-    // Summernote script
-  $(document).ready(function() {
-        $('#summernote1').summernote({
-            height: 200,
-            callbacks: {
-                onChange: function(contents, $editable) {
-                    // Strip HTML tags for plain text
-                    let textOnly = $('<div>').html(contents).text();
-                    $('#summernote1').val(textOnly);
-                }
-            }
-        });
-    });
-
-
-        // Summernote script
-  $(document).ready(function() {
-        $('#summernote2').summernote({
-            height: 200,
-            callbacks: {
-                onChange: function(contents, $editable) {
-                    // Strip HTML tags for plain text
-                    let textOnly = $('<div>').html(contents).text();
-                    $('#summernote2').val(textOnly);
-                }
-            }
-        });
-    });
-
 
           // Summernote script
   $(document).ready(function() {

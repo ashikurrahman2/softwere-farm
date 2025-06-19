@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver; // Import Intervention Image Facade
 
-class setting extends Model
+class Setting extends Model
 {
     use HasFactory;
 

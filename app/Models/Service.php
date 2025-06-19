@@ -11,89 +11,96 @@ class Service extends Model
 {
     use HasFactory;
 
-    private static $image, $imageName, $directory, $imageUrl;
+    private static $image, $imageName, $directory, $photoUrl;
 
-    // Fillable fields to allow mass assignment
     protected $fillable = [
         'service_icon',
         'service_title',
         'service_details',
+        'service_image',
         'service_subtitle',
-        'working_process',
-        'service_benifit',
-        'service_provide',
+        'service_category',
     ];
-
-            // Function to upload and resize image
-private static function getImageUrl($request)
-{
-    self::$image = $request->file('service_icon');
-    if (self::$image) {
-        self::$imageName = time() . '_' . self::$image->getClientOriginalName(); // Unique image name
-        self::$directory = "upload/services/";
-        self::$image->move(self::$directory, self::$imageName);
-
-        // Resize the image using Intervention Image
-        $imageManager = new ImageManager(new Driver());
-        $image = $imageManager->read(self::$directory . self::$imageName);
-        $image->resize(500, 500); // Resize to required dimensions
-        $image->save(self::$directory . self::$imageName);
-
-        self::$imageUrl = self::$directory . self::$imageName;
-        return self::$imageUrl;
-    }
-    return null;
-    }
-
-       // Create a new Rent entry
-       public static function newServices($request)
-       {
-           self::$imageUrl = $request->file('service_icon') ? self::getImageUrl($request) : '';
-   
-           $service = new self();
-           self::saveBasicInfo($service, $request, self::$imageUrl);
-       }
-
-               // Update an existing About entry
-    public static function updateServices($request, $id)
+    // Function to upload and resize image
+    private static function getImageUrl($imageFile, $directory)
     {
-    // Fetch the team record using the ID
+        if ($imageFile) {
+            self::$imageName = time() . '_' . $imageFile->getClientOriginalName(); // Unique image name
+            $path = $directory;
+            $imageFile->move($path, self::$imageName);
+
+            // Resize the image using Intervention Image
+            $imageManager = new ImageManager(new Driver());
+            $image = $imageManager->read($path . self::$imageName);
+            $image->resize(600, 600); // Resize to required dimensions
+            $image->save($path . self::$imageName);
+
+            return $path . self::$imageName;
+        }
+        return null;
+    }
+
+    // Store new service
+    public static function newServices($request)
+    {
+        $photoUrl = $request->file('service_image') ? self::getImageUrl($request->file('service_image'), "upload/service-photos/") : '';
+        $signatureUrl = $request->file('service_icon') ? self::getImageUrl($request->file('service_icon'), "upload/icon-services/") : '';
+
+          $service = new self();
+        self::saveBasicInfo($service, $request, $photoUrl, $signatureUrl);
+    }
+
+public static function updateServices($request, $id)
+{
     $service = self::findOrFail($id);
 
-        if ($request->file('service_icon')) {
-            if (file_exists($service->service_icon)) {
-            unlink($service->service_icon);
-            }
-        self::$imageUrl = self::getImageUrl($request);
-        } else {
-        self::$imageUrl = $service->service_icon;
-    }
-
-    self::saveBasicInfo($service, $request, self::$imageUrl);
-        }
-
-          // Save or update basic info in the database
-   private static function saveBasicInfo($service, $request, $imageUrl)
-   {
-       $service->service_icon           = $imageUrl;
-       $service->service_title          = $request->service_title;
-       $service->service_subtitle          = $request->service_subtitle;
-       $service->working_process          = $request->working_process;
-       $service->service_benifit          = $request->service_benifit;
-       $service->service_provide          = $request->service_provide;
-       $service->service_details        = $request->service_details;
-       $service->save();
-   }
-
-
-   // Delete an Rent entry
-public static function deleteServices($service)
-{
-    if (file_exists($service->service_icon)) {
+    // Check and delete old icon if new icon is uploaded
+    if ($request->file('service_icon') && file_exists($service->service_icon)) {
         unlink($service->service_icon);
     }
-    
-    $service->delete();
 
+    // Check and delete old image if new image is uploaded
+    if ($request->file('service_image') && file_exists($service->service_image)) {
+        unlink($service->service_image);
+    }
+
+    // Upload new files (or keep old if not uploaded)
+    $newIconPath = $request->file('service_icon') 
+        ? self::getImageUrl($request->file('service_icon'), 'upload/icon-services/') 
+        : $service->service_icon;
+
+    $newImagePath = $request->file('service_image') 
+        ? self::getImageUrl($request->file('service_image'), 'upload/service-photos/') 
+        : $service->service_image;
+
+    // Save all updated data
+    self::saveBasicInfo($service, $request, $newImagePath, $newIconPath);
+}
+
+
+    // Save or update basic info
+    private static function saveBasicInfo($service, $request, $photoUrl, $signatureUrl)
+    {
+        $service->service_icon      = $signatureUrl;
+        $service->service_image     = $photoUrl;
+        $service->service_title     = $request->service_title;
+        $service->service_subtitle  = $request->service_subtitle;
+        $service->service_details   = $request->service_details;
+        $service->service_category  = $request->service_category;
+        $service->save();
+    }
+
+    // Delete a service
+    public static function deleteServices($service)
+    {
+        if (file_exists($service->service_icon)) {
+            unlink($service->service_icon);
+        }
+
+        if (file_exists($service->service_image)) {
+            unlink($service->service_image);
+        }
+
+        $service->delete();
     }
 }

@@ -69,6 +69,7 @@ public function reject($id)
          'name' => 'required|string|max:255',
          'email' => 'required|string|max:255',
          'phone' => 'required|string|max:20',
+         'job_title' => 'required|string|max:20',
          'cover_letter' => 'required|string|max:1000',
          'resume' => 'required|mimes:pdf,doc,docx|max:2048',
      ]);
