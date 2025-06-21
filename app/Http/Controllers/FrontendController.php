@@ -21,7 +21,8 @@ class FrontendController extends Controller
     public function index()
     {
        $banners=Banner::all();
-        return view('frontend.pages.index', compact('banners'));   
+       $services=Service::get();
+        return view('frontend.pages.index', compact('banners','services'));   
     }
 
 

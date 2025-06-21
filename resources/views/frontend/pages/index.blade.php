@@ -286,23 +286,16 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
+                @foreach ($services as $key => $service)
                     <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
-                        <h2 class="service-card-num"><span>01.</span>A Portfolio of Creativity</h2>
-                        <p class="service-para">Business consulting consultants provide expert advice and guida the a
-                            businesses to help theme their performance efficiency</p>
+                        <h2 class="service-card-num"><span>{{ sprintf('%02d', $key + 1) }}.</span>{{ $service->service_title }}</h2>
+                        <p class="service-para">{{ $service->service_subtitle }}</p>
                     </div>
-                    <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
-                        <h2 class="service-card-num"><span>02.</span>My Portfolio of Innovation</h2>
-                        <p class="service-para">My work is driven by the belief that thoughtful design and strategic planning can empower brands, transform businesses</p>
-                    </div>
-                    <div class="service-card-v2 tmponhover tmp-scroll-trigger tmp-fade-in animation-order-3">
-                        <h2 class="service-card-num"><span>03.</span>A Showcase of My Projects</h2>
-                        <p class="service-para">In this portfolio, you’ll find a curated selection of projects that highlight my skills in [Main Areas, e.g., responsive web design</p>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="col-lg-6">
                     <div class="service-card-user-image">
-                        <img class="tmp-scroll-trigger tmp-zoom-in animation-order-1" src="assets/images/services/latest-services-user-image.png" alt="latest-user-image">
+                        <img class="tmp-scroll-trigger tmp-zoom-in animation-order-1" src="{{ asset($service->service_image) }}">
                     </div>
                 </div>
             </div>
@@ -325,7 +318,7 @@
                     businesses to help them improve their performance, efficiency, and organizational</p>
             </div>
             <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Education <span><img
-                        src="assets/images/custom-line/custom-line.png" alt="custom-line"></span>
+                        src="{{ asset('/') }}frontend/assets/images/custom-line/custom-line.png" alt="custom-line"></span>
             </h2>
             <div class="row g-5">
                 <div class="col-lg-6 col-sm-6">
@@ -363,7 +356,7 @@
                     <div class="col-lg-6">
                         <div class="experiences-wrap-left-content">
                             <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Experiences <span><img
-                            src="assets/images/custom-line/custom-line.png" alt="custom-line"></span></h2>
+                            src="{{ asset('/') }}frontend/assets/images/custom-line/custom-line.png" alt="custom-line"></span></h2>
 
                             <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-1">
                                 <p class="ex-subtitle">experience</p>
