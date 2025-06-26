@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Service;
+use App\Models\Ressume;
 use Flasher\Toastr\Prime\ToastrInterface;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -22,7 +23,8 @@ class FrontendController extends Controller
     {
        $banners=Banner::all();
        $services=Service::get();
-        return view('frontend.pages.index', compact('banners','services'));   
+       $ressumes=Ressume::all();
+        return view('frontend.pages.index', compact('banners','services', 'ressumes'));   
     }
 
 

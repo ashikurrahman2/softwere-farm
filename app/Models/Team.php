@@ -33,7 +33,7 @@ class Team extends Model
     ];
     
 
-            // Function to upload and resize image
+    // Function to upload and resize image
 private static function getImageUrl($request)
 {
     self::$image = $request->file('member_image');

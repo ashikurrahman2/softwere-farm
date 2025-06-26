@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\FAQController;
+use App\Http\Controllers\Admin\RessumeController;
 use App\Http\Controllers\Admin\CaseController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TermsController;
@@ -43,7 +43,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('about',AboutController::class);
     Route::resource('product',ProductController::class);
     Route::resource('banner',BannerController::class);
-    Route::resource('faq',FAQController::class);
+    Route::resource('ressume',RessumeController::class);
     Route::resource('case',CaseController::class);
     Route::resource('team',TeamController::class);
     Route::resource('terms',TermsController::class);
