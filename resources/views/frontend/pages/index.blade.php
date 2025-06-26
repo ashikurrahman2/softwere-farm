@@ -337,25 +337,25 @@
                         <div class="experiences-wrap-left-content">
                             <h2 class="custom-title mb-32 tmp-scroll-trigger tmp-fade-in animation-order-1">Experiences <span><img
                             src="{{ asset('/') }}frontend/assets/images/custom-line/custom-line.png" alt="custom-line"></span></h2>
-
+                            @foreach ($ressumes as $ressume)
                             <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-1">
                                 <p class="ex-subtitle">experience</p>
-                                <h2 class="ex-name">Soft Tech (2 Years)</h2>
-                                <h3 class="ex-title">UI/UX Designer</h3>
-                                <p class="ex-para">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                    desi dolore eu fugiat nulla pariatu Duis aute irure.</p>
+                                <h2 class="ex-name">{{ $ressume->job_organization }}</h2>
+                                <h3 class="ex-title">{{ $ressume->job_designation }}</h3>
+                                <p class="ex-para">{{ $ressume->job_summary }}</p>
                             </div>
-                            <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-2">
+                            @endforeach
+                            {{-- <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-2">
                                 <p class="ex-subtitle">experience</p>
                                 <h2 class="ex-name">ModernTech (3 Years)</h2>
                                 <h3 class="ex-title">App Developer</h3>
                                 <p class="ex-para">In this portfolio, you’ll find a curated selection of projects that highlight my skills in [Main Areas, e.g., responsive web design.</p>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="experiences-wrap-right-content">
-                            <img class="tmp-scroll-trigger tmp-zoom-in animation-order-1" src="assets/images/experiences/expert-img.jpg" alt="expert-img">
+                            <img class="tmp-scroll-trigger tmp-zoom-in animation-order-1" src="{{ asset($ressume->job_image) }}" alt="expert-img">
                         </div>
                     </div>
                 </div>
