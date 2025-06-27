@@ -345,12 +345,6 @@
                                 <p class="ex-para">{{ $ressume->job_summary }}</p>
                             </div>
                             @endforeach
-                            {{-- <div class="experience-content tmp-scroll-trigger tmp-fade-in animation-order-2">
-                                <p class="ex-subtitle">experience</p>
-                                <h2 class="ex-name">ModernTech (3 Years)</h2>
-                                <h3 class="ex-title">App Developer</h3>
-                                <p class="ex-para">In this portfolio, you’ll find a curated selection of projects that highlight my skills in [Main Areas, e.g., responsive web design.</p>
-                            </div> --}}
                         </div>
                     </div>
                     <div class="col-lg-6">
