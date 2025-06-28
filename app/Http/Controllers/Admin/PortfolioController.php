@@ -7,6 +7,7 @@ use Flasher\Toastr\Prime\ToastrInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+// use Yajra\DataTables\Facades\DataTables;
 
 class PortfolioController extends Controller
 {
@@ -50,7 +51,7 @@ class PortfolioController extends Controller
                 ->rawColumns(['portfolio_image', 'action'])
                 ->make(true);
         }
-        return view('admin.pages.ressume.index');
+        return view('admin.pages.portfolio.index');
     }
 
     /**
@@ -68,7 +69,7 @@ class PortfolioController extends Controller
     {
         // Validation data
              $request->validate([
-            'description'      => 'required|string|max:255',
+            // 'description'      => 'required|string|max:255',
             'external_link'    => 'required|string|max:255',
             'category'         => 'required|string|max:255',
             'title'            => 'required|string|max:255',
@@ -101,7 +102,7 @@ class PortfolioController extends Controller
     {
         
           $Portfolio = Portfolio::findOrFail($id);
-        return view('admin.pages.ressume.edit', compact('portfolio'));
+        return view('admin.pages.portfolio.edit', compact('portfolio'));
     }
 
     /**

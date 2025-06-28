@@ -1,5 +1,6 @@
 @extends('layouts.admin')
-@section('title','Terms & conditions')
+
+@section('title', 'Portfolio')
 @section('admin_content')
 <div class="pc-container">
     <div class="pc-content">
@@ -9,7 +10,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-sm-auto">
                         <div class="page-header-title">
-                            <h5 class="mb-0">Terms and conditions</h5>
+                            <h5 class="mb-0">Portfolios</h5>
                         </div>
                     </div>
                     <div class="col-sm-auto">
@@ -27,7 +28,7 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header table-card-header">
-              <h5>All Terms list here</h5>
+              <h5>All portfolio list here</h5>
             </div>
             <div class="card-body">
               <div class="dt-responsive table-responsive">
@@ -35,9 +36,11 @@
                   <thead>
                     <tr>
                         <th>SL</th>
-                        <th>Terms Image</th>
-                        <th>Terms Title</th>
-                        <th>Terms Description</th>
+                        <th>Portfolio Name</th>
+                        <th>Portfolio Image</th>
+                        <th>Portfolio Link</th>
+                        <th>Portfolio Category</th>
+                        <th>Portfolio Describtion</th>
                         <th>Action</th>
                     </tr>
                   </thead>
@@ -46,12 +49,14 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                        <th>SL</th>
-                        <th>Terms Image</th>
-                        <th>Terms Title</th>
-                        <th>Terms Description</th>
+                       <th>SL</th>
+                        <th>Portfolio Name</th>
+                        <th>Portfolio Image</th>
+                        <th>Portfolio Link</th>
+                        <th>Portfolio Category</th>
+                        <th>Portfolio Describtion</th>
                         <th>Action</th>
-                      </tr>
+                    </tr>
                   </tfoot>
                 </table>
               </div>
@@ -68,39 +73,50 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title h4" id="myLargeModalLabel">Add New Term</h5>
+                <h5 class="modal-title h4" id="myLargeModalLabel">Add New Portfolio</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('terms.store')}}" method="post" id="add-form" enctype="multipart/form-data">
+            <form action="{{route('portfolio.store')}}" method="post" id="add-form" enctype="multipart/form-data">
               @csrf
               <div class="modal-body">
+                <div class="form-group">
+                  <label for="title" class="col-form-label pt-0">Portfolio Name<sup class="text-size-20 top-1">*</sup></label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                    <small id="emailHelp" class="form-text text-muted">Portfolio Title here</small>
+                </div>
+          
                 <div class="col-md-12">
-                  <label for="terms_image" class="col-form-label pt-0">Terms Image<sup class="text-size-20 top-1">*</sup></label>
-                  <input type="file" class="dropify" data-height="200" name="terms_image" required />
-                  <small id="imageHelp" class="form-text text-muted">This is your Banner image</small>
+                  <label for="portfolio_image" class="col-form-label pt-0">Portfolio Image<sup class="text-size-20 top-1">*</sup></label>
+                  <input type="file" class="dropify" data-height="200" name="portfolio_image"  required />
+                  <small id="imageHelp" class="form-text text-muted">This is your portfolio image</small>
               </div>
 
-              <div class="form-group">
-                <label for="title" class="col-form-label pt-0">Terms Title<sup class="text-size-20 top-1">*</sup></label>
-                  <input type="text" class="form-control" id="title" name="title" required>
-                  <small id="emailHelp" class="form-text text-muted">This is your rent property</small>
-              </div>
+                <div class="form-group">
+                    <label for="external_link" class="col-form-label pt-0">Portfolio Link<sup class="text-size-20 top-1">*</sup></label>
+                      <input type="text" class="form-control" id="external_link" name="external_link" required>
+                      <small id="emailHelp" class="form-text text-muted">Any web development project</small>
+                  </div>
 
+                  <div class="form-group">
+                    <label for="category" class="col-form-label pt-0">Portfolio Category<sup class="text-size-20 top-1">*</sup></label>
+                      <input type="text" class="form-control" id="category" name="category" required>
+                      <small id="emailHelp" class="form-text text-muted">Must be type character</small>
+                  </div>
 
-              <div class="col-md-12">
-                <div class="mb-3">
-                    <label class="form-label">Terms Description</label>
+                  <div class="col-md-12">
+                   <div class="mb-3">
+                    <label class="form-label">Portfolio Describtion</label>
                     <textarea class="form-control textarea" name="description" id="summernote" rows="4" >{{old('description')}}</textarea> 
                 </div>
             </div>
-
+           
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary"> <span class="d-none"> loading ......</span> Submit</button>
                 </div>
               </div>
             </form>
         </div>
-    </div>              
+    </div>            
 </div>
 
  <!-- Edit Modal -->
@@ -108,7 +124,7 @@
   <div class="modal-dialog modal-lg">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="editModalLabel">Edit Terms and Conditions</h5>
+              <h5 class="modal-title" id="editModalLabel">Edit Portfolio</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -118,33 +134,55 @@
   </div>
 </div>
   <!-- Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script type="text/javascript">
-    $(function terms(){
+    $(function portfolio(){
       var table=$('.ytable').DataTable({
         processing: true,
             serverSide: true,
-            ajax: "{{ route('terms.index') }}",
+            ajax: "{{ route('portfolio.index') }}",
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex' },
-                { data: 'terms_image', name: 'terms_image' },
                 { data: 'title', name: 'title' },
+                { data: 'portfolio_image', name: 'portfolio_image' },
+                { data: 'external_link', name: 'external_link' },
+                { data: 'category', name: 'category' },
+                { data: 'description', name: 'description' },
+                { data: 'action', name: 'action', orderable: false, searchable: false }
+            ]
+      });
+    }); --}}
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function portfolio(){
+      var table=$('.ytable').DataTable({
+        processing: true,
+            serverSide: true,
+            ajax: "{{ route('portfolio.index') }}",
+            columns: [
+                { data: 'DT_RowIndex', name: 'DT_RowIndex' },
+                { data: 'title', name: 'title' },
+                { data: 'portfolio_image', name: 'portfolio_image' },
+                { data: 'external_link', name: 'external_link' },
+                { data: 'category', name: 'category' },
                 { data: 'description', name: 'description' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
       });
     });
-// For Edit team 
+// For Edit News 
     $('body').on('click', '.edit', function() {
         let id = $(this).data('id');
-        $.get("terms/" + id + "/edit", function(data) {
+        $.get("portfolio/" + id + "/edit", function(data) {
             $('.modal-body').html(data);
         });
     });
 
-
-    // Summernote script
-  $(document).ready(function() {
+      // Summernote script
+      $(document).ready(function() {
         $('#summernote').summernote({
             height: 200,
             callbacks: {
@@ -156,7 +194,5 @@
             }
         });
     });
-
   </script>
-  
 @endsection

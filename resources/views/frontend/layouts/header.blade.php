@@ -29,23 +29,9 @@
                                         <li><a href="service-details.html">Service Details</a></li>
                                     </ul>
                                 </li>
-                                <li class="has-dropdown">
-                                    <a href="#">Blog
-                                        <i class="fa-regular fa-chevron-down"></i>
-                                    </a>
-                                    <ul class="submenu">
-                                        <li><a href="blog.html">Blog Classic</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-dropdown">
+                                <li>
                                     <a href="#">Project
-                                        <i class="fa-regular fa-chevron-down"></i>
                                     </a>
-                                    <ul class="submenu">
-                                        <li><a href="project.html">Project</a></li>
-                                        <li><a href="project-details.html">Project Details</a></li>
-                                    </ul>
                                 </li>
                                 <li>
                                     <a href="contact.html">Contact</a>
@@ -56,10 +42,8 @@
                         <div class="tmp-header-right">
                             <div class="social-share-wrapper d-none d-md-block">
                                 <div class="social-link">
-                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-github"></i></a>
                                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                                 </div>
                             </div>
                             <div class="actions-area">

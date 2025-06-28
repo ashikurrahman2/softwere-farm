@@ -93,147 +93,18 @@
                 <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                             <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">Case Study</span>
+                            <span class="pc-mtext">My Portfolio</span>
                             <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
                     </a>
 
                     <ul class="pc-submenu">
                         <li class="pc-item"><a class="pc-link"
-                            href="{{route('case.index')}}">Case List</a>
+                            href="{{route('portfolio.index')}}">portfolio List</a>
                         </li>
                   
                     </ul>
                 </li>
 
-                 
-                <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">Job Position</span>
-                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                    </a>
-
-                    <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('position.index')}}">Job position List</a>
-                        </li>
-
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('details.index')}}">Job Details</a>
-                        </li>
-
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('aplication.index')}}">Public CV</a>
-                        </li>
-                  
-                    </ul>
-                </li>
-
-                <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">Banner</span>
-                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                    </a>
-
-                    <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('banner.index')}}">Banner info</a>
-                        </li>
-                  
-                    </ul>
-                </li>
-                
-                   <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">Teams</span>
-                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                    </a>
-
-                    <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('team.index')}}">Team List</a>
-                        </li>
-                  
-                    </ul>
-                </li>
-
-                <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">Terms & Conditions</span>
-                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                    </a>
-
-                    <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('terms.index')}}">Terms List</a>
-                        </li>
-                  
-                    </ul>
-                </li>
-
-
-                <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">Privacy Policy</span>
-                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                    </a>
-
-                    <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('policy.index')}}">Policy List</a>
-                        </li>
-                  
-                    </ul>
-                </li>
-
-                {{-- <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">Letest News</span>
-                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                    </a>
-
-                    <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('news.index')}}">News</a>
-                        </li>
-                  
-                    </ul>
-                </li> --}}
-
-                {{-- <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">Agent</span>
-                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                    </a>
-
-                    <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('agent.index')}}">Agent List</a>
-                        </li>
-                  
-                    </ul>
-                </li> --}}
-
-                {{-- <li class="pc-item pc-hasmenu">
-                    <a href="#!" class="pc-link">
-                            <span class="pc-micon"><i class="ti ti-settings"></i></span>
-                            <span class="pc-mtext">Partner</span>
-                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                    </a>
-
-                    <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link"
-                            href="{{route('partner.index')}}">Partner List</a>
-                        </li>
-                  
-                    </ul>
-                </li> --}}
 
                 <li class="pc-item pc-hasmenu">
                     <a href="{{route('permissions.index')}}" class="pc-link">
