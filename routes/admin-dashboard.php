@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\RessumeController;
 use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\JobpositionController;
 use App\Http\Controllers\Admin\JobdetailsController;
 use App\Http\Controllers\Admin\JobaplicationController;
@@ -42,6 +43,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('banner',BannerController::class);
     Route::resource('ressume',RessumeController::class);
     Route::resource('portfolio',PortfolioController::class);
+    Route::resource('skills',SkillController::class);
     Route::resource('position',JobpositionController::class);
     Route::resource('details',JobdetailsController::class);
     Route::resource('aplication',JobaplicationController::class);
