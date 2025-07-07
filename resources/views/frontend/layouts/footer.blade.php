@@ -6,11 +6,13 @@
                 <div class="row g-5">
                     <div class="col-lg-5 col-md-6">
                         <div class="single-footer-wrapper border-right mr--20">
-                            <div class="logo">
-                                <a href="index.html">
-                                    <img src="assets/images/logo/white-logo-reeni.png" alt="Reeni - Personal Portfolio HTML Template for developers and freelancers">
+                            @foreach ($settings as $i_setting)
+                                  <div class="logo">
+                                <a href="#home">
+                                    <img src="{{ asset($i_setting->logo) }}" alt="Rokibul">
                                 </a>
-                            </div>
+                            </div> 
+                            @endforeach
                             <p class="description"><span>Get Ready</span> To Create Great</p>
                             <form action="#" class="newsletter-form-1 mt--40">
                                 <input type="email" placeholder="Email Adress">
@@ -43,17 +45,20 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="single-footer-wrapper contact-wrap">
                             <h5 class="ft-title">Contact </h5>
+                               @foreach($settings as $i_setting)
                             <ul class="ft-link tmp-link-animation">
-                                <li><span class="ft-icon"><i class="fa-solid fa-envelope"></i></span><a href="#">example@gmail.com</a></li>
-                                <li><span class="ft-icon"><i class="fa-solid fa-location-dot"></i></span>3891 Ranchview Dr. Richardson</li>
-                                <li><span class="ft-icon"><i class="fa-solid fa-phone"></i></span><a href="#">01245789321</a></li>
+                                <li><span class="ft-icon"><i class="fa-solid fa-envelope"></i></span><a href="#">{{ $i_setting->main_email }}</a></li>
+                                <li><span class="ft-icon"><i class="fa-solid fa-location-dot"></i></span>{{ $i_setting->address }}</li>
+                                <li><span class="ft-icon"><i class="fa-solid fa-phone"></i></span><a href="#">+88 {{ $i_setting->phone_one }}, {{ $i_setting->phone_two }}</a></li>
                             </ul>
+                            @endforeach
+
+                             @foreach($settings as $i_link)
                             <div class="social-link footer">
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="{{ $i_link->instragram }}"><i class="fa-brands fa-github"></i></a>
+                                <a href="{{ $i_link->linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -65,11 +70,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="main-wrapper">
-                        <p class="copy-right-para tmp-link-animation"> ©<a href="https://themeforest.net/user/inversweb/portfolio" target="_blank">InversWeb </a>
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> | All Rights Reserved
+                       <p class="copy-right-para tmp-link-animation">
+                         Copyright © {{ date('Y') }} <a href="#" target="_blank">All Rights Reserved</a> 
+                         | Develop by : {{ $web_application_developer7777886->name }} 
                         </p>
+
                         <ul class="tmp-link-animation">
                             <li><a href="#">Trams & Condition</a></li>
                             <li><a href="#">Privacy Policy</a></li>

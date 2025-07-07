@@ -7,6 +7,7 @@ use App\Models\Service;
 use App\Models\Ressume;
 use App\Models\Skills;
 use App\Models\Setting;
+use App\Models\User;
 use Flasher\Toastr\Prime\ToastrInterface;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -27,8 +28,9 @@ class FrontendController extends Controller
        $services=Service::get();
        $ressumes=Ressume::all();
        $skills=Skills::all();
-       $web_settings=Setting::all();
-        return view('frontend.pages.index', compact('banners', 'web_settings', 'skills', 'services', 'ressumes'));   
+       $settings=Setting::all();
+       $web_application_developer7777886 = User::find(1);
+        return view('frontend.pages.index', compact('banners', 'web_application_developer7777886', 'settings', 'skills', 'services', 'ressumes'));   
     }
 
 
