@@ -42,7 +42,7 @@ class SkillController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.pages.faq.index');
+        return view('admin.pages.skills.index');
     }
 
     /**
@@ -88,7 +88,8 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        //
+         $skill = Skills::findOrFail($id);
+        return view('admin.pages.skills.edit', compact('skill'));
     }
 
     /**

@@ -3,7 +3,7 @@
  @section('title', 'Home')
  @section('front_content')
  <!-- tmp banner area start -->
-    <div class="tmp-banner-one-area">
+    <div class="tmp-banner-one-area" id="home">
         <div class="container">
             <div class="banner-one-main-wrapper">
                  @foreach ($banners as $banner)
@@ -47,8 +47,8 @@
     </div>
     <!-- tmp banner area end -->
 
-    <!-- Tpm Service Area Start -->
-    <section class="service-area tmp-section-gap">
+    <!-- Tpm About Area Start -->
+    <section class="service-area tmp-section-gap" id="about">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-4 col-sm-6">
@@ -90,7 +90,8 @@
             </div>
         </div>
     </section>
-    <!-- Tpm Service Area End -->
+    <!-- Tpm About Area End -->
+    
 
        <!-- Tpm Counter Area Start -->
     <section class="counter-area">
@@ -147,131 +148,8 @@
     </section>
     <!-- Tpm Counter Area End -->
 
-        <!-- tmp skill area start -->
-    <div class="tmp-skill-area tmp-section-gapTop">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6">
-                    <div class="progress-wrapper">
-                        <div class="content">
-                            <h2 class="custom-title mb--30 tmp-scroll-trigger tmp-fade-in animation-order-1">
-                                Design Skill <span><img src="assets/images/custom-line/custom-line.png" alt="custom-line"></span>
-                            </h2>
-                            <!-- Start Single Progress Charts -->
-                            <div class="progress-charts">
-                                <h6 class="heading heading-h6">
-                                    PHOTOSHOT</h6>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 100%; visibility: visible; animation-duration: 0.5s; animation-delay: 0.3s; animation-name: fadeInLeft;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                        <span class="percent-label">100%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Progress Charts -->
-
-                            <!-- Start Single Progress Charts -->
-                            <div class="progress-charts">
-                                <h6 class="heading heading-h6">
-                                    FIGMA</h6>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay=".4s" role="progressbar" style="width: 95%; visibility: visible; animation-duration: 0.6s; animation-delay: 0.4s; animation-name: fadeInLeft;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                        <span class="percent-label">95%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Progress Charts -->
-
-                            <!-- Start Single Progress Charts -->
-                            <div class="progress-charts">
-                                <h6 class="heading heading-h6">
-                                    ADOBE XD</h6>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.7s" data-wow-delay=".5s" role="progressbar" style="width: 60%; visibility: visible; animation-duration: 0.7s; animation-delay: 0.5s; animation-name: fadeInLeft;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                        <span class="percent-label">60%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Progress Charts -->
-
-                            <!-- Start Single Progress Charts -->
-                            <div class="progress-charts">
-                                <h6 class="heading heading-h6">
-                                    ADOBE ILLUSTRATOR</h6>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".6s" role="progressbar" style="width: 70%; visibility: visible; animation-duration: 0.8s; animation-delay: 0.6s; animation-name: fadeInLeft;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                        <span class="percent-label">70%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Progress Charts -->
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="progress-wrapper">
-                        <div class="content">
-                            <h2 class="custom-title mb--30 tmp-scroll-trigger tmp-fade-in animation-order-1">
-                                Development Skill <span><img src="assets/images/custom-line/custom-line.png" alt="custom-line"></span>
-                            </h2>
-                            <!-- Start Single Progress Charts -->
-                            <div class="progress-charts">
-                                <h6 class="heading heading-h6">
-                                    HTML</h6>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 100%; visibility: visible; animation-duration: 0.5s; animation-delay: 0.3s; animation-name: fadeInLeft;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                        <span class="percent-label">100%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Progress Charts -->
-
-                            <!-- Start Single Progress Charts -->
-                            <div class="progress-charts">
-                                <h6 class="heading heading-h6">
-                                    CSS</h6>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.6s" data-wow-delay=".4s" role="progressbar" style="width: 95%; visibility: visible; animation-duration: 0.6s; animation-delay: 0.4s; animation-name: fadeInLeft;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                        <span class="percent-label">95%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Progress Charts -->
-
-                            <!-- Start Single Progress Charts -->
-                            <div class="progress-charts">
-                                <h6 class="heading heading-h6">
-                                    Javascript</h6>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.7s" data-wow-delay=".5s" role="progressbar" style="width: 60%; visibility: visible; animation-duration: 0.7s; animation-delay: 0.5s; animation-name: fadeInLeft;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                        <span class="percent-label">60%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Progress Charts -->
-
-                            <!-- Start Single Progress Charts -->
-                            <div class="progress-charts">
-                                <h6 class="heading heading-h6">
-                                    Wordpress</h6>
-                                <div class="progress">
-                                    <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".6s" role="progressbar" style="width: 70%; visibility: visible; animation-duration: 0.8s; animation-delay: 0.6s; animation-name: fadeInLeft;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                        <span class="percent-label">70%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Progress Charts -->
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- tmp skill area end -->
-
         <!-- Tpm Latest Service Area Start -->
-    <section class="latest-service-area tmp-section-gapTop">
+    <section class="latest-service-area tmp-section-gapTop" id="services">
         <div class="container">
             <div class="section-head mb--50">
                 <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
@@ -303,8 +181,45 @@
     </section>
     <!-- Tpm Latest Service Area End -->
 
+   <!-- tmp skill area start -->
+<div class="tmp-skill-area tmp-section-gapTop">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="progress-wrapper">
+                    <div class="content">
+                        <h2 class="custom-title mb--30 tmp-scroll-trigger tmp-fade-in animation-order-1">
+                            Design Skill 
+                            <span>
+                                <img src="{{ asset('frontend/assets/images/custom-line/custom-line.png') }}" alt="custom-line">
+                            </span>
+                        </h2>
+                            {{-- Dynamic data fetching --}}
+                        @foreach($skills as $index => $skill)
+                        <div class="progress-charts">
+                            <h6 class="heading heading-h6">{{ strtoupper($skill->skill_name) }}</h6>
+                            <div class="progress">
+                                <div class="progress-bar wow fadeInLeft" data-wow-duration="{{ 0.5 + ($index * 0.1) }}s" data-wow-delay=".{{ 3 + $index }}s" role="progressbar" style="width: {{ $skill->skill_percentage }}%; visibility: visible; animation-duration: {{ 0.5 + ($index * 0.1) }}s; animation-delay: .{{ 3 + $index }}s; animation-name: fadeInLeft;" aria-valuenow="{{ $skill->skill_percentage }}" aria-valuemin="0" aria-valuemax="100">
+                                  <span class="percent-label">{{ $skill->skill_percentage }}%</span>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- tmp skill area end -->
+
+   
+
+     
+
     <!-- Tpm Education Experience Area Start -->
-    <section class="education-experience tmp-section-gapTop">
+    <section class="education-experience tmp-section-gapTop" id="ressume">
         <div class="container">
             <div class="section-head mb--50">
                 <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
@@ -359,7 +274,7 @@
     <!-- Tpm Education Experience Area End -->
 
      <!-- Tpm Latest Portfolio Area Start -->
-    <div class="latest-portfolio-area custom-column-grid tmp-section-gapTop">
+    <div class="latest-portfolio-area custom-column-grid tmp-section-gapTop" id="project">
         <div class="container">
             <div class="section-head mb--60">
                 <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1">
@@ -475,70 +390,59 @@
     <!-- Tpm Latest Portfolio Area End -->
 
      <!-- Tpm My Skill Area Start -->
-    <section class="my-skill tmp-section-gapTop">
-        <div class="container">
-            <div class="section-head text-align-left mb--50">
-                <div class="section-sub-title tmp-scroll-trigger tmp-fade-in animation-order-1">
-                    <span class="subtitle">My Skill</span>
-                </div>
-                <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Elevated Designs
-                    Personalized <br> the best Experiences</h2>
+<section class="my-skill tmp-section-gapTop" id="skill">
+    <div class="container">
+        <div class="section-head text-align-left mb--50">
+            <div class="section-sub-title tmp-scroll-trigger tmp-fade-in animation-order-1">
+                <span class="subtitle">My Skill</span>
             </div>
-            <div class="services-widget v1">
-                <div class="service-item current tmp-scroll-trigger tmp-fade-in animation-order-1">
-                    <div class="my-skill-card">
-                        <div class="card-icon">
-                            <i class="fa-light fa-building-columns"></i>
-                        </div>
-                        <div class="card-title">
-                            <h3 class="main-title">Ui/visual Design</h3>
-                            <p class="sub-title">21 Done</p>
-                        </div>
-                        <p class="card-para">My work is driven by the belief that thoughtful design and strategic planning can empower brands strategic planning can empower brands</p>
-                        <a href="#" class="read-more-btn">Read More <span class="read-more-icon"><i
-                        class="fa-solid fa-angle-right"></i></span></a>
-                    </div>
-                    <button class="service-link modal-popup"></button>
-                </div>
-                <div class="service-item tmp-scroll-trigger tmp-fade-in animation-order-2">
-                    <div class="my-skill-card">
-                        <div class="card-icon">
-                            <i class="fa-light fa-calendar"></i>
-                        </div>
-                        <div class="card-title">
-                            <h3 class="main-title">Ui/visual Design</h3>
-                            <p class="sub-title">21 Done</p>
-                        </div>
-                        <p class="card-para">In this portfolio, you’ll find a curated selection of projects that highlight my skills in [Main Areas, e.g., responsive web design</p>
-                        <a href="#" class="read-more-btn">Read More <span class="read-more-icon"><i
-                        class="fa-solid fa-angle-right"></i></span></a>
-                    </div>
-                    <button class="service-link modal-popup"></button>
-                </div>
-                <div class="service-item tmp-scroll-trigger tmp-fade-in animation-order-3">
-                    <div class="my-skill-card">
-                        <div class="card-icon">
-                            <i class="fa-light fa-pen-nib"></i>
-                        </div>
-                        <div class="card-title">
-                            <h3 class="main-title">Motion Design</h3>
-                            <p class="sub-title">20 Done</p>
-                        </div>
-                        <p class="card-para">Each project here showcases my commitment to excellence and adaptability, tailored to meet each client’s unique needs</p>
-                        <a href="#" class="read-more-btn">Read More <span class="read-more-icon"><i
-                        class="fa-solid fa-angle-right"></i></span></a>
-                    </div>
-                    <button class="service-link modal-popup"></button>
-                </div>
-                <div class="active-bg wow fadeInUp mleave"></div>
-            </div>
+            <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">
+                Elevated Designs <br> the best Experiences
+            </h2>
         </div>
-    </section>
+
+        <div class="services-widget v1">
+            @foreach ($skills as $skill)
+                <div class="service-item tmp-scroll-trigger tmp-fade-in animation-order-{{ $loop->iteration }}">
+                    <div class="my-skill-card">
+                        <div class="card-icon">
+                            {{ $loop->iteration }}
+                        </div>
+                        <div class="card-title text-left">
+                            <h3 class="main-title">{{ $skill->skill_name }}</h3>
+                        </div>
+                        <p class="card-para justify-text">
+                            {{ $skill->skill_description }}
+                        </p>
+                    </div>
+                    <button class="service-link modal-popup"></button>
+                </div>
+            @endforeach
+            <div class="active-bg wow fadeInUp mleave"></div>
+        </div>
+    </div>
+</section>
+
+
+
+<style>
+    .justify-text {
+        text-align: justify;
+    }
+</style>
+
+
+
+<!-- JavaScript -->
+
+
+
+
     <!-- Tpm My Skill Area End -->
 
 
        <!-- Tpm Get In touch start -->
-    <section class="get-in-touch-area tmp-section-gapTop">
+    <section class="get-in-touch-area tmp-section-gapTop" id="contact">
         <div class="container">
             <div class="contact-get-in-touch-wrap">
                 <div class="get-in-touch-wrapper tmponhover">

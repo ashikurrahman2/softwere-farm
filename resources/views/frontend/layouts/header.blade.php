@@ -13,28 +13,34 @@
                         <nav class="tmp-mainmenu-nav d-none d-xl-block">
                             <ul class="tmp-mainmenu">
                                 <li>
-                                    <a href="#">Home
+                                    <a href="#home">Home
                                     </a>
    
                                 </li>
                                 <li>
-                                    <a href="about.html">About</a>
-                                </li>
-                                <li class="has-dropdown">
-                                    <a href="#">Services
-                                        <i class="fa-regular fa-chevron-down"></i>
-                                    </a>
-                                    <ul class="submenu">
-                                        <li><a href="service.html">Service</a></li>
-                                        <li><a href="service-details.html">Service Details</a></li>
-                                    </ul>
+                                    <a href="#about">About</a>
                                 </li>
                                 <li>
-                                    <a href="#">Project
+                                    <a href="#services">Services
+                                
+                                    </a>
+                                </li>
+
+                                  <li>
+                                    <a href="#ressume">Ressume
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Contact</a>
+                                    <a href="#project">Project
+                                    </a>
+                                </li>
+
+                                  <li>
+                                    <a href="#skill">Skills
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#contact">Contact</a>
                                 </li>
                             </ul>
 
@@ -42,8 +48,10 @@
                         <div class="tmp-header-right">
                             <div class="social-share-wrapper d-none d-md-block">
                                 <div class="social-link">
-                                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                     @foreach($web_settings as $i_link)
+                                    <a href="{{ $i_link->instragram }}"><i class="fa-brands fa-github" target="_blank"></i></a>
+                                    <a href="{{ $i_link->linkedin }}"><i class="fa-brands fa-linkedin-in" target="_blank"></i></a>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="actions-area">
@@ -88,37 +96,43 @@
                     </p>
                     <div class="short-contact-area">
                         <!-- single contact information -->
+                            @foreach($web_settings as $i_setting)
                         <div class="single-contact">
                             <i class="fa-solid fa-phone"></i>
                             <div class="information tmp-link-animation">
                                 <span>Call Now</span>
-                                <a href="#" class="number">+92 (8800) - 98670</a>
+                                <a href="#" class="number">+88 {{ $i_setting->phone_one }}, {{ $i_setting->phone_two }}</a>
                             </div>
                         </div>
+                        @endforeach
                         <!-- single contact information end -->
 
                         <!-- single contact information -->
                         <div class="single-contact">
+                              @foreach($web_settings as $i_setting)
                             <i class="fa-solid fa-envelope"></i>
                             <div class="information tmp-link-animation">
                                 <span>Mail Us</span>
-                                <a href="#" class="number">example@info.com</a>
+                                <a href="#" class="number">{{ $i_setting->main_email }}</a>
                             </div>
                         </div>
+                        @endforeach
                         <!-- single contact information end -->
 
                         <!-- single contact information -->
                         <div class="single-contact">
+                              @foreach($web_settings as $i_setting)
                             <i class="fa-solid fa-location-crosshairs"></i>
                             <div class="information tmp-link-animation">
                                 <span>My Address</span>
-                                <span class="number">66 Broklyant, New York 3269</span>
+                                <span class="number">{{ $i_setting->address }}</span>
                             </div>
                         </div>
+                        @endforeach
                         <!-- single contact information end -->
                     </div>
                     <!-- social area start -->
-                    <div class="social-wrapper mt--20">
+                    {{-- <div class="social-wrapper mt--20">
                         <span class="subtitle">find with me</span>
                         <div class="social-link">
                             <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -126,7 +140,7 @@
                             <a href="#"><i class="fa-brands fa-twitter"></i></a>
                             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- social area end -->
                 </div>
             </div>
