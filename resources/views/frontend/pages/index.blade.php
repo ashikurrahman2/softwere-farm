@@ -51,42 +51,17 @@
     <section class="service-area tmp-section-gap" id="about">
         <div class="container">
             <div class="row justify-content-center">
+                 @foreach($abouts as $index => $about)
                 <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-1 tmp-link-animation">
+                    <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-{{ $index + 1 }} tmp-link-animation">
                         <div class="service-card-icon">
                             <i class="fa-light fa-pen-ruler"></i>
                         </div>
-                        <h4 class="service-title"><a href="service-details.html">Web Design</a></h4>
-                        <p class="service-para">120 Projects</p>
+                        <h4 class="service-title"><a href="service-details.html">{{ $about->spacializedskill_name }}</a></h4>
+                        <p class="service-para">{{ $about->total_projects }} Projects</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-2 tmp-link-animation">
-                        <div class="service-card-icon">
-                            <i class="fa-light fa-bezier-curve"></i>
-                        </div>
-                        <h4 class="service-title"><a href="service-details.html">Ui/Ux Design</a></h4>
-                        <p class="service-para">241 Projects</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-3 tmp-link-animation">
-                        <div class="service-card-icon">
-                            <i class="fa-light fa-lightbulb"></i>
-                        </div>
-                        <h4 class="service-title"><a href="service-details.html">Web Research</a></h4>
-                        <p class="service-para">240 Projects</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="service-card-v1 tmp-scroll-trigger tmp-fade-in animation-order-4 tmp-link-animation">
-                        <div class="service-card-icon">
-                            <i class="fa-light fa-envelope"></i>
-                        </div>
-                        <h4 class="service-title"><a href="service-details.html">Marketing</a></h4>
-                        <p class="service-para">331 Prodect</p>
-                    </div>
-                </div>
+              @endforeach       
             </div>
         </div>
     </section>
@@ -101,12 +76,12 @@
                     <div class="year-of-expariance-wrapper bg-blur-style-one tmp-scroll-trigger tmp-fade-in animation-order-1">
                         <div class="year-expariance-wrap">
                             <!-- <h2 class="year-number"><span class="counter">25 </span> </h2> -->
-                            <h2 class="counter year-number"><span class="odometer" data-count="25">00</span>
+                            <h2 class="counter year-number">
+                                <span class="odometer" data-count="{{ $about->experience_year }}">00</span>
                             </h2>
                             <h3 class="year-title">Years Of <br> experience</h3>
                         </div>
-                        <p class="year-para">Business consulting consultants provide expert advice and guida the a
-                            businesses to help theme their performance efficiency</p>
+                        <p class="year-para">{{ $about->experiencesub_title }}</p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 col-xl-6 col-xxl-6">
@@ -114,28 +89,22 @@
                         <div class="row g-5">
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="counter-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
-                                    <h3 class="counter counter-title"><span class="odometer" data-count="20">00</span>k+
+                                    <h3 class="counter counter-title"><span class="odometer" data-count="{{ $about->complete_projects }}">00</span>
                                     </h3>
                                     <p class="counter-para">Our Project Complete</p>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-sm-6 col-12">
-                                <div class="counter-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-2">
-                                    <h3 class="counter counter-title"><span class="odometer" data-count="10">00</span>k+
-                                    </h3>
-                                    <p class="counter-para">Our Natural Products</p>
-                                </div>
-                            </div>
+                           
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="counter-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-3">
-                                    <h3 class="counter counter-title"><span class="odometer" data-count="200">00</span>+
+                                    <h3 class="counter counter-title"><span class="odometer" data-count="{{ $about->totalclient_reviews }}">00</span>
                                     </h3>
                                     <p class="counter-para">Clients Reviews</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="counter-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-4">
-                                    <h3 class="counter counter-title"><span class="odometer" data-count="1000">00</span>+
+                                    <h3 class="counter counter-title"><span class="odometer" data-count="{{ $about->satisfied_clients }}">00</span>
                                     </h3>
                                     <p class="counter-para">our Satisfied Clientd</p>
                                 </div>

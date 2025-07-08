@@ -20,44 +20,31 @@ class AboutController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
-    {
-        if ($request->ajax()) {
-            $about = About::all();
-            return DataTables::of($about)
-                ->addIndexColumn()
-                ->addColumn('photo', function ($row) {
-                    if ($row->photo) {
-                        return '<img src="' . asset($row->photo) . '" alt="Photo" class="img-fluid center-image" style="max-width: 40px; display: block; margin: 0 auto;">';
-                    } else {
-                        return 'No photo uploaded';
-                    }
-                })
-                ->addColumn('signature', function ($row) {
-                    if ($row->signature) {
-                        return '<img src="' . asset($row->signature) . '" alt="Signature" class="img-fluid center-image" style="max-width: 40px; display: block; margin: 0 auto;">';
-                    } else {
-                        return 'No signature uploaded';
-                    }
-                })
-                ->addColumn('action', function ($row) {
-                    $actionbtn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm me-1 edit" data-id="' . $row->id . '" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <i class="fa fa-edit"></i>
-                                  </a>
-                                  <button class="btn btn-danger btn-sm delete" data-id="' . $row->id . '">
-                                      <i class="fa fa-trash"></i>
-                                  </button>
-                                  <form id="delete-form-' . $row->id . '" action="' . route('about.destroy', $row->id) . '" method="POST" style="display: none;">
-                                      ' . csrf_field() . '
-                                      ' . method_field('DELETE') . '
-                                  </form>';
-                    return $actionbtn;
-                })
-                ->rawColumns(['photo', 'signature', 'action'])
-                ->make(true);
-        }
-        return view('admin.pages.about.index');
+  public function index(Request $request)
+{
+    if ($request->ajax()) {
+        $about = About::all();
+        return DataTables::of($about)
+            ->addIndexColumn()
+            ->addColumn('action', function ($row) {
+                $actionbtn = '<a href="javascript:void(0)" class="btn btn-primary btn-sm me-1 edit" data-id="' . $row->id . '" data-bs-toggle="modal" data-bs-target="#editModal">
+                                <i class="fa fa-edit"></i>
+                              </a>
+                              <button class="btn btn-danger btn-sm delete" data-id="' . $row->id . '">
+                                  <i class="fa fa-trash"></i>
+                              </button>
+                              <form id="delete-form-' . $row->id . '" action="' . route('about.destroy', $row->id) . '" method="POST" style="display: none;">
+                                  ' . csrf_field() . '
+                                  ' . method_field('DELETE') . '
+                              </form>';
+                return $actionbtn;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
     }
+    return view('admin.pages.about.index');
+}
+
     
 
     /**
@@ -74,26 +61,18 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'       => 'required|string|max:255',
-            'chose_title'       => 'required|string|max:255',
-            'choseesupport_description'       => 'required|string|max:255',
-            'choseexperience_description'       => 'required|string|max:255',
-            'photo'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
-            'signature'   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => 'required|string',
-            'chose_description' => 'required|string',
-            'our_mission' => 'required|string',
-            'experience' => 'required|integer',
+            'spacializedskill_name'       => 'required|string|max:255',
+            'total_projects'              => 'required|string|max:255',
+            'complete_projects'           => 'string|max:255',
+            'totalclient_reviews'         => 'string|max:255',
+            'satisfied_clients'           => 'string|max:255',
+            'experience_year'             => 'string|max:255',
+            'experiencesub_title'         => 'string|max:255',
         ]);
 
             //  Remove HTML tag
             $request->merge([
-                'description' => strip_tags($request->description),
-                'our_mission' => strip_tags($request->our_mission),
-                'choseesupport_description' => strip_tags($request->choseesupport_description),
-                'choseexperience_description' => strip_tags($request->choseexperience_description),
-                'chose_description' => strip_tags($request->chose_description),
-            
+                'experiencesub_title' => strip_tags($request->experiencesub_title),
             ]);
         About::newAbout($request);
         $this->toastr->success('About created successfully!');
@@ -122,16 +101,13 @@ class AboutController extends Controller
 public function update(Request $request, About $about)
 {
     $request->validate([
-        'title'                        => 'required|string|max:255',
-        'chose_title'                  => 'required|string|max:255',
-        'choseesupport_description'    => 'required|string|max:255',
-        'choseexperience_description'  => 'required|string|max:255',
-        'photo'                        => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
-        'signature'                    => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'description'                  => 'required|string',
-        'chose_description'            => 'required|string',
-        'our_mission'                  => 'required|string',
-        'experience'                   => 'required|integer',
+            'spacializedskill_name'       => 'required|string|max:255',
+            'total_projects'               => 'required|integer|max:255',
+            'complete_projects'            => 'required|string|max:255',
+            'totalclient_reviews'          => 'required|string|max:255',
+            'satisfied_clients'            => 'required|string',
+            'experience_year'              => 'required|integer',
+            'experiencesub_title'          => 'required|string',
     ]);
 
     // Call updateAbout method and pass the ID

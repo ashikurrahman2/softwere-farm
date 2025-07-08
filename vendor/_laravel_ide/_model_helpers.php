@@ -314,36 +314,22 @@ namespace App\Models {
      *
      * @property \Illuminate\Support\Carbon|null $updated_at
      * @property \Illuminate\Support\Carbon|null $created_at
-     * @property string|null $organize_image
-     * @property string|null $organize_description
-     * @property string|null $designation
-     * @property string|null $organization_name
-     * @property string|null $edu_description
-     * @property string|null $pass_year
-     * @property string|null $eduorganize_name
-     * @property int|null $satisfied_client
-     * @property int|null $total_reviews
-     * @property int|null $complete_project
+     * @property string|null $experiencesub_title
      * @property int|null $experience_year
-     * @property string|null $skill_percent
-     * @property int|null $titlewise_project
-     * @property string|null $title
+     * @property string|null $satisfied_clients
+     * @property string|null $totalclient_reviews
+     * @property string|null $complete_projects
+     * @property int|null $total_projects
+     * @property string|null $spacializedskill_name
      * @property int $id
      * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereId($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereTitle($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereTitlewiseProject($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereSkillPercent($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereSpacializedskillName($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereTotalProjects($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereCompleteProjects($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereTotalclientReviews($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereSatisfiedClients($value)
      * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereExperienceYear($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereCompleteProject($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereTotalReviews($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereSatisfiedClient($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereEduorganizeName($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About wherePassYear($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereEduDescription($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereOrganizationName($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereDesignation($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereOrganizeDescription($value)
-     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereOrganizeImage($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereExperiencesubTitle($value)
      * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereCreatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<About>|About whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<About>|About newModelQuery()

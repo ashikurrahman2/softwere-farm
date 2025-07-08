@@ -35,16 +35,13 @@
                   <thead>
                     <tr>
                       <th>SL</th>
-                        <th>Title</th>
-                        <th>Image</th>
-                        <th>Choose Us Image</th>
-                        <th>Description</th>
-                        <th>Our Mission</th>
-                        <th>Choose Title</th>
-                        <th>Choose Description</th>
-                        <th>Choose Support Description</th>
-                        <th>Choose Experience Description</th>
-                        <th>Experience</th>
+                        <th>Speciallized Skill Name</th>
+                        <th>Total Projects</th>
+                        <th>Complete Projects</th>
+                        <th>Total Client Reviews</th>
+                        <th>Satisfied Clients</th>
+                        <th>Year of Experience</th>
+                        <th>Experience Subtitle</th>
                         <th>Action</th>
                     </tr>
                   </thead>
@@ -52,18 +49,15 @@
                     <!-- Data populated by DataTables via AJAX -->
                   </tbody>
                   <tfoot>
-                    <tr>
-                        <th>SL</th>
-                        <th>Title</th>
-                        <th>Image</th>
-                        <th>Choose Us Image</th>
-                        <th>Description</th>
-                        <th>Our Mission</th>
-                        <th>Choose Title</th>
-                        <th>Choose Description</th>
-                        <th>Choose Support Description</th>
-                        <th>Choose Experience Description</th>
-                        <th>Experience</th>
+                 <tr>
+                      <th>SL</th>
+                        <th>Speciallized Skill Name</th>
+                        <th>Total Projects</th>
+                        <th>Complete Projects</th>
+                        <th>Total Client Reviews</th>
+                        <th>Satisfied Clients</th>
+                        <th>Year of Experience</th>
+                        <th>Experience Subtitle</th>
                         <th>Action</th>
                     </tr>
                   </tfoot>
@@ -85,84 +79,59 @@
                 <h5 class="modal-title h4" id="myLargeModalLabel">Add New About</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('about.store')}}" method="post" id="add-form" enctype="multipart/form-data">
+            <form action="{{route('about.store')}}" method="post" id="add-form">
               @csrf
               <div class="modal-body">
                 <div class="form-group">
-                  <label for="title" class="col-form-label pt-0">Title<sup class="text-size-20 top-1">*</sup></label>
-                    <input type="text" class="form-control" id="title" name="title" required>
+                  <label for="spacializedskill_name" class="col-form-label pt-0">Speciallized Skill Name<sup class="text-size-20 top-1 text-danger">*</sup></label>
+                    <input type="text" class="form-control" id="spacializedskill_name" name="spacializedskill_name" required>
                     <small id="emailHelp" class="form-text text-muted">Company Title</small>
                 </div>
           
-                <div class="col-md-12">
-                  <label for="photo" class="col-form-label pt-0">Image<sup class="text-size-20 top-1">*</sup></label>
-                  <input type="file" class="dropify" data-height="200" name="photo"  required />
-                  <small id="imageHelp" class="form-text text-muted">Maximum image size 5 MB</small>
-              </div>
+             <div class="form-group">
+            <label for="total_projects" class="col-form-label pt-0">Total Projects<sup class="text-size-20 top-1 text-danger">*</sup></label>
+              <input type="number" class="form-control" id="total_projects" name="total_projects" required>
+              <small id="emailHelp" class="form-text text-muted">Must be integer value(ex: 123)</small>
+          </div>
 
-              <div class="col-md-12">
-                <label for="signature" class="col-form-label pt-0">Choose Us Image<sup class="text-size-20 top-1">*</sup></label>
-                <input type="file" class="dropify" data-height="200" name="signature"  required />
-                <small id="imageHelp" class="form-text text-muted">Maximum signature photo size 2 MB</small>
-            </div>
+              <div class="form-group">
+            <label for="complete_projects" class="col-form-label pt-0">Complete Projects<sup class="text-size-20 top-1"></sup></label>
+              <input type="text" class="form-control" id="complete_projects" name="complete_projects">
+              <small id="emailHelp" class="form-text text-muted">Company Title</small>
+          </div>
 
-             
-            <div class="col-md-12">
-                <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <textarea class="form-control textarea" name="description" id="summernote" rows="4" >{{old('description')}}</textarea> 
-                </div>
-            </div>
+            <div class="form-group">
+            <label for="totalclient_reviews" class="col-form-label pt-0">Total Client Reviews<sup class="text-size-20 top-1"></sup></label>
+              <input type="text" class="form-control" id="totalclient_reviews" name="totalclient_reviews">
+              <small id="emailHelp" class="form-text text-muted">Company Title</small>
+          </div>
+
+            <div class="form-group">
+            <label for="satisfied_clients" class="col-form-label pt-0">Satisfied Clients<sup class="text-size-20 top-1"></sup></label>
+              <input type="text" class="form-control" id="satisfied_clients" name="satisfied_clients">
+              <small id="emailHelp" class="form-text text-muted">Company Title</small>
+          </div>
+
+              <div class="form-group">
+            <label for="experience_year" class="col-form-label pt-0">Year of Experience<sup class="text-size-20 top-1"></sup></label>
+              <input type="number" class="form-control" id="experience_year" name="experience_year">
+              <small id="emailHelp" class="form-text text-muted">Must be integer value(ex: 123)</small>
+          </div>
 
             <div class="col-md-12">
               <div class="mb-3">
-                  <label class="form-label">Our Mission</label>
-                  <textarea class="form-control textarea" name="our_mission" id="summernote1" rows="4" >{{old('our_mission')}}</textarea> 
+                  <label class="form-label">Experience Subtitle</label>
+                  <textarea class="form-control textarea" name="experiencesub_title" id="summernote" rows="4" >{{old('experiencesub_title')}}</textarea> 
               </div>
           </div>
 
-          <div class="form-group">
-            <label for="chose_title" class="col-form-label pt-0">Choose Title<sup class="text-size-20 top-1">*</sup></label>
-              <input type="text" class="form-control" id="chose_title" name="chose_title" required>
-              <small id="emailHelp" class="form-text text-muted">Company Title</small>
-          </div>
-
-          <div class="col-md-12">
-            <div class="mb-3">
-                <label class="form-label">Choose Description</label>
-                <textarea class="form-control textarea" name="chose_description" id="summernote4" rows="4" >{{old('chose_description')}}</textarea> 
+           <div class="modal-footer">
+              <button type="submit" class="btn btn-primary"> <span class="d-none"> loading ......</span> Submit</button>
             </div>
-        </div>
-
-          <div class="col-md-12">
-            <div class="mb-3">
-                <label class="form-label">Choose Support Description</label>
-                <textarea class="form-control textarea" name="choseesupport_description" id="summernote2" rows="4" >{{old('choseesupport_description')}}</textarea> 
-            </div>
-        </div>
-
-        <div class="col-md-12">
-          <div class="mb-3">
-              <label class="form-label">Choose Experience Description</label>
-              <textarea class="form-control textarea" name="choseexperience_description" id="summernote3" rows="4" >{{old('choseexperience_description')}}</textarea> 
           </div>
+        </form>
       </div>
-
-          <div class="form-group">
-            <label for="experience" class="col-form-label pt-0">Experience<sup class="text-size-20 top-1">*</sup></label>
-              <input type="number" class="form-control" id="experience" name="experience" required>
-              <small id="emailHelp" class="form-text text-muted">Company Title</small>
-          </div>
-
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary"> <span class="d-none"> loading ......</span> Submit</button>
-                </div>
-              </div>
-            </form>
-        </div>
     </div>
-                 
-
 </div>
 
  <!-- Edit Modal -->
@@ -189,16 +158,13 @@
             ajax: "{{ route('about.index') }}",
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex' },
-                { data: 'title', name: 'title' },
-                { data: 'photo', name: 'photo' },
-                { data: 'signature', name: 'signature' },
-                { data: 'description', name: 'description' },
-                { data: 'our_mission', name: 'our_mission' },
-                { data: 'chose_title', name: 'chose_title' },
-                { data: 'chose_description', name: 'chose_description' },
-                { data: 'choseesupport_description', name: 'choseesupport_description' },
-                { data: 'choseexperience_description', name: 'choseexperience_description' },
-                { data: 'experience', name: 'experience' },
+                { data: 'spacializedskill_name', name: 'spacializedskill_name' },
+                { data: 'total_projects', name: 'total_projects' },
+                { data: 'complete_projects', name: 'complete_projects' },
+                { data: 'totalclient_reviews', name: 'totalclient_reviews' },
+                { data: 'satisfied_clients', name: 'satisfied_clients' },
+                { data: 'experience_year', name: 'experience_year' },
+                { data: 'experiencesub_title', name: 'experiencesub_title' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
       });
@@ -223,67 +189,7 @@
                 }
             }
         });
-    });
-
-     // Summernote script
-     $(document).ready(function() {
-    $('#summernote1').summernote({
-        height: 200,
-        callbacks: {
-            onChange: function(contents, $editable) {
-                // Strip HTML tags for plain text
-                let textOnly = $('<div>').html(contents).text();
-                $('#summernote1').val(textOnly);
-            }
-        }
-    });
-});
-
-     // Summernote script
-     $(document).ready(function() {
-    $('#summernote2').summernote({
-        height: 200,
-        callbacks: {
-            onChange: function(contents, $editable) {
-                // Strip HTML tags for plain text
-                let textOnly = $('<div>').html(contents).text();
-                $('#summernote2').val(textOnly);
-            }
-        }
-    });
-});
-
-
-     // Summernote script
-     $(document).ready(function() {
-    $('#summernote3').summernote({
-        height: 200,
-        callbacks: {
-            onChange: function(contents, $editable) {
-                // Strip HTML tags for plain text
-                let textOnly = $('<div>').html(contents).text();
-                $('#summernote3').val(textOnly);
-            }
-        }
-    });
-});
-
-
-     // Summernote script
-     $(document).ready(function() {
-    $('#summernote4').summernote({
-        height: 200,
-        callbacks: {
-            onChange: function(contents, $editable) {
-                // Strip HTML tags for plain text
-                let textOnly = $('<div>').html(contents).text();
-                $('#summernote4').val(textOnly);
-            }
-        }
-    });
-});
-
- 
+    }); 
   </script>
   
 @endsection
