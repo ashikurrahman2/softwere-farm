@@ -9,9 +9,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\RessumeController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\SkillController;
-use App\Http\Controllers\Admin\JobpositionController;
-use App\Http\Controllers\Admin\JobdetailsController;
-use App\Http\Controllers\Admin\JobaplicationController;
+use App\Http\Controllers\Admin\SubAboutController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -44,12 +42,9 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::resource('ressume',RessumeController::class);
     Route::resource('portfolio',PortfolioController::class);
     Route::resource('skills',SkillController::class);
-    Route::resource('position',JobpositionController::class);
-    Route::resource('details',JobdetailsController::class);
-    Route::resource('aplication',JobaplicationController::class);
-    Route::patch('job-applications/{id}/approve', [JobaplicationController::class, 'approve'])->name('job.approve');
-    Route::patch('job-applications/{id}/reject', [JobaplicationController::class, 'reject'])->name('job.reject');
-    Route::get('/resume/download/{id}', [JobaplicationController::class, 'downloadResume'])->name('resume.download');
+    Route::resource('subabout',SubAboutController::class);
+   
+
 
    
 });

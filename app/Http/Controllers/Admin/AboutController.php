@@ -63,11 +63,6 @@ class AboutController extends Controller
         $request->validate([
             'spacializedskill_name'       => 'required|string|max:255',
             'total_projects'              => 'required|string|max:255',
-            'complete_projects'           => 'string|max:255',
-            'totalclient_reviews'         => 'string|max:255',
-            'satisfied_clients'           => 'string|max:255',
-            'experience_year'             => 'string|max:255',
-            'experiencesub_title'         => 'string|max:255',
         ]);
 
             //  Remove HTML tag
