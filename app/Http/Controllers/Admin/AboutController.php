@@ -65,10 +65,6 @@ class AboutController extends Controller
             'total_projects'              => 'required|string|max:255',
         ]);
 
-            //  Remove HTML tag
-            $request->merge([
-                'experiencesub_title' => strip_tags($request->experiencesub_title),
-            ]);
         About::newAbout($request);
         $this->toastr->success('About created successfully!');
         return back();
@@ -98,11 +94,6 @@ public function update(Request $request, About $about)
     $request->validate([
             'spacializedskill_name'       => 'required|string|max:255',
             'total_projects'               => 'required|integer|max:255',
-            'complete_projects'            => 'required|string|max:255',
-            'totalclient_reviews'          => 'required|string|max:255',
-            'satisfied_clients'            => 'required|string',
-            'experience_year'              => 'required|integer',
-            'experiencesub_title'          => 'required|string',
     ]);
 
     // Call updateAbout method and pass the ID

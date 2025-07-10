@@ -57,7 +57,7 @@
                         <div class="service-card-icon">
                             <i class="fa-light fa-pen-ruler"></i>
                         </div>
-                        <h4 class="service-title"><a href="service-details.html">{{ $about->spacializedskill_name }}</a></h4>
+                        <h4 class="service-title"><a href="#">{{ $about->spacializedskill_name }}</a></h4>
                         <p class="service-para">{{ $about->total_projects }} Projects</p>
                     </div>
                 </div>
@@ -69,52 +69,59 @@
     
 
        <!-- Tpm Counter Area Start -->
-    <section class="counter-area">
-        <div class="container">
-            <div class="row g-5">
+  <section class="counter-area">
+    <div class="container">
+        <div class="row g-5">
+            @foreach ($sub_abouts9097 as $sub_about)
                 <div class="col-12 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="year-of-expariance-wrapper bg-blur-style-one tmp-scroll-trigger tmp-fade-in animation-order-1">
                         <div class="year-expariance-wrap">
-                            <!-- <h2 class="year-number"><span class="counter">25 </span> </h2> -->
                             <h2 class="counter year-number">
-                                <span class="odometer" data-count="{{ $about->experience_year }}">00</span>
+                                <span class="odometer" data-count="{{ $sub_about->experience_year }}">00</span>
                             </h2>
                             <h3 class="year-title">Years Of <br> experience</h3>
                         </div>
-                        <p class="year-para">{{ $about->experiencesub_title }}</p>
+                        <p class="year-para">{{ $sub_about->experiencesub_title }}</p>
                     </div>
                 </div>
+
                 <div class="col-12 col-lg-6 col-xl-6 col-xxl-6">
                     <div class="counter-area-right-content">
                         <div class="row g-5">
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="counter-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-1">
-                                    <h3 class="counter counter-title"><span class="odometer" data-count="{{ $about->complete_projects }}">00</span>
+                                    <h3 class="counter counter-title">
+                                        <span class="odometer" data-count="{{ $sub_about->complete_projects }}">00</span>
                                     </h3>
                                     <p class="counter-para">Our Project Complete</p>
                                 </div>
                             </div>
-                           
+
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="counter-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-3">
-                                    <h3 class="counter counter-title"><span class="odometer" data-count="{{ $about->totalclient_reviews }}">00</span>
+                                    <h3 class="counter counter-title">
+                                        <span class="odometer" data-count="{{ $sub_about->totalclient_reviews }}">00</span>
                                     </h3>
                                     <p class="counter-para">Clients Reviews</p>
                                 </div>
                             </div>
+
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="counter-card tmponhover tmp-scroll-trigger tmp-fade-in animation-order-4">
-                                    <h3 class="counter counter-title"><span class="odometer" data-count="{{ $about->satisfied_clients }}">00</span>
+                                    <h3 class="counter counter-title">
+                                        <span class="odometer" data-count="{{ $sub_about->satisfied_clients }}">00</span>
                                     </h3>
-                                    <p class="counter-para">our Satisfied Clientd</p>
+                                    <p class="counter-para">Our Satisfied Clients</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
+
     <!-- Tpm Counter Area End -->
 
         <!-- Tpm Latest Service Area Start -->

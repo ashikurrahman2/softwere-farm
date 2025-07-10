@@ -52,6 +52,15 @@
                         <li class="pc-item"><a class="pc-link"
                             href="{{route('about.index')}}">About</a>
                         </li>
+
+                          
+                        <li class="pc-item"><a class="pc-link"
+                            href="{{route('subabout.index')}}">Sub About</a>
+                        </li>
+                  
+                 
+
+                    
                   
                     </ul>
 

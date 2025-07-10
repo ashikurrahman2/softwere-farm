@@ -42,7 +42,7 @@ class SubAboutController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
             }
-            return view('admin.pages.about.index');
+            return view('admin.pages.subabout.index');
         }
 
 
@@ -91,27 +91,29 @@ class SubAboutController extends Controller
     public function edit($id)
     {
           $sub_about = Aboutsub::findOrFail($id);
-        return view('admin.pages.about.edit', compact('sub_about'));
+        return view('admin.pages.subabout.edit', compact('sub_about'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Aboutsub $id)
-    {
-           $request->validate([
-           'complete_projects'           => 'string|max:255',
-            'totalclient_reviews'         => 'string|max:255',
-            'satisfied_clients'           => 'string|max:255',
-            'experience_year'             => 'integer|max:255',
-            'experiencesub_title'         => 'string|max:255',
-        ]);
+ public function update(Request $request, Aboutsub $sub_about)
+{
+    $request->validate([
+        'complete_projects'       => 'required|string|max:255',
+        'totalclient_reviews'     => 'required|string|max:255',
+        'satisfied_clients'       => 'required|string|max:255',
+        'experience_year'         => 'required|integer|max:255',
+        'experiencesub_title'     => 'required|string|max:255',
+    ]);
 
-        // Call updateAbout method and pass the ID
-            Aboutsub::updateSubAbout($request, $sub_about->id);
-            $this->toastr->success('Sub About Updated successfully!');
-            return back();
-    }
+    // Update data
+    Aboutsub::updateSubAbout($request, $sub_about->id);
+
+    $this->toastr->success('Sub About Updated successfully!');
+    return back();
+}
+
 
     /**
      * Remove the specified resource from storage.
