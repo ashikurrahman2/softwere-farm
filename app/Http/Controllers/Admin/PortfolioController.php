@@ -26,7 +26,7 @@ class PortfolioController extends Controller
 
         if ($request->ajax()) {
             $portfolio = Portfolio::all();
-            return DataTables::of($ressume)
+            return DataTables::of($portfolio)
                 ->addIndexColumn() 
                 ->addColumn('portfolio_image', function ($row) {
                     if ($row->portfolio_image) {
@@ -69,17 +69,13 @@ class PortfolioController extends Controller
     {
         // Validation data
              $request->validate([
-            // 'description'      => 'required|string|max:255',
             'external_link'    => 'required|string|max:255',
             'category'         => 'required|string|max:255',
             'title'            => 'required|string|max:255',
             'portfolio_image'  => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-         //  Remove HTML tag
-            $request->merge([
-                'description' => strip_tags($request->description),
-            ]);
+        
 
             // Fetch Data
              Portfolio::newPortfolio($request);
@@ -90,7 +86,7 @@ class PortfolioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Portfolio $Portfolio)
+    public function show(Portfolio $portfolio)
     {
         //
     }
@@ -101,7 +97,7 @@ class PortfolioController extends Controller
     public function edit($id)
     {
         
-          $Portfolio = Portfolio::findOrFail($id);
+          $portfolio = Portfolio::findOrFail($id);
         return view('admin.pages.portfolio.edit', compact('portfolio'));
     }
 
@@ -112,7 +108,6 @@ class PortfolioController extends Controller
     {
           // Validation data
              $request->validate([
-            'description'      => 'required|string|max:255',
             'external_link'    => 'required|string|max:255',
             'category'         => 'required|string|max:255',
             'title'            => 'required|string|max:255',

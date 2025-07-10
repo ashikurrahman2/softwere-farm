@@ -1,46 +1,40 @@
-<form action="{{route('agent.update', $agent->id)}}" method="post" id="add-form" enctype="multipart/form-data">
+<form action="{{route('portfolio.update', $portfolio->id)}}" method="post" id="add-form" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="modal-body">
-      <div class="form-group">
-        <label for="agent_name" class="col-form-label pt-0">Agent Name<sup class="text-size-20 top-1">*</sup></label>
-          <input type="text" class="form-control" id="agent_name" name="agent_name" value="{{ $agent->agent_name }}" required>
-          <small id="emailHelp" class="form-text text-muted">News Title here</small>
-      </div>
+         <div class="form-group">
+                  <label for="title" class="col-form-label pt-0">Portfolio Name<sup class="text-size-20 top-1">*</sup></label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{ $portfolio->title }}" required>
+                    <small id="emailHelp" class="form-text text-muted">Portfolio Title here</small>
+                </div>
 
       <div class="form-group">
-        <label for="agent_image" class="col-form-label pt-0">Current agent Image</label>
+        <label for="portfolio_image" class="col-form-label pt-0">Current portfolio Image</label>
         <br>
-        @if($agent->agent_image)
-        <img src="{{ asset($agent->agent_image) }}" alt="agent image" class="img-fluid" style="max-width: 100px;">
+        @if($portfolio->portfolio_image)
+        <img src="{{ asset($portfolio->portfolio_image) }}" alt="agent image" class="img-fluid" style="max-width: 100px;">
         @else
         <p>No image uploaded.</p>
         @endif
     </div>
 
-      <div class="col-md-12">
-        <label for="agent_image" class="col-form-label pt-0">Agent Image<sup class="text-size-20 top-1">*</sup></label>
-        <input type="file" class="dropify" data-height="200" name="agent_image" value="{{ $agent->agent_image }}" />
-        <small id="imageHelp" class="form-text text-muted">This is your news image</small>
-    </div>
+     <div class="col-md-12">
+                  <label for="portfolio_image" class="col-form-label pt-0">Portfolio Image<sup class="text-size-20 top-1">*</sup></label>
+                  <input type="file" class="dropify" data-height="200" name="portfolio_image" value="{{ $portfolio->portfolio_image }}" />
+                  <small id="imageHelp" class="form-text text-muted">This is your portfolio image</small>
+              </div>
 
-      <div class="form-group">
-          <label for="agent_designation" class="col-form-label pt-0">Agent Designation<sup class="text-size-20 top-1">*</sup></label>
-            <input type="text" class="form-control" id="agent_designation" name="agent_designation" value="{{ $agent->agent_designation }}" required>
-            <small id="emailHelp" class="form-text text-muted">This is your news</small>
-        </div>
+                  <div class="form-group">
+                    <label for="external_link" class="col-form-label pt-0">Portfolio Link<sup class="text-size-20 top-1">*</sup></label>
+                      <input type="text" class="form-control" id="external_link" name="external_link" value="{{ $portfolio->external_link }}" required>
+                      <small id="emailHelp" class="form-text text-muted">Any web development project</small>
+                  </div>
 
-        <div class="form-group">
-          <label for="agent_face" class="col-form-label pt-0">Agent Facebook<sup class="text-size-20 top-1">*</sup></label>
-            <input type="text" class="form-control" id="agent_face" name="agent_face" value="{{ $agent->agent_face }}" required>
-            <small id="emailHelp" class="form-text text-muted">Must be type character</small>
-        </div>
-
-        <div class="form-group">
-          <label for="agent_linked" class="col-form-label pt-0"> Agent Linkedin<sup class="text-size-20 top-1">*</sup></label>
-            <input type="text" class="form-control" id="agent_linked" name="agent_linked" value="{{ $agent->agent_linked }}" required>
-            <small id="emailHelp" class="form-text text-muted">Must be type character</small>
-        </div>
+                 <div class="form-group">
+                    <label for="category" class="col-form-label pt-0">Portfolio Category<sup class="text-size-20 top-1">*</sup></label>
+                      <input type="text" class="form-control" id="category" name="category" value="{{ $portfolio->category }}" required>
+                      <small id="emailHelp" class="form-text text-muted">Must be type character</small>
+                  </div>
  
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary"> <span class="d-none"> loading ......</span> Update</button>

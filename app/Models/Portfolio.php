@@ -15,7 +15,7 @@ class Portfolio extends Model
 
     // Fillable fields to allow mass assignment
       protected $fillable = [
-        'title', 'category', 'portfolio_image', 'external_link', 'description'
+        'title', 'category', 'portfolio_image', 'external_link',
     ];
 
     // Function to upload and resize image
@@ -73,7 +73,6 @@ class Portfolio extends Model
         $portfolio->title                       = $request->title;
         $portfolio->category                    = $request->category;
         $portfolio->external_link               = $request->external_link;
-        $portfolio->description                 = $request->description;
         $portfolio->save();
     }
 
